@@ -277,6 +277,18 @@
             }
         }
 
+        /* Scroll Animation Classes */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scroll-animate.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Section Styling */
         section {
             padding: 6rem 2rem;
@@ -823,27 +835,38 @@
             }
 
             .timeline::before {
-                left: 30px;
+                left: 0;
+                width: 2px;
             }
 
             .timeline-item,
             .timeline-item:nth-child(even) {
                 flex-direction: column;
+                padding-left: 40px;
             }
 
             .timeline-time {
                 text-align: left !important;
-                padding: 0 0 1rem 0 !important;
+                padding: 0 !important;
+                margin-bottom: 0.5rem;
+                font-size: 1.2rem;
+                flex: none;
             }
 
             .timeline-content {
                 margin-left: 0 !important;
                 margin-right: 0 !important;
-                padding-left: 2rem !important;
+                padding: 1.5rem !important;
+                flex: none;
+                width: 100%;
             }
 
             .timeline-dot {
-                left: 30px;
+                left: 0;
+                top: 10px;
+                width: 14px;
+                height: 14px;
+                transform: translateX(-50%);
             }
 
             .section-title {
@@ -902,19 +925,19 @@
 
     <!-- About Section -->
     <section id="about" class="about">
-        <h2 class="section-title">About the Conference</h2>
-        <p class="section-subtitle">Bridging Ancient Wisdom with Modern Science</p>
+        <h2 class="section-title scroll-animate">About the Conference</h2>
+        <p class="section-subtitle scroll-animate">Bridging Ancient Wisdom with Modern Science</p>
         
         <div class="about-content">
             <div class="about-text">
-                <p>India (Bharat) has been known for its rich civilizational and cultural heritage. The great civilization of Bharat has been renowned from the west to the east of the world for millennia. Undoubtedly, Bharat is known for very rich scientific and technological knowledge that not only shaped India but also contributed to the growth of other parts of the world.</p>
+                <p class="scroll-animate">India (Bharat) has been known for its rich civilizational and cultural heritage. The great civilization of Bharat has been renowned from the west to the east of the world for millennia. Undoubtedly, Bharat is known for very rich scientific and technological knowledge that not only shaped India but also contributed to the growth of other parts of the world.</p>
                 
-                <p>The broad term Indian Knowledge System (IKS) encompasses Vedic sciences, spirituality, mathematics, astronomy, chemistry and metallurgy, Āyurveda, civil engineering, architecture, ship building, Artha shāstra, yoga, art, classical music and more. All these sub-disciplines thrived over millennia with numerous treatises that stand as testimony to the contributions of our great ancestors.</p>
+                <p class="scroll-animate">The broad term Indian Knowledge System (IKS) encompasses Vedic sciences, spirituality, mathematics, astronomy, chemistry and metallurgy, Āyurveda, civil engineering, architecture, ship building, Artha shāstra, yoga, art, classical music and more. All these sub-disciplines thrived over millennia with numerous treatises that stand as testimony to the contributions of our great ancestors.</p>
                 
-                <p>The traditional knowledge with a holistic approach and newer scientific advancements with a reductionistic approach offer a great and valuable platform to build a resilient future for any nation. Reconnecting and revitalizing the Indian Knowledge Systems for the modern world is essential for building a sustainable and equitable world with a moral order.</p>
+                <p class="scroll-animate">The traditional knowledge with a holistic approach and newer scientific advancements with a reductionistic approach offer a great and valuable platform to build a resilient future for any nation. Reconnecting and revitalizing the Indian Knowledge Systems for the modern world is essential for building a sustainable and equitable world with a moral order.</p>
             </div>
             
-            <div class="about-highlight">
+            <div class="about-highlight scroll-animate">
                 <h3>Our Vision</h3>
                 <p>This National Conference aims to provide a platform for interdisciplinary scientific dialogue by bridging ancient wisdom with modern science. We bring together scholars and enthusiastic students from different disciplines to encourage interest in this field and motivate exploration, research, and possible collaboration.</p>
                 <p style="margin-top: 1.5rem;">In alignment with the National Educational Policy (2020), we emphasize revisiting and integrating ancient Indian knowledge to revitalize and understand IKS with a modern scientific perspective.</p>
@@ -924,35 +947,35 @@
 
     <!-- Themes Section -->
     <section id="themes" class="themes">
-        <h2 class="section-title">Conference Themes</h2>
-        <p class="section-subtitle">Exploring the Depths of Ancient Indian Scientific Knowledge</p>
+        <h2 class="section-title scroll-animate">Conference Themes</h2>
+        <p class="section-subtitle scroll-animate">Exploring the Depths of Ancient Indian Scientific Knowledge</p>
         
         <div class="themes-grid">
-            <div class="theme-card">
+            <div class="theme-card scroll-animate">
                 <div class="theme-icon">🔭</div>
                 <h3>Astronomy and Mathematics</h3>
                 <p>Exploring ancient Indian contributions to astronomy, astronomical observations, mathematical principles, and their applications in understanding the cosmos and developing computational methods.</p>
             </div>
             
-            <div class="theme-card">
+            <div class="theme-card scroll-animate">
                 <div class="theme-icon">⚗️</div>
                 <h3>Metallurgy</h3>
                 <p>Metals in medicines and materials - investigating ancient Indian metallurgical practices, the use of metals in traditional medicine, and advanced material science from ancient texts.</p>
             </div>
             
-            <div class="theme-card">
+            <div class="theme-card scroll-animate">
                 <div class="theme-icon">🌿</div>
                 <h3>Āyurveda and Personal Medicine</h3>
                 <p>Understanding ancient Indian medical wisdom, personalized medicine approaches, herbal remedies, and their relevance to modern healthcare and wellness.</p>
             </div>
             
-            <div class="theme-card">
+            <div class="theme-card scroll-animate">
                 <div class="theme-icon">🏛️</div>
                 <h3>Architectural Wonder</h3>
                 <p>Ancient temple building technology - examining the engineering marvels, architectural principles, and construction techniques that created enduring structures.</p>
             </div>
             
-            <div class="theme-card">
+            <div class="theme-card scroll-animate">
                 <div class="theme-icon">📜</div>
                 <h3>Scientific Language and Grammar</h3>
                 <p>Evolution of scientific Indian language and grammar - studying how ancient languages facilitated the documentation and transmission of scientific knowledge.</p>
@@ -962,10 +985,10 @@
 
     <!-- Objectives Section -->
     <section id="objectives" class="objectives">
-        <h2 class="section-title">Objectives & Expected Outcomes</h2>
+        <h2 class="section-title scroll-animate">Objectives & Expected Outcomes</h2>
         
         <div class="obj-outcome-grid">
-            <div class="obj-outcome-box">
+            <div class="obj-outcome-box scroll-animate">
                 <h3>Conference Objectives</h3>
                 <ul>
                     <li>Explore India's scientific and technological heritage with proper citations and documentation</li>
@@ -975,7 +998,7 @@
                 </ul>
             </div>
             
-            <div class="obj-outcome-box outcome">
+            <div class="obj-outcome-box outcome scroll-animate">
                 <h3>Expected Outcomes</h3>
                 <ul>
                     <li>Inspire young scientific minds to pursue research in ancient Indian knowledge systems</li>
@@ -990,12 +1013,12 @@
 
     <!-- Schedule Section -->
     <section id="schedule" class="schedule">
-        <h2 class="section-title">Conference Schedule</h2>
-        <p class="section-subtitle">March 07, 2026 - Full Day Program with 14 Presentations & Interactive Sessions</p>
+        <h2 class="section-title scroll-animate">Conference Schedule</h2>
+        <p class="section-subtitle scroll-animate">March 07, 2026 - Full Day Program with 14 Presentations & Interactive Sessions</p>
         
         <div class="timeline">
             <!-- Opening Ceremony -->
-            <div class="timeline-item">
+            <div class="timeline-item scroll-animate">
                 <div class="timeline-time">09:00 AM</div>
                 <div class="timeline-content">
                     <h4>Opening Ceremony & Inauguration (30 mins)</h4>
@@ -1005,7 +1028,7 @@
             </div>
             
             <!-- Session 1: Mathematics & Astronomy -->
-            <div class="timeline-item">
+            <div class="timeline-item scroll-animate">
                 <div class="timeline-time">09:30 AM</div>
                 <div class="timeline-content">
                     <h4>Session 1: Mathematics & Astronomy (75 mins)</h4>
@@ -1016,7 +1039,7 @@
                 <div class="timeline-dot"></div>
             </div>
             
-            <div class="timeline-item">
+            <div class="timeline-item scroll-animate">
                 <div class="timeline-time">10:45 AM</div>
                 <div class="timeline-content">
                     <h4>Coffee Break (15 mins)</h4>
@@ -1026,7 +1049,7 @@
             </div>
             
             <!-- Session 2: Metallurgy & Materials -->
-            <div class="timeline-item">
+            <div class="timeline-item scroll-animate">
                 <div class="timeline-time">11:00 AM</div>
                 <div class="timeline-content">
                     <h4>Session 2: Metallurgy & Materials Science (75 mins)</h4>
@@ -1038,7 +1061,7 @@
             </div>
             
             <!-- Lunch Break -->
-            <div class="timeline-item">
+            <div class="timeline-item scroll-animate">
                 <div class="timeline-time">12:15 PM</div>
                 <div class="timeline-content">
                     <h4>Lunch Break (60 mins)</h4>
@@ -1048,7 +1071,7 @@
             </div>
             
             <!-- Session 3: Ayurveda & Medicine -->
-            <div class="timeline-item">
+            <div class="timeline-item scroll-animate">
                 <div class="timeline-time">01:15 PM</div>
                 <div class="timeline-content">
                     <h4>Session 3: Āyurveda & Traditional Medicine (75 mins)</h4>
@@ -1060,7 +1083,7 @@
             </div>
             
             <!-- Session 4: Architecture & Engineering -->
-            <div class="timeline-item">
+            <div class="timeline-item scroll-animate">
                 <div class="timeline-time">02:30 PM</div>
                 <div class="timeline-content">
                     <h4>Session 4: Architecture & Engineering (50 mins)</h4>
@@ -1071,7 +1094,7 @@
             </div>
             
             <!-- High Tea & Poster Session -->
-            <div class="timeline-item">
+            <div class="timeline-item scroll-animate">
                 <div class="timeline-time">03:20 PM</div>
                 <div class="timeline-content">
                     <h4>High Tea & Poster Presentation (30 mins)</h4>
@@ -1081,7 +1104,7 @@
             </div>
             
             <!-- Session 5: Language, Environment & Integration -->
-            <div class="timeline-item">
+            <div class="timeline-item scroll-animate">
                 <div class="timeline-time">03:50 PM</div>
                 <div class="timeline-content">
                     <h4>Session 5: Language, Environment & Integration (85 mins)</h4>
@@ -1094,7 +1117,7 @@
             </div>
             
             <!-- Session 6: Keynote & Future Perspectives -->
-            <div class="timeline-item">
+            <div class="timeline-item scroll-animate">
                 <div class="timeline-time">05:15 PM</div>
                 <div class="timeline-content">
                     <h4>Session 6: Keynote & Future Perspectives (50 mins)</h4>
@@ -1105,7 +1128,7 @@
             </div>
             
             <!-- Panel Discussion -->
-            <div class="timeline-item">
+            <div class="timeline-item scroll-animate">
                 <div class="timeline-time">06:05 PM</div>
                 <div class="timeline-content">
                     <h4>Panel Discussion (40 mins)</h4>
@@ -1115,7 +1138,7 @@
             </div>
             
             <!-- Closing -->
-            <div class="timeline-item">
+            <div class="timeline-item scroll-animate">
                 <div class="timeline-time">06:45 PM</div>
                 <div class="timeline-content">
                     <h4>Closing Remarks & Vote of Thanks</h4>
@@ -1128,29 +1151,29 @@
 
     <!-- Leadership Section -->
     <section id="leadership" class="leadership">
-        <h2 class="section-title">Conference Leadership</h2>
-        <p class="section-subtitle">Distinguished Patrons and Organizers</p>
+        <h2 class="section-title scroll-animate">Conference Leadership</h2>
+        <p class="section-subtitle scroll-animate">Distinguished Patrons and Organizers</p>
         
         <div class="leadership-grid">
-            <div class="leader-card">
+            <div class="leader-card scroll-animate">
                 <div class="leader-role">Chief Patron</div>
                 <div class="leader-name">Shri Madabhushi Madan Gopal</div>
                 <div class="leader-title">Retired IAS Officer<br>Chairperson, Board of Governors<br>IISER Pune</div>
             </div>
             
-            <div class="leader-card">
+            <div class="leader-card scroll-animate">
                 <div class="leader-role">Patron</div>
                 <div class="leader-name">Prof. Sunil S. Bhagwat</div>
                 <div class="leader-title">Director<br>IISER Pune</div>
             </div>
             
-            <div class="leader-card">
+            <div class="leader-card scroll-animate">
                 <div class="leader-role">Convenor</div>
                 <div class="leader-name">Prof. Ramakrishna Bhat</div>
                 <div class="leader-title">Faculty Member<br>IISER Pune</div>
             </div>
             
-            <div class="leader-card">
+            <div class="leader-card scroll-animate">
                 <div class="leader-role">Student Organizer</div>
                 <div class="leader-name">Jatin Raghuwanshi</div>
                 <div class="leader-title">Student Coordinator<br>IISER Pune</div>
@@ -1160,11 +1183,11 @@
 
     <!-- Speakers Section -->
     <section id="speakers" class="speakers">
-        <h2 class="section-title">Distinguished Speakers</h2>
-        <p class="section-subtitle">Expert voices from across disciplines (To be announced)</p>
+        <h2 class="section-title scroll-animate">Distinguished Speakers</h2>
+        <p class="section-subtitle scroll-animate">Expert voices from across disciplines (To be announced)</p>
         
         <div class="speakers-grid">
-            <div class="speaker-card">
+            <div class="speaker-card scroll-animate">
                 <div class="speaker-image">👤</div>
                 <div class="speaker-info">
                     <h4>To Be Announced</h4>
@@ -1172,7 +1195,7 @@
                 </div>
             </div>
             
-            <div class="speaker-card">
+            <div class="speaker-card scroll-animate">
                 <div class="speaker-image">👤</div>
                 <div class="speaker-info">
                     <h4>To Be Announced</h4>
@@ -1180,7 +1203,7 @@
                 </div>
             </div>
             
-            <div class="speaker-card">
+            <div class="speaker-card scroll-animate">
                 <div class="speaker-image">👤</div>
                 <div class="speaker-info">
                     <h4>To Be Announced</h4>
@@ -1188,7 +1211,7 @@
                 </div>
             </div>
             
-            <div class="speaker-card">
+            <div class="speaker-card scroll-animate">
                 <div class="speaker-image">👤</div>
                 <div class="speaker-info">
                     <h4>To Be Announced</h4>
@@ -1196,7 +1219,7 @@
                 </div>
             </div>
             
-            <div class="speaker-card">
+            <div class="speaker-card scroll-animate">
                 <div class="speaker-image">👤</div>
                 <div class="speaker-info">
                     <h4>To Be Announced</h4>
@@ -1204,7 +1227,7 @@
                 </div>
             </div>
             
-            <div class="speaker-card">
+            <div class="speaker-card scroll-animate">
                 <div class="speaker-image">👤</div>
                 <div class="speaker-info">
                     <h4>To Be Announced</h4>
@@ -1212,7 +1235,7 @@
                 </div>
             </div>
             
-            <div class="speaker-card">
+            <div class="speaker-card scroll-animate">
                 <div class="speaker-image">👤</div>
                 <div class="speaker-info">
                     <h4>To Be Announced</h4>
@@ -1220,7 +1243,7 @@
                 </div>
             </div>
             
-            <div class="speaker-card">
+            <div class="speaker-card scroll-animate">
                 <div class="speaker-image">👤</div>
                 <div class="speaker-info">
                     <h4>To Be Announced</h4>
@@ -1228,7 +1251,7 @@
                 </div>
             </div>
             
-            <div class="speaker-card">
+            <div class="speaker-card scroll-animate">
                 <div class="speaker-image">👤</div>
                 <div class="speaker-info">
                     <h4>To Be Announced</h4>
@@ -1236,7 +1259,7 @@
                 </div>
             </div>
             
-            <div class="speaker-card">
+            <div class="speaker-card scroll-animate">
                 <div class="speaker-image">👤</div>
                 <div class="speaker-info">
                     <h4>To Be Announced</h4>
@@ -1248,25 +1271,25 @@
 
     <!-- Quiz Section -->
     <section id="quiz" class="quiz">
-        <h2 class="section-title">Test Your Knowledge</h2>
-        <p>Participate in our Pre-Conference Quiz on Ancient Indian Science and Technology!</p>
-        <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">Challenge yourself and discover fascinating facts about India's scientific heritage</p>
-        <a href="quiz.html" class="quiz-button">Take the Quiz</a>
+        <h2 class="section-title scroll-animate">Test Your Knowledge</h2>
+        <p class="scroll-animate">Participate in our Pre-Conference Quiz on Ancient Indian Science and Technology!</p>
+        <p class="scroll-animate" style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">Challenge yourself and discover fascinating facts about India's scientific heritage</p>
+        <a href="quiz.html" class="quiz-button scroll-animate">Take the Quiz</a>
     </section>
 
     <!-- Sponsors Section -->
     <section id="sponsors" class="sponsors">
-        <h2 class="section-title">Sponsors & Partners</h2>
-        <p class="section-subtitle">Supporting Excellence in Scientific Research</p>
+        <h2 class="section-title scroll-animate">Sponsors & Partners</h2>
+        <p class="section-subtitle scroll-animate">Supporting Excellence in Scientific Research</p>
         
         <div class="sponsors-grid">
-            <div class="sponsor-logo">Partner Logo 1</div>
-            <div class="sponsor-logo">Partner Logo 2</div>
-            <div class="sponsor-logo">Partner Logo 3</div>
-            <div class="sponsor-logo">Partner Logo 4</div>
+            <div class="sponsor-logo scroll-animate">Partner Logo 1</div>
+            <div class="sponsor-logo scroll-animate">Partner Logo 2</div>
+            <div class="sponsor-logo scroll-animate">Partner Logo 3</div>
+            <div class="sponsor-logo scroll-animate">Partner Logo 4</div>
         </div>
         
-        <p style="margin-top: 3rem; font-size: 1.1rem; color: var(--charcoal);">
+        <p class="scroll-animate" style="margin-top: 3rem; font-size: 1.1rem; color: var(--charcoal);">
             Interested in partnering with us? <a href="mailto:nciks@acads.iiserpune.ac.in?subject=Partnership Inquiry for IKS Conference" style="color: var(--terracotta); text-decoration: underline;">Get in touch</a>
         </p>
     </section>
@@ -1275,40 +1298,40 @@
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Contact Information</h3>
-                <p>Indian Institute of Science Education and Research (IISER) Pune</p>
-                <p>Dr. Homi Bhabha Road</p>
-                <p>Pune, Maharashtra 411008</p>
-                <p style="margin-top: 1rem;">Email: <a href="mailto:nciks@acads.iiserpune.ac.in" style="color: rgba(255, 255, 255, 0.8); text-decoration: underline;">nciks@acads.iiserpune.ac.in</a></p>
-                <p>Phone: +91 (020) XXXX XXXX</p>
+                <h3 class="scroll-animate">Contact Information</h3>
+                <p class="scroll-animate">Indian Institute of Science Education and Research (IISER) Pune</p>
+                <p class="scroll-animate">Dr. Homi Bhabha Road</p>
+                <p class="scroll-animate">Pune, Maharashtra 411008</p>
+                <p class="scroll-animate" style="margin-top: 1rem;">Email: <a href="mailto:nciks@acads.iiserpune.ac.in" style="color: rgba(255, 255, 255, 0.8); text-decoration: underline;">nciks@acads.iiserpune.ac.in</a></p>
+                <p class="scroll-animate">Phone: +91 (020) XXXX XXXX</p>
             </div>
             
             <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="register.html">Registration</a>
-                <a href="#schedule">Schedule</a>
-                <a href="#speakers">Speakers</a>
-                <a href="#themes">Conference Themes</a>
-                <a href="#">Download Brochure (PDF)</a>
+                <h3 class="scroll-animate">Quick Links</h3>
+                <a class="scroll-animate" href="register.html">Registration</a>
+                <a class="scroll-animate" href="#schedule">Schedule</a>
+                <a class="scroll-animate" href="#speakers">Speakers</a>
+                <a class="scroll-animate" href="#themes">Conference Themes</a>
+                <a class="scroll-animate" href="#">Download Brochure (PDF)</a>
             </div>
             
             <div class="footer-section">
-                <h3>Important Dates</h3>
-                <p><strong>Conference Date:</strong> March 07, 2026</p>
-                <p><strong>Last Date for Registration:</strong> TBA</p>
-                <p><strong>Abstract Submission:</strong> TBA</p>
-                <p style="margin-top: 1.5rem;"><strong>Who Can Attend:</strong></p>
-                <p>Academicians, faculty members, research scholars, undergraduate and postgraduate students interested in exploring ancient Indian science</p>
+                <h3 class="scroll-animate">Important Dates</h3>
+                <p class="scroll-animate"><strong>Conference Date:</strong> March 07, 2026</p>
+                <p class="scroll-animate"><strong>Last Date for Registration:</strong> TBA</p>
+                <p class="scroll-animate"><strong>Abstract Submission:</strong> TBA</p>
+                <p class="scroll-animate" style="margin-top: 1.5rem;"><strong>Who Can Attend:</strong></p>
+                <p class="scroll-animate">Academicians, faculty members, research scholars, undergraduate and postgraduate students interested in exploring ancient Indian science</p>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 Indian Institute of Science Education and Research (IISER) Pune. All rights reserved.</p>
-            <p style="margin-top: 0.5rem;">Designed for the National Conference on Indian Knowledge System: Science and Technology</p>
+            <p class="scroll-animate">&copy; 2026 Indian Institute of Science Education and Research (IISER) Pune. All rights reserved.</p>
+            <p class="scroll-animate" style="margin-top: 0.5rem;">Designed for the National Conference on Indian Knowledge System: Science and Technology</p>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Smooth scroll with offset for fixed nav
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1325,20 +1348,24 @@
             });
         });
 
-        // Add scroll animation to elements
+        // Scroll animation observer
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('animate-in');
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.theme-card, .speaker-card, .leader-card, .timeline-item').forEach(el => {
-   
+        // Observe all elements with scroll-animate class
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            scrollObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
