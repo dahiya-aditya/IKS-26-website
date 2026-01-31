@@ -13,6 +13,7 @@
             --gold: #d4af37;
             --warm-gold: #f4d03f;
             --cream: #faf7f2;
+            --parchment: #f4ecd8;
             --charcoal: #2d2d2d;
             --light-gray: #f5f5f5;
         }
@@ -27,7 +28,7 @@
             font-family: 'Work Sans', sans-serif;
             color: var(--charcoal);
             overflow-x: hidden;
-            background: var(--cream);
+            background: var(--parchment);
         }
 
         /* Navigation */
@@ -48,6 +49,36 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo-placeholder {
+            height: 50px;
+            width: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            padding: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo-placeholder:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
         }
 
         .logo {
@@ -344,7 +375,7 @@
 
         /* Themes Section */
         .themes {
-            background: var(--cream);
+            background: var(--parchment);
         }
 
         .themes-grid {
@@ -460,7 +491,7 @@
 
         /* Schedule Section */
         .schedule {
-            background: var(--cream);
+            background: var(--parchment);
         }
 
         .timeline {
@@ -548,7 +579,7 @@
             background: var(--gold);
             border-radius: 50%;
             transform: translateX(-50%);
-            border: 4px solid var(--cream);
+            border: 4px solid var(--parchment);
             z-index: 10;
         }
 
@@ -602,7 +633,7 @@
 
         /* Speakers Section */
         .speakers {
-            background: var(--cream);
+            background: var(--parchment);
         }
 
         .speakers-grid {
@@ -830,12 +861,16 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#home" class="logo">IISER Pune</a>
+            <div class="logo-container">
+                <a href="#" class="logo-placeholder" title="Conference Logo - Click to visit conference website">Conference Logo</a>
+                <a href="https://www.iiserpune.ac.in" class="logo-placeholder" title="IISER Pune Logo - Click to visit IISER Pune website" target="_blank">IISER Pune Logo</a>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#themes">Themes</a></li>
                 <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#leadership">Leadership</a></li>
                 <li><a href="#speakers">Speakers</a></li>
                 <li><a href="#sponsors">Sponsors</a></li>
                 <li><a href="#quiz">Quiz</a></li>
@@ -956,59 +991,135 @@
     <!-- Schedule Section -->
     <section id="schedule" class="schedule">
         <h2 class="section-title">Conference Schedule</h2>
-        <p class="section-subtitle">March 07, 2026 - Full Day Program</p>
+        <p class="section-subtitle">March 07, 2026 - Full Day Program with 14 Presentations & Interactive Sessions</p>
         
         <div class="timeline">
+            <!-- Opening Ceremony -->
             <div class="timeline-item">
                 <div class="timeline-time">09:00 AM</div>
                 <div class="timeline-content">
-                    <h4>Inauguration & Lamp Lighting</h4>
-                    <p>Traditional lamp lighting ceremony and inaugural address by distinguished guests</p>
+                    <h4>Opening Ceremony & Inauguration (30 mins)</h4>
+                    <p>Welcome remarks by Student Coordinator, Convenor Prof. Ramakrishna Bhat, Director Prof. Sunil S. Bhagwat, and Chief Patron Shri Madabhushi Madan Gopal</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <!-- Session 1: Mathematics & Astronomy -->
+            <div class="timeline-item">
+                <div class="timeline-time">09:30 AM</div>
+                <div class="timeline-content">
+                    <h4>Session 1: Mathematics & Astronomy (75 mins)</h4>
+                    <p><strong>Talk 1:</strong> Ancient Indian Mathematical Innovations (20 + 5 mins Q&A)<br>
+                    <strong>Talk 2:</strong> Vedic Astronomy and Cosmological Frameworks (20 + 5 mins Q&A)<br>
+                    <strong>Talk 3:</strong> Computational Methods in Classical Texts (20 + 5 mins Q&A)</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
             <div class="timeline-item">
-                <div class="timeline-time">10:00 AM</div>
+                <div class="timeline-time">10:45 AM</div>
                 <div class="timeline-content">
-                    <h4>Keynote Address</h4>
-                    <p>Opening keynote by distinguished scholar (To be announced)</p>
+                    <h4>Coffee Break (15 mins)</h4>
+                    <p>Refreshments and networking</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
+            <!-- Session 2: Metallurgy & Materials -->
             <div class="timeline-item">
-                <div class="timeline-time">11:30 AM</div>
+                <div class="timeline-time">11:00 AM</div>
                 <div class="timeline-content">
-                    <h4>Technical Session I</h4>
-                    <p>Themes: Mathematics & Astronomy - Ancient computational methods and astronomical observations</p>
+                    <h4>Session 2: Metallurgy & Materials Science (75 mins)</h4>
+                    <p><strong>Talk 4:</strong> Ancient Indian Metallurgical Practices (20 + 5 mins Q&A)<br>
+                    <strong>Talk 5:</strong> Metals in Traditional Medicine (20 + 5 mins Q&A)<br>
+                    <strong>IKS PhD Student Talk 1:</strong> Research Insights (10 mins)</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
+            <!-- Lunch Break -->
             <div class="timeline-item">
-                <div class="timeline-time">01:00 PM</div>
+                <div class="timeline-time">12:15 PM</div>
                 <div class="timeline-content">
-                    <h4>Lunch Break</h4>
+                    <h4>Lunch Break (60 mins)</h4>
                     <p>Networking and refreshments</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
+            <!-- Session 3: Ayurveda & Medicine -->
             <div class="timeline-item">
-                <div class="timeline-time">02:00 PM</div>
+                <div class="timeline-time">01:15 PM</div>
                 <div class="timeline-content">
-                    <h4>Technical Session II</h4>
-                    <p>Themes: Āyurveda & Metallurgy - Traditional medicine and ancient material science</p>
+                    <h4>Session 3: Āyurveda & Traditional Medicine (75 mins)</h4>
+                    <p><strong>Talk 6:</strong> Holistic Approaches to Health in Āyurveda (20 + 5 mins Q&A)<br>
+                    <strong>Talk 7:</strong> Personalized Medicine in Ancient Texts (20 + 5 mins Q&A)<br>
+                    <strong>IKS PhD Student Talk 2:</strong> Contemporary Research (10 mins)</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
+            <!-- Session 4: Architecture & Engineering -->
             <div class="timeline-item">
-                <div class="timeline-time">04:00 PM</div>
+                <div class="timeline-time">02:30 PM</div>
                 <div class="timeline-content">
-                    <h4>Panel Discussion</h4>
-                    <p>"Bridging the Gap: Integrating Ancient Wisdom with Modern Science"</p>
+                    <h4>Session 4: Architecture & Engineering (50 mins)</h4>
+                    <p><strong>Talk 8:</strong> Temple Building Technology and Structural Engineering (20 + 5 mins Q&A)<br>
+                    <strong>Talk 9:</strong> Sustainable Construction Practices (20 + 5 mins Q&A)</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <!-- High Tea & Poster Session -->
+            <div class="timeline-item">
+                <div class="timeline-time">03:20 PM</div>
+                <div class="timeline-content">
+                    <h4>High Tea & Poster Presentation (30 mins)</h4>
+                    <p>Interactive poster session (15 mins) showcasing student and faculty research, followed by refreshments</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <!-- Session 5: Language, Environment & Integration -->
+            <div class="timeline-item">
+                <div class="timeline-time">03:50 PM</div>
+                <div class="timeline-content">
+                    <h4>Session 5: Language, Environment & Integration (85 mins)</h4>
+                    <p><strong>Talk 10:</strong> Sanskrit and Scientific Terminology (20 + 5 mins Q&A)<br>
+                    <strong>Talk 11:</strong> Environmental Wisdom and Sustainability (20 + 5 mins Q&A)<br>
+                    <strong>Talk 12:</strong> Integrating IKS with Modern Science (20 + 5 mins Q&A)<br>
+                    <strong>IKS PhD Student Talk 3:</strong> Future Directions (10 mins)</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <!-- Session 6: Keynote & Future Perspectives -->
+            <div class="timeline-item">
+                <div class="timeline-time">05:15 PM</div>
+                <div class="timeline-content">
+                    <h4>Session 6: Keynote & Future Perspectives (50 mins)</h4>
+                    <p><strong>Talk 13:</strong> Research Opportunities in IKS (20 + 5 mins Q&A)<br>
+                    <strong>Talk 14:</strong> Keynote Address - Future of Indian Knowledge Systems (20 + 5 mins Q&A)</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <!-- Panel Discussion -->
+            <div class="timeline-item">
+                <div class="timeline-time">06:05 PM</div>
+                <div class="timeline-content">
+                    <h4>Panel Discussion (40 mins)</h4>
+                    <p>"Bridging Ancient Wisdom with Modern Science: Challenges and Opportunities" - Moderated discussion with speakers and Q&A</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <!-- Closing -->
+            <div class="timeline-item">
+                <div class="timeline-time">06:45 PM</div>
+                <div class="timeline-content">
+                    <h4>Closing Remarks & Vote of Thanks</h4>
+                    <p>Closing address and acknowledgments by the organizing committee</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
@@ -1037,6 +1148,12 @@
                 <div class="leader-role">Convenor</div>
                 <div class="leader-name">Prof. Ramakrishna Bhat</div>
                 <div class="leader-title">Faculty Member<br>IISER Pune</div>
+            </div>
+            
+            <div class="leader-card">
+                <div class="leader-role">Student Organizer</div>
+                <div class="leader-name">Jatin Raghuwanshi</div>
+                <div class="leader-title">Student Coordinator<br>IISER Pune</div>
             </div>
         </div>
     </section>
@@ -1070,36 +1187,12 @@
                     <p>Renowned Researcher in Āyurveda & Modern Medicine</p>
                 </div>
             </div>
-
+            
             <div class="speaker-card">
                 <div class="speaker-image">👤</div>
                 <div class="speaker-info">
                     <h4>To Be Announced</h4>
-                    <p>Renowned Researcher in Āyurveda & Modern Medicine</p>
-                </div>
-            </div>
-
-            <div class="speaker-card">
-                <div class="speaker-image">👤</div>
-                <div class="speaker-info">
-                    <h4>To Be Announced</h4>
-                    <p>Renowned Researcher in Āyurveda & Modern Medicine</p>
-                </div>
-            </div>
-
-            <div class="speaker-card">
-                <div class="speaker-image">👤</div>
-                <div class="speaker-info">
-                    <h4>To Be Announced</h4>
-                    <p>Renowned Researcher in Āyurveda & Modern Medicine</p>
-                </div>
-            </div>
-
-            <div class="speaker-card">
-                <div class="speaker-image">👤</div>
-                <div class="speaker-info">
-                    <h4>To Be Announced</h4>
-                    <p>Renowned Researcher in Āyurveda & Modern Medicine</p>
+                    <p>Specialist in Ancient Architecture & Engineering</p>
                 </div>
             </div>
             
@@ -1107,7 +1200,47 @@
                 <div class="speaker-image">👤</div>
                 <div class="speaker-info">
                     <h4>To Be Announced</h4>
-                    <p>Specialist in Ancient Architecture & Engineering</p>
+                    <p>Expert in Sanskrit & Scientific Language</p>
+                </div>
+            </div>
+            
+            <div class="speaker-card">
+                <div class="speaker-image">👤</div>
+                <div class="speaker-info">
+                    <h4>To Be Announced</h4>
+                    <p>Authority on Indian Astronomy & Cosmology</p>
+                </div>
+            </div>
+            
+            <div class="speaker-card">
+                <div class="speaker-image">👤</div>
+                <div class="speaker-info">
+                    <h4>To Be Announced</h4>
+                    <p>Scholar in Environmental Wisdom & Sustainability</p>
+                </div>
+            </div>
+            
+            <div class="speaker-card">
+                <div class="speaker-image">👤</div>
+                <div class="speaker-info">
+                    <h4>To Be Announced</h4>
+                    <p>Researcher in Integrating IKS with Modern Science</p>
+                </div>
+            </div>
+            
+            <div class="speaker-card">
+                <div class="speaker-image">👤</div>
+                <div class="speaker-info">
+                    <h4>To Be Announced</h4>
+                    <p>Expert in Ancient Indian Knowledge Systems</p>
+                </div>
+            </div>
+            
+            <div class="speaker-card">
+                <div class="speaker-image">👤</div>
+                <div class="speaker-info">
+                    <h4>To Be Announced</h4>
+                    <p>Thought Leader in Future Directions of IKS Research</p>
                 </div>
             </div>
         </div>
@@ -1118,7 +1251,7 @@
         <h2 class="section-title">Test Your Knowledge</h2>
         <p>Participate in our Pre-Conference Quiz on Ancient Indian Science and Technology!</p>
         <p style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">Challenge yourself and discover fascinating facts about India's scientific heritage</p>
-        <a href="/quiz.html" class="quiz-button">Take the Quiz</a>
+        <a href="quiz.html" class="quiz-button">Take the Quiz</a>
     </section>
 
     <!-- Sponsors Section -->
@@ -1134,9 +1267,8 @@
         </div>
         
         <p style="margin-top: 3rem; font-size: 1.1rem; color: var(--charcoal);">
-    Interested in partnering with us? 
-    <a href="mailto:nciks@acads.iiserpune.ac.in?subject=Partnership Inquiry for IKS Conference" style="color: var(--terracotta); text-decoration: underline;">Get in touch</a>
-     </p>
+            Interested in partnering with us? <a href="mailto:nciks@acads.iiserpune.ac.in?subject=Partnership Inquiry for IKS Conference" style="color: var(--terracotta); text-decoration: underline;">Get in touch</a>
+        </p>
     </section>
 
     <!-- Footer -->
@@ -1147,7 +1279,7 @@
                 <p>Indian Institute of Science Education and Research (IISER) Pune</p>
                 <p>Dr. Homi Bhabha Road</p>
                 <p>Pune, Maharashtra 411008</p>
-                <p style="margin-top: 1rem;">Email: nciks@acads.iiserpune.ac.in</p>
+                <p style="margin-top: 1rem;">Email: <a href="mailto:nciks@acads.iiserpune.ac.in" style="color: rgba(255, 255, 255, 0.8); text-decoration: underline;">nciks@acads.iiserpune.ac.in</a></p>
                 <p>Phone: +91 (020) XXXX XXXX</p>
             </div>
             
@@ -1176,7 +1308,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Smooth scroll with offset for fixed nav
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1209,11 +1341,4 @@
         }, observerOptions);
 
         document.querySelectorAll('.theme-card, .speaker-card, .leader-card, .timeline-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
+   
