@@ -4,84 +4,499 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Quiz — Ancient Indian Science & Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --brand:#c95b43;
-    --navy:#083058;
-    --bg:#fbf7f3;
-    --card:#ffffff;
-    --muted:#6b7280;
-    --radius:12px;
-    --maxw:900px;
+    --saffron: #D4AF37;
+    --deep-saffron: #B8860B;
+    --terracotta: #8B4513;
+    --cream: #F5E6D3;
+    --ivory: #FFF8E7;
+    --gold: #C9A961;
+    --navy: #1A2332;
+    --deep-navy: #0D1117;
+    --sage: #2C5F4F;
+    --burgundy: #6B2737;
+    --border-gold: #B8860B;
+    --text-primary: #2C2416;
+    --text-secondary: #5C5346;
   }
-  html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:linear-gradient(180deg,var(--bg),#fff); color:#0b1220}
-  .wrap{max-width:var(--maxw);margin:28px auto;padding:28px;}
-  header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
-  .logo{background:var(--navy);color:#fff;padding:10px 14px;border-radius:10px;font-weight:700}
-  h1{font-size:28px;margin:0}
-  .card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 22px rgba(10,20,30,0.06);padding:22px;margin-bottom:18px}
-  .section-title{display:flex;align-items:end;justify-content:space-between;margin-bottom:12px}
-  .section-title h2{margin:0;font-size:18px;color:var(--navy)}
-  .muted{color:var(--muted);font-size:13px}
-  label{display:block;font-weight:600;margin-bottom:8px}
-  input[type="text"], input[type="email"], select, textarea{
-    width:100%;padding:10px 12px;border-radius:8px;border:1px solid #e6e6e9;font-size:14px;box-sizing:border-box
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .question{margin-bottom:18px}
-  .q-title{font-weight:700;margin-bottom:8px}
-  .options{display:flex;flex-direction:column;gap:8px}
-  .opt label{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;border:1px solid #f0f0f2}
-  .btn{
-    display:inline-block;padding:12px 20px;border-radius:999px;background:var(--brand);color:white;border:0;font-weight:700;cursor:pointer;
-    box-shadow:0 8px 20px rgba(201,91,67,0.18)
+  
+  html, body {
+    height: 100%;
+    font-family: 'Cormorant Garamond', serif;
+    background: linear-gradient(135deg, var(--ivory) 0%, var(--cream) 50%, #FEF3C7 100%);
+    color: var(--text-primary);
+    line-height: 1.7;
   }
-  .btn.secondary{background:#eef2ff;color:var(--navy);box-shadow:none;border:1px solid rgba(8,48,88,0.06)}
-  .progress{height:8px;background:#f2f4f7;border-radius:8px;overflow:hidden;margin-bottom:16px}
-  .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),#e67b5f);width:0%}
-  .result{padding:16px;border-radius:10px;background:linear-gradient(90deg,#eef8f8,#fbfbff);border:1px solid #eef2f4}
-  .small{font-size:13px;color:var(--muted)}
-  footer{margin-top:8px;text-align:center;color:var(--muted);font-size:13px}
-  @media (max-width:720px){.row{grid-template-columns:1fr} header{flex-direction:column;align-items:flex-start} .wrap{padding:16px}}
+  
+  .ornamental-border {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .ornamental-border.top {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, 
+      var(--saffron) 0%, 
+      var(--gold) 25%, 
+      var(--sage) 50%, 
+      var(--gold) 75%, 
+      var(--saffron) 100%);
+  }
+  
+  .ornamental-border.bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, 
+      var(--saffron) 0%, 
+      var(--gold) 25%, 
+      var(--sage) 50%, 
+      var(--gold) 75%, 
+      var(--saffron) 100%);
+  }
+  
+  .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 32px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 32px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(254,243,199,0.9));
+    border-radius: 16px;
+    border: 3px solid var(--border-gold);
+    box-shadow: 0 8px 32px rgba(217, 119, 6, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--saffron) 0px,
+      var(--saffron) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+  
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--saffron) 0px,
+      var(--saffron) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+  
+  .logo {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--deep-navy), var(--navy));
+    color: var(--gold);
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  }
+  
+  h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--burgundy);
+    margin: 16px 0 12px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(124, 45, 18, 0.1);
+  }
+  
+  .subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+  
+  .card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(255,251,235,0.95));
+    border-radius: 12px;
+    border: 2px solid var(--border-gold);
+    box-shadow: 0 8px 24px rgba(217, 119, 6, 0.12);
+    padding: 32px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  
+  .card::before {
+    content: '❋';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 20px;
+    color: var(--gold);
+    opacity: 0.4;
+  }
+  
+  .card::after {
+    content: '❋';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 20px;
+    color: var(--gold);
+    opacity: 0.4;
+  }
+  
+  .section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--gold);
+  }
+  
+  .section-title h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--burgundy);
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+  
+  .muted {
+    color: var(--text-secondary);
+    font-size: 15px;
+    font-style: italic;
+  }
+  
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    font-size: 17px;
+  }
+  
+  input[type="text"], 
+  input[type="email"], 
+  select, 
+  textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 2px solid var(--border-gold);
+    font-size: 16px;
+    font-family: 'Cormorant Garamond', serif;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+  
+  input[type="text"]:focus, 
+  input[type="email"]:focus, 
+  select:focus, 
+  textarea:focus {
+    outline: none;
+    border-color: var(--deep-saffron);
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+    background: white;
+  }
+  
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .question {
+    margin-bottom: 20px;
+  }
+  
+  .q-title {
+    font-weight: 600;
+    margin-bottom: 16px;
+    font-size: 19px;
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  
+  .small {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .opt label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 2px solid rgba(217, 119, 6, 0.3);
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  
+  .opt label:hover {
+    border-color: var(--deep-saffron);
+    background: rgba(255, 251, 235, 0.9);
+    transform: translateX(4px);
+  }
+  
+  .opt input[type="radio"]:checked + label,
+  .opt input[type="checkbox"]:checked + label,
+  .opt label:has(input:checked) {
+    border-color: var(--sage);
+    background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(5, 150, 105, 0.05));
+    font-weight: 600;
+  }
+  
+  input[type="radio"],
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--sage);
+    cursor: pointer;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--deep-saffron), var(--saffron));
+    color: white;
+    border: none;
+    font-weight: 700;
+    font-size: 17px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(217, 119, 6, 0.4);
+  }
+  
+  .btn:active {
+    transform: translateY(0);
+  }
+  
+  .btn.secondary {
+    background: linear-gradient(135deg, var(--ivory), white);
+    color: var(--burgundy);
+    border: 2px solid var(--border-gold);
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.15);
+  }
+  
+  .btn.secondary:hover {
+    background: linear-gradient(135deg, var(--cream), var(--ivory));
+  }
+  
+  .progress {
+    height: 12px;
+    background: rgba(217, 119, 6, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    border: 1px solid var(--border-gold);
+  }
+  
+  .progress > i {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--sage), var(--gold), var(--saffron));
+    width: 0%;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(5, 150, 105, 0.5);
+  }
+  
+  .result {
+    padding: 24px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(5, 150, 105, 0.08), rgba(255, 251, 235, 0.9));
+    border: 2px solid var(--sage);
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.15);
+  }
+  
+  .result strong {
+    color: var(--sage);
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+  }
+  
+  footer {
+    margin-top: 48px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 15px;
+    padding: 24px;
+    border-top: 2px solid var(--border-gold);
+    font-style: italic;
+  }
+  
+  .decorative-divider {
+    text-align: center;
+    margin: 32px 0;
+    color: var(--gold);
+    font-size: 24px;
+    opacity: 0.6;
+  }
+  
+  #conclusion h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--burgundy);
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  
+  #conclusion p {
+    margin-bottom: 12px;
+    font-size: 17px;
+  }
+  
+  #qrImage {
+    width: 180px;
+    border-radius: 12px;
+    border: 3px solid var(--border-gold);
+    box-shadow: 0 4px 16px rgba(217, 119, 6, 0.2);
+    margin-top: 8px;
+    background: white;
+    padding: 12px;
+  }
+  
+  @media (max-width: 768px) {
+    .row {
+      grid-template-columns: 1fr;
+    }
+    
+    .wrap {
+      padding: 24px 16px;
+    }
+    
+    h1 {
+      font-size: 28px;
+    }
+    
+    header {
+      padding: 24px 16px;
+    }
+    
+    .card {
+      padding: 24px 16px;
+    }
+    
+    .section-title {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  }
+  
+  /* Mandala pattern background accent */
+  .card.question::before {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    background-image: radial-gradient(circle, var(--gold) 1px, transparent 1px);
+    background-size: 8px 8px;
+    opacity: 0.15;
+    pointer-events: none;
+  }
 </style>
 </head>
 <body>
+<div class="ornamental-border top"></div>
+<div class="ornamental-border bottom"></div>
+
 <div class="wrap">
   <header>
-    <div class="logo">IISER Pune</div>
-    <div>
-      <h1>Pre-conference Quiz — Ancient Indian Science & Technology</h1>
-      <div class="small">Time limit: none • Total: 100 points</div>
-    </div>
+    <div class="logo">IISER PUNE</div>
+    <h1>Ancient Indian Science & Technology</h1>
+    <div class="subtitle">Pre-conference Knowledge Assessment</div>
+    <div class="small" style="margin-top: 12px;">Total: 100 points • No time limit</div>
   </header>
 
   <!-- Participant details -->
   <form id="quizForm" class="card" autocomplete="off" novalidate>
     <div class="section-title">
-      <h2>Section 1 — Participant Details</h2>
-      <div class="muted">(All fields required)</div>
+      <h2>Section I — Participant Details</h2>
+      <div class="muted">All fields required</div>
     </div>
 
-    <div class="row" style="margin-bottom:14px">
+    <div class="row" style="margin-bottom:20px">
       <div>
         <label for="fullname">Full Name</label>
-        <input id="fullname" name="fullname" type="text" required />
+        <input id="fullname" name="fullname" type="text" required placeholder="Enter your full name" />
       </div>
       <div>
         <label for="email">Email Address</label>
-        <input id="email" name="email" type="email" required />
+        <input id="email" name="email" type="email" required placeholder="your.email@example.com" />
       </div>
     </div>
 
-    <div class="row" style="margin-bottom:16px">
+    <div class="row" style="margin-bottom:24px">
       <div>
         <label for="institution">Institution / Organization</label>
-        <input id="institution" name="institution" type="text" required />
+        <input id="institution" name="institution" type="text" required placeholder="Your institution name" />
       </div>
       <div>
         <label for="designation">Designation</label>
         <select id="designation" name="designation" required>
-          <option value="">Select</option>
+          <option value="">Select your designation</option>
           <option>Student</option>
           <option>Faculty</option>
           <option>Researcher</option>
@@ -90,10 +505,12 @@
       </div>
     </div>
 
+    <div class="decorative-divider">⚘ ⚘ ⚘</div>
+
     <!-- Quiz -->
-    <div class="section-title" style="margin-top:8px">
-      <h2>Section 2 — The Quiz</h2>
-      <div class="muted">Answer the questions. Correct answers are scored in the answer key.</div>
+    <div class="section-title">
+      <h2>Section II — Assessment Questions</h2>
+      <div class="muted">Demonstrate your knowledge</div>
     </div>
 
     <div class="progress" aria-hidden><i id="progressBar"></i></div>
@@ -102,7 +519,7 @@
 
       <!-- Q1 -->
       <div class="question card" data-q="1" data-points="5">
-        <div class="q-title">1. Which ancient Indian text contains early descriptions of surgical techniques and instruments? <span class="small"> (5 pts)</span></div>
+        <div class="q-title">1. Which ancient Indian text contains early descriptions of surgical techniques and instruments? <span class="small">(5 pts)</span></div>
         <div class="options">
           <div class="opt"><label><input type="radio" name="q1" value="Sushruta Samhita" required> Sushruta Samhita</label></div>
           <div class="opt"><label><input type="radio" name="q1" value="Charaka Samhita"> Charaka Samhita</label></div>
@@ -113,7 +530,7 @@
 
       <!-- Q2 -->
       <div class="question card" data-q="2" data-points="5">
-        <div class="q-title">2. Which ancient Indian scholar is credited with calculating an approximation of π (pi) and describing the concept of zero as a number? <span class="small"> (5 pts)</span></div>
+        <div class="q-title">2. Which ancient Indian scholar is credited with calculating an approximation of π (pi) and describing the concept of zero as a number? <span class="small">(5 pts)</span></div>
         <div class="options">
           <div class="opt"><label><input type="radio" name="q2" value="Aryabhata" required> Aryabhata</label></div>
           <div class="opt"><label><input type="radio" name="q2" value="Bhaskara I"> Bhaskara I</label></div>
@@ -124,7 +541,7 @@
 
       <!-- Q3 -->
       <div class="question card" data-q="3" data-points="5">
-        <div class="q-title">3. The Iron Pillar of Delhi is notable for which scientific/technological reason? <span class="small"> (5 pts)</span></div>
+        <div class="q-title">3. The Iron Pillar of Delhi is notable for which scientific/technological reason? <span class="small">(5 pts)</span></div>
         <div class="options">
           <div class="opt"><label><input type="radio" name="q3" value="earliest cast iron"> It is the earliest known use of cast iron.</label></div>
           <div class="opt"><label><input type="radio" name="q3" value="corrosion resistant" required> It demonstrates advanced rust-resistant (corrosion-resistant) metallurgy.</label></div>
@@ -135,7 +552,7 @@
 
       <!-- Q4 -->
       <div class="question card" data-q="4" data-points="5">
-        <div class="q-title">4. Which ancient Indian physician introduced systematic classifications of diseases and wrote the Charaka Samhita? <span class="small"> (5 pts)</span></div>
+        <div class="q-title">4. Which ancient Indian physician introduced systematic classifications of diseases and wrote the Charaka Samhita? <span class="small">(5 pts)</span></div>
         <div class="options">
           <div class="opt"><label><input type="radio" name="q4" value="Sushruta" required> Sushruta</label></div>
           <div class="opt"><label><input type="radio" name="q4" value="Charaka"> Charaka</label></div>
@@ -146,7 +563,7 @@
 
       <!-- Q5 -->
       <div class="question card" data-q="5" data-points="5">
-        <div class="q-title">5. The ancient university of Nalanda (5th–12th century CE) was primarily known for teaching which subjects? <span class="small"> (5 pts)</span></div>
+        <div class="q-title">5. The ancient university of Nalanda (5th–12th century CE) was primarily known for teaching which subjects? <span class="small">(5 pts)</span></div>
         <div class="options">
           <div class="opt"><label><input type="radio" name="q5" value="only Buddhist" required> Only Buddhist scriptures</label></div>
           <div class="opt"><label><input type="radio" name="q5" value="wide range"> A wide range including logic, astronomy, medicine, and grammar</label></div>
@@ -169,12 +586,12 @@
       <!-- Q7 short answer -->
       <div class="question card" data-q="7" data-points="6">
         <div class="q-title">7. Name an ancient Indian text considered one of the earliest works on civil engineering and urban planning (e.g., drainage and water supply systems). <span class="small">(6 pts)</span></div>
-        <div><input id="q7" name="q7" type="text" placeholder="Type your answer (e.g., Shilpa Shastra)" /></div>
+        <div><input id="q7" name="q7" type="text" placeholder="Example: Shilpa Shastra" /></div>
       </div>
 
       <!-- Q8 -->
       <div class="question card" data-q="8" data-points="5">
-        <div class="q-title">8. Which metallurgical achievement is associated with ancient India’s Wootz steel? <span class="small"> (5 pts)</span></div>
+        <div class="q-title">8. Which metallurgical achievement is associated with ancient India's Wootz steel? <span class="small">(5 pts)</span></div>
         <div class="options">
           <div class="opt"><label><input type="radio" name="q8" value="crucible" required> Early high-carbon crucible steel used for superior blades</label></div>
           <div class="opt"><label><input type="radio" name="q8" value="electric"> Steel produced by electric arc</label></div>
@@ -185,7 +602,7 @@
 
       <!-- Q9 true/false -->
       <div class="question card" data-q="9" data-points="4">
-        <div class="q-title">9. The Sulba Sutras contain geometric rules used for altar construction and include approximations of square roots. <span class="small"> (True / False) (4 pts)</span></div>
+        <div class="q-title">9. The Sulba Sutras contain geometric rules used for altar construction and include approximations of square roots. <span class="small">(True / False) (4 pts)</span></div>
         <div class="options">
           <div class="opt"><label><input type="radio" name="q9" value="True" required> True</label></div>
           <div class="opt"><label><input type="radio" name="q9" value="False"> False</label></div>
@@ -194,7 +611,7 @@
 
       <!-- Q10 -->
       <div class="question card" data-q="10" data-points="5">
-        <div class="q-title">10. Who wrote the astronomical work 'Surya Siddhanta' (in its later Sanskrit form) that influenced Indian astronomy? <span class="small"> (5 pts)</span></div>
+        <div class="q-title">10. Who wrote the astronomical work 'Surya Siddhanta' (in its later Sanskrit form) that influenced Indian astronomy? <span class="small">(5 pts)</span></div>
         <div class="options">
           <div class="opt"><label><input type="radio" name="q10" value="Varahamihira" required> Varahamihira</label></div>
           <div class="opt"><label><input type="radio" name="q10" value="Charaka"> Charaka</label></div>
@@ -205,14 +622,14 @@
 
       <!-- Q11 matching (implemented as selects) -->
       <div class="question card" data-q="11" data-points="10">
-        <div class="q-title">11. Match each scholar/term with their field or contribution. (10 pts — 2 points each)</div>
-        <div class="small" style="margin-bottom:8px">Choose the best match for each person.</div>
+        <div class="q-title">11. Match each scholar/term with their field or contribution. <span class="small">(10 pts — 2 points each)</span></div>
+        <div class="small" style="margin-bottom:16px">Choose the best match for each person.</div>
 
-        <div style="display:grid;gap:10px">
+        <div style="display:grid;gap:16px">
           <div>
             <label>1. Aryabhata</label>
             <select name="q11_1" required>
-              <option value="">Select</option>
+              <option value="">Select a match</option>
               <option value="A">Rules on polity, statecraft, and economic administration</option>
               <option value="B">Systematic surgery and surgical instruments</option>
               <option value="C">Rules for arithmetic including zero and negative numbers</option>
@@ -224,7 +641,7 @@
           <div>
             <label>2. Sushruta</label>
             <select name="q11_2" required>
-              <option value="">Select</option>
+              <option value="">Select a match</option>
               <option value="A">Rules on polity, statecraft, and economic administration</option>
               <option value="B">Systematic surgery and surgical instruments</option>
               <option value="C">Rules for arithmetic including zero and negative numbers</option>
@@ -236,7 +653,7 @@
           <div>
             <label>3. Brahmagupta</label>
             <select name="q11_3" required>
-              <option value="">Select</option>
+              <option value="">Select a match</option>
               <option value="A">Rules on polity, statecraft, and economic administration</option>
               <option value="B">Systematic surgery and surgical instruments</option>
               <option value="C">Rules for arithmetic including zero and negative numbers</option>
@@ -248,7 +665,7 @@
           <div>
             <label>4. Charaka</label>
             <select name="q11_4" required>
-              <option value="">Select</option>
+              <option value="">Select a match</option>
               <option value="A">Rules on polity, statecraft, and economic administration</option>
               <option value="B">Systematic surgery and surgical instruments</option>
               <option value="C">Rules for arithmetic including zero and negative numbers</option>
@@ -260,7 +677,7 @@
           <div>
             <label>5. Kautilya (Arthashastra)</label>
             <select name="q11_5" required>
-              <option value="">Select</option>
+              <option value="">Select a match</option>
               <option value="A">Rules on polity, statecraft, and economic administration</option>
               <option value="B">Systematic surgery and surgical instruments</option>
               <option value="C">Rules for arithmetic including zero and negative numbers</option>
@@ -273,7 +690,7 @@
 
       <!-- Q12 -->
       <div class="question card" data-q="12" data-points="5">
-        <div class="q-title">12. Which system detailed methods for irrigation, reservoirs, and water management such as stepwells (baolis)? <span class="small"> (5 pts)</span></div>
+        <div class="q-title">12. Which system detailed methods for irrigation, reservoirs, and water management such as stepwells (baolis)? <span class="small">(5 pts)</span></div>
         <div class="options">
           <div class="opt"><label><input type="radio" name="q12" value="indus-harappan" required> Hydraulic engineering traditions in the Indus Valley and later regional practices</label></div>
           <div class="opt"><label><input type="radio" name="q12" value="greek"> Only Greek-influenced irrigation</label></div>
@@ -284,7 +701,7 @@
 
       <!-- Q13 -->
       <div class="question card" data-q="13" data-points="5">
-        <div class="q-title">13. The medical method involving systematic observation, diagnosis, prognosis, and treatment is a key feature of which ancient Indian medical system? <span class="small"> (5 pts)</span></div>
+        <div class="q-title">13. The medical method involving systematic observation, diagnosis, prognosis, and treatment is a key feature of which ancient Indian medical system? <span class="small">(5 pts)</span></div>
         <div class="options">
           <div class="opt"><label><input type="radio" name="q13" value="Ayurveda" required> Ayurveda</label></div>
           <div class="opt"><label><input type="radio" name="q13" value="Homeopathy"> Homeopathy</label></div>
@@ -295,13 +712,13 @@
 
       <!-- Q14 short answer -->
       <div class="question card" data-q="14" data-points="6">
-        <div class="q-title">14. Give one example of an ancient Indian invention or technique related to textiles or dyes (e.g., a fabric, dyeing technique, or loom technology). <span class="small"> (6 pts)</span></div>
-        <div><input id="q14" name="q14" type="text" placeholder="E.g., block printing, indigo dyeing, ikat" /></div>
+        <div class="q-title">14. Give one example of an ancient Indian invention or technique related to textiles or dyes (e.g., a fabric, dyeing technique, or loom technology). <span class="small">(6 pts)</span></div>
+        <div><input id="q14" name="q14" type="text" placeholder="Example: block printing, indigo dyeing, ikat" /></div>
       </div>
 
       <!-- Q15 -->
       <div class="question card" data-q="15" data-points="10">
-        <div class="q-title">15. Which of the following best explains why ancient Indian astronomers developed detailed mathematical methods? <span class="small"> (10 pts)</span></div>
+        <div class="q-title">15. Which of the following best explains why ancient Indian astronomers developed detailed mathematical methods? <span class="small">(10 pts)</span></div>
         <div class="options">
           <div class="opt"><label><input type="radio" name="q15" value="ritual" required> For ritual and calendrical accuracy (timing sacrifices, festivals)</label></div>
           <div class="opt"><label><input type="radio" name="q15" value="navigation"> Purely for navigation</label></div>
@@ -310,32 +727,38 @@
         </div>
       </div>
 
+      <div class="decorative-divider">⚘ ⚘ ⚘</div>
+
       <!-- Submit -->
-      <div style="display:flex;gap:12px;align-items:center">
-        <button id="submitBtn" class="btn" type="button">Submit & Get Score</button>
-        <button id="resetBtn" class="btn secondary" type="button">Reset</button>
-        <div class="small" style="margin-left:auto">Total: 100 pts</div>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center;margin-top:32px">
+        <button id="submitBtn" class="btn" type="button">Submit & View Results</button>
+        <button id="resetBtn" class="btn secondary" type="button">Reset Form</button>
       </div>
     </div>
   </form>
 
   <!-- Result area -->
-  <div id="resultArea" class="card" style="display:none;margin-top:18px"></div>
+  <div id="resultArea" class="card" style="display:none;margin-top:24px"></div>
 
   <!-- Conclusion / confirmation -->
-  <div id="conclusion" class="card" style="display:none;margin-top:12px">
-    <h2>Thank you for participating!</h2>
-    <p class="small">Great job! We hope this sparked your interest in the vast scientific heritage of India.</p>
-    <p class="small">Want to learn more? Join us at the <strong>National Conference on IKS at IISER Pune</strong> on <strong>07th March 2026</strong>.</p>
-    <p><a id="registerLink" class="btn" href="#" target="_blank">Register for the Conference</a></p>
-    <div style="margin-top:8px">
-      <p class="small">Scan QR to register:</p>
+  <div id="conclusion" class="card" style="display:none;margin-top:24px">
+    <h2>Thank You for Participating!</h2>
+    <p>We hope this assessment has enriched your understanding of the vast scientific and technological heritage of ancient India.</p>
+    <p style="margin-top:16px">Deepen your knowledge further at the <strong>National Conference on Indian Knowledge Systems</strong> at <strong>IISER Pune</strong> on <strong>7th March 2026</strong>.</p>
+    <div style="text-align:center;margin-top:24px">
+      <a id="registerLink" class="btn" href="#" target="_blank">Register for the Conference</a>
+    </div>
+    <div style="margin-top:24px;text-align:center">
+      <p class="small" style="margin-bottom:12px">Scan to register:</p>
       <!-- Placeholder QR: replace src with your QR image path -->
-      <img id="qrImage" src="" alt="QR code placeholder" style="width:160px;border-radius:8px;border:1px solid #eef2f4" />
+      <img id="qrImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%23ffffff' width='200' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='16' text-anchor='middle' dy='.3em' fill='%23999'%3EQR Code%3C/text%3E%3C/svg%3E" alt="QR code for conference registration" />
     </div>
   </div>
 
-  <footer class="small">If you want the form to email results or store responses, I can supply deployment options (Firebase, Supabase, or Google Sheets script).</footer>
+  <footer>
+    <p>For backend integration to store responses or email results, consider Firebase, Supabase, or Google Sheets API.</p>
+    <p style="margin-top:8px">© 2026 IISER Pune • National Conference on Indian Knowledge Systems</p>
+  </footer>
 </div>
 
 <script>
@@ -363,7 +786,7 @@ const KEY = {
   },
   q12: "indus-harappan",
   q13: "Ayurveda",
-  q14_accept: ["ikat","block printing","kalamkari","indigo","indigo dye","natural indigo","block-printing","kalamkari"],
+  q14_accept: ["ikat","block printing","kalamkari","indigo","indigo dye","natural indigo","block-printing"],
   q15: "ritual"
 };
 
@@ -392,7 +815,6 @@ function validateParticipant(){
 }
 
 function updateProgress(){
-  // percent of answered required questions (question blocks with required inputs)
   const qBlocks = document.querySelectorAll('[data-q]');
   let answered = 0;
   qBlocks.forEach(q=>{
@@ -420,7 +842,6 @@ function scoreForm(){
   let total = 0;
   let details = [];
 
-  // helpers
   function addDetail(q, pts, max, correct, got){
     details.push({q, pts, max, correct, got});
   }
@@ -442,13 +863,11 @@ function scoreForm(){
   // Q6 checkboxes (6 points)
   const q6boxes = Array.from(form.querySelectorAll('input[name="q6"]'));
   const selected = q6boxes.filter(b=>b.checked).map(b=>b.value);
-  const q6Correct = KEY.q6.correct; // ["decimal","sine","zero"]
+  const q6Correct = KEY.q6.correct;
   const numCorrect = q6Correct.length;
   let correctSelected = selected.filter(s=>q6Correct.includes(s)).length;
   let incorrectSelected = selected.filter(s=>!q6Correct.includes(s)).length;
-  // score proportional: (correctSelected - incorrectSelected)/numCorrect * maxPoints, clamp >=0
   let q6Score = Math.max(0, (correctSelected - incorrectSelected) / numCorrect * pointsMap[6]);
-  // round to 2 decimals
   q6Score = Math.round(q6Score * 100) / 100;
   total += q6Score;
   addDetail(6, q6Score, pointsMap[6], q6Correct.join(', '), selected.join(', ') || null);
@@ -482,7 +901,7 @@ function scoreForm(){
   }
   q11Score = Math.round(q11Score * 100) / 100;
   total += q11Score;
-  addDetail(11, q11Score, pointsMap[11], 'Pairs: 1-D,2-B,3-C,4-E,5-A', null);
+  addDetail(11, q11Score, pointsMap[11], 'Pairs: 1-D, 2-B, 3-C, 4-E, 5-A', null);
 
   // Q12
   { const ans = form.elements['q12'].value || ''; if(ans === KEY.q12){ total += pointsMap[12]; addDetail(12, pointsMap[12], pointsMap[12], KEY.q12, ans); } else addDetail(12,0,pointsMap[12],KEY.q12,ans||null); }
@@ -502,7 +921,6 @@ function scoreForm(){
   // Q15
   { const ans = form.elements['q15'].value || ''; if(ans === KEY.q15){ total += pointsMap[15]; addDetail(15, pointsMap[15], pointsMap[15], KEY.q15, ans); } else addDetail(15,0,pointsMap[15],KEY.q15,ans||null); }
 
-  // round total to 2 decimals if needed
   total = Math.round(total * 100) / 100;
 
   return { total, details };
@@ -519,46 +937,61 @@ function renderResult(scoreObj){
   out.className = 'result';
 
   const header = document.createElement('div');
-  header.innerHTML = `<strong style="font-size:16px">Score: ${total} / 100</strong> — ${name ? (name + ' — ' + designation + ' @ ' + inst) : ''}`;
+  header.innerHTML = `<strong>Your Score: ${total} / 100</strong>`;
+  header.style.marginBottom = '8px';
+  if(name) {
+    const participantInfo = document.createElement('div');
+    participantInfo.style.fontSize = '16px';
+    participantInfo.style.marginTop = '8px';
+    participantInfo.innerHTML = `${name} • ${designation} • ${inst}`;
+    header.appendChild(participantInfo);
+  }
   out.appendChild(header);
 
   const detailList = document.createElement('div');
-  detailList.style.marginTop = '12px';
+  detailList.style.marginTop = '20px';
   details.forEach(d=>{
     const el = document.createElement('div');
-    el.style.marginBottom = '8px';
-    const qtext = `<div style="font-weight:700">Q${d.q} — ${d.pts}/${d.max} pts</div>`;
-    const answerText = `<div class="small">Correct answer(s): ${d.correct}</div>`;
-    const yourText = `<div class="small" style="color:${d.pts>0?'#0b7a5f':'#b02a2a'}">Your answer: ${d.got === null ? '<em>Not answered</em>' : d.got}</div>`;
+    el.style.marginBottom = '16px';
+    el.style.padding = '14px 16px';
+    el.style.background = d.pts > 0 ? 'rgba(44, 95, 79, 0.06)' : 'rgba(107, 39, 55, 0.06)';
+    el.style.borderRadius = '8px';
+    el.style.border = `2px solid ${d.pts > 0 ? 'rgba(44, 95, 79, 0.25)' : 'rgba(107, 39, 55, 0.25)'}`;
+    
+    const qtext = `<div style="font-weight:700;margin-bottom:10px;color:var(--text-primary);font-size:17px">Question ${d.q} — ${d.pts}/${d.max} points</div>`;
+    const answerText = `<div style="margin-bottom:8px;font-size:15px;color:var(--text-primary)"><span style="font-weight:600">Correct answer:</span> <span style="color:var(--sage);font-weight:500">${d.correct}</span></div>`;
+    const yourText = `<div style="font-size:15px;color:var(--text-primary)"><span style="font-weight:600">Your answer:</span> <span style="color:${d.pts>0?'var(--sage)':'var(--burgundy)'};font-weight:500">${d.got === null ? '<em>Not answered</em>' : d.got}</span></div>`;
     el.innerHTML = qtext + answerText + yourText;
     detailList.appendChild(el);
   });
   out.appendChild(detailList);
 
-  // short message / recommendation
   const msg = document.createElement('div');
-  msg.style.marginTop = '12px';
-  msg.innerHTML = `<div class="small">You can use this result for conference participation. For certificates, or to store responses, connect this form to a backend (Firebase, Supabase, or Google Sheets script).</div>`;
+  msg.style.marginTop = '20px';
+  msg.style.padding = '16px';
+  msg.style.background = 'rgba(184, 134, 11, 0.08)';
+  msg.style.borderRadius = '8px';
+  msg.style.border = '1px solid rgba(184, 134, 11, 0.2)';
+  msg.innerHTML = `<div class="small">This assessment is for educational purposes. To store responses permanently or receive certificates, integrate this form with a backend service (Firebase, Supabase, or Google Sheets).</div>`;
   out.appendChild(msg);
 
   resultArea.appendChild(out);
   resultArea.style.display = 'block';
   conclusion.style.display = 'block';
-  // scroll to result
-  resultArea.scrollIntoView({behavior:'smooth', block:'center'});
+  
+  setTimeout(() => {
+    resultArea.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 100);
 }
 
 submitBtn.addEventListener('click', ()=>{
-  // basic participant validation
   if(!validateParticipant()){
-    alert('Please complete participant details (all fields required).');
+    alert('Please complete all participant details (all fields are required).');
     return;
   }
 
-  // ensure required quiz fields answered (radio/select)
   const requiredInputs = document.querySelectorAll('[data-q] input[required], [data-q] select[required]');
   for(const req of requiredInputs){
-    // For radio groups, check if any in that group checked
     if(req.type === 'radio'){
       const name = req.name;
       const checked = form.querySelectorAll(`input[name="${name}"]:checked`);
@@ -578,16 +1011,15 @@ submitBtn.addEventListener('click', ()=>{
 });
 
 resetBtn.addEventListener('click', ()=>{
-  if(!confirm('Reset all answers?')) return;
+  if(!confirm('Are you sure you want to reset all answers? This cannot be undone.')) return;
   form.reset();
   resultArea.style.display = 'none';
   conclusion.style.display = 'none';
   updateProgress();
+  window.scrollTo({top: 0, behavior: 'smooth'});
 });
 
-// initial progress
 updateProgress();
 </script>
 </body>
 </html>
-
