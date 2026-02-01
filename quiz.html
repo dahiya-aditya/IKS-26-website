@@ -1,27 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Quiz — Ancient Indian Science & Technology</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz — Ancient Indian Science & Technology | IISER Pune 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --saffron: #D4AF37;
-    --deep-saffron: #B8860B;
-    --terracotta: #8B4513;
-    --cream: #F5E6D3;
-    --ivory: #FFF8E7;
-    --gold: #C9A961;
-    --navy: #1A2332;
-    --deep-navy: #0D1117;
-    --sage: #2C5F4F;
-    --burgundy: #6B2737;
-    --border-gold: #B8860B;
-    --text-primary: #2C2416;
-    --text-secondary: #5C5346;
+  :root {
+    /* Main page color scheme */
+    --deep-blue: #0a2463;
+    --science-blue: #1e3a8a;
+    --terracotta: #c8553d;
+    --gold: #d4af37;
+    --warm-gold: #f4d03f;
+    --cream: #faf7f2;
+    --parchment: #f4ecd8;
+    --charcoal: #2d2d2d;
+    --light-gray: #f5f5f5;
   }
   
   * {
@@ -30,62 +25,147 @@
     box-sizing: border-box;
   }
   
-  html, body {
-    height: 100%;
-    font-family: 'Cormorant Garamond', serif;
-    background: linear-gradient(135deg, var(--ivory) 0%, var(--cream) 50%, #FEF3C7 100%);
-    color: var(--text-primary);
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Work Sans', sans-serif;
+    color: var(--charcoal);
+    overflow-x: hidden;
+    background: var(--parchment);
     line-height: 1.7;
   }
   
-  .ornamental-border {
+  /* Navigation - matching main page */
+  nav {
     position: fixed;
-    pointer-events: none;
-    z-index: 1;
-  }
-  
-  .ornamental-border.top {
     top: 0;
-    left: 0;
-    right: 0;
-    height: 8px;
-    background: linear-gradient(90deg, 
-      var(--saffron) 0%, 
-      var(--gold) 25%, 
-      var(--sage) 50%, 
-      var(--gold) 75%, 
-      var(--saffron) 100%);
+    width: 100%;
+    background: rgba(10, 36, 99, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   }
   
-  .ornamental-border.bottom {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 8px;
-    background: linear-gradient(90deg, 
-      var(--saffron) 0%, 
-      var(--gold) 25%, 
-      var(--sage) 50%, 
-      var(--gold) 75%, 
-      var(--saffron) 100%);
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .logo-placeholder {
+    height: 50px;
+    width: 120px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    padding: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .logo-placeholder:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+  }
+  
+  .logo {
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  .nav-links a:hover {
+    color: var(--warm-gold);
+  }
+  
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--warm-gold);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  
+  .cta-button {
+    background: var(--terracotta);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--terracotta);
+  }
+  
+  .cta-button:hover {
+    background: transparent;
+    color: var(--terracotta);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(200, 85, 61, 0.3);
+  }
+  
+  /* Content wrapper */
   .wrap {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 40px 32px;
+    padding: 120px 32px 40px;
     position: relative;
     z-index: 2;
   }
   
+  /* Header - matching main page hero style */
   header {
     text-align: center;
     margin-bottom: 48px;
-    padding: 32px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(254,243,199,0.9));
+    padding: 48px 32px;
+    background: linear-gradient(135deg, var(--deep-blue) 0%, var(--science-blue) 100%);
     border-radius: 16px;
-    border: 3px solid var(--border-gold);
-    box-shadow: 0 8px 32px rgba(217, 119, 6, 0.15);
+    box-shadow: 0 8px 32px rgba(10, 36, 99, 0.2);
     position: relative;
     overflow: hidden;
   }
@@ -96,123 +176,119 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: repeating-linear-gradient(
-      90deg,
-      var(--saffron) 0px,
-      var(--saffron) 10px,
-      transparent 10px,
-      transparent 20px
-    );
-  }
-  
-  header::after {
-    content: '';
-    position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: repeating-linear-gradient(
-      90deg,
-      var(--saffron) 0px,
-      var(--saffron) 10px,
-      transparent 10px,
-      transparent 20px
-    );
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(200, 85, 61, 0.1) 0%, transparent 50%);
+    opacity: 0.6;
   }
   
-  .logo {
+  header * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .logo-badge {
     display: inline-block;
-    background: linear-gradient(135deg, var(--deep-navy), var(--navy));
-    color: var(--gold);
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: 18px;
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--warm-gold);
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-family: 'Crimson Pro', serif;
+    font-weight: 600;
+    font-size: 14px;
     letter-spacing: 2px;
     margin-bottom: 16px;
-    border: 2px solid var(--gold);
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    text-transform: uppercase;
+    border: 2px solid rgba(244, 208, 63, 0.3);
   }
   
   h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 36px;
+    font-family: 'Crimson Pro', serif;
+    font-size: 3rem;
     font-weight: 700;
-    color: var(--burgundy);
+    color: white;
     margin: 16px 0 12px;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 2px rgba(124, 45, 18, 0.1);
+    letter-spacing: 0.5px;
+    line-height: 1.2;
   }
   
   .subtitle {
-    font-size: 18px;
-    color: var(--text-secondary);
-    font-weight: 500;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    margin-bottom: 12px;
   }
   
+  .small {
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    font-style: italic;
+    opacity: 0.8;
+  }
+  
+  /* Card - matching main page sections */
   .card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(255,251,235,0.95));
-    border-radius: 12px;
-    border: 2px solid var(--border-gold);
-    box-shadow: 0 8px 24px rgba(217, 119, 6, 0.12);
-    padding: 32px;
-    margin-bottom: 24px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    padding: 40px;
+    margin-bottom: 32px;
     position: relative;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
   }
   
-  .card::before {
-    content: '❋';
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    font-size: 20px;
-    color: var(--gold);
-    opacity: 0.4;
+  .card:hover {
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
   }
   
-  .card::after {
-    content: '❋';
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    font-size: 20px;
-    color: var(--gold);
-    opacity: 0.4;
-  }
-  
+  /* Section title - matching main page */
   .section-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     padding-bottom: 16px;
-    border-bottom: 2px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+    flex-wrap: wrap;
+    gap: 12px;
   }
   
   .section-title h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--burgundy);
+    font-family: 'Crimson Pro', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--deep-blue);
     margin: 0;
     letter-spacing: 0.5px;
+    position: relative;
+  }
+  
+  .section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -19px;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--terracotta), var(--gold));
   }
   
   .muted {
-    color: var(--text-secondary);
-    font-size: 15px;
+    color: var(--charcoal);
+    font-size: 1rem;
     font-style: italic;
+    opacity: 0.7;
   }
   
+  /* Form elements */
   label {
     display: block;
     font-weight: 600;
     margin-bottom: 10px;
-    color: var(--text-primary);
-    font-size: 17px;
+    color: var(--charcoal);
+    font-size: 1rem;
   }
   
   input[type="text"], 
@@ -222,11 +298,11 @@
     width: 100%;
     padding: 14px 16px;
     border-radius: 8px;
-    border: 2px solid var(--border-gold);
-    font-size: 16px;
-    font-family: 'Cormorant Garamond', serif;
+    border: 2px solid rgba(200, 85, 61, 0.3);
+    font-size: 1rem;
+    font-family: 'Work Sans', sans-serif;
     background: rgba(255, 255, 255, 0.9);
-    color: var(--text-primary);
+    color: var(--charcoal);
     transition: all 0.3s ease;
   }
   
@@ -235,33 +311,44 @@
   select:focus, 
   textarea:focus {
     outline: none;
-    border-color: var(--deep-saffron);
-    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+    border-color: var(--terracotta);
+    box-shadow: 0 0 0 3px rgba(200, 85, 61, 0.1);
     background: white;
   }
   
   .row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 24px;
   }
   
+  /* Question styling */
   .question {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    padding: 32px;
+    background: var(--light-gray);
+    border-radius: 12px;
+    border-left: 5px solid var(--terracotta);
+    transition: all 0.3s ease;
+  }
+  
+  .question:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   }
   
   .q-title {
     font-weight: 600;
-    margin-bottom: 16px;
-    font-size: 19px;
-    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: var(--charcoal);
     line-height: 1.6;
   }
   
-  .small {
-    font-size: 14px;
-    color: var(--text-secondary);
-    font-style: italic;
+  .q-title .small {
+    color: var(--deep-blue);
+    opacity: 0.9;
+    font-weight: 500;
   }
   
   .options {
@@ -276,25 +363,25 @@
     gap: 12px;
     padding: 14px 16px;
     border-radius: 8px;
-    border: 2px solid rgba(217, 119, 6, 0.3);
-    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(200, 85, 61, 0.2);
+    background: white;
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
   }
   
   .opt label:hover {
-    border-color: var(--deep-saffron);
-    background: rgba(255, 251, 235, 0.9);
+    border-color: var(--terracotta);
+    background: rgba(250, 247, 242, 0.9);
     transform: translateX(4px);
   }
   
   .opt input[type="radio"]:checked + label,
   .opt input[type="checkbox"]:checked + label,
   .opt label:has(input:checked) {
-    border-color: var(--sage);
-    background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(5, 150, 105, 0.05));
+    border-color: var(--deep-blue);
+    background: linear-gradient(135deg, rgba(10, 36, 99, 0.08), rgba(10, 36, 99, 0.05));
     font-weight: 600;
   }
   
@@ -302,181 +389,290 @@
   input[type="checkbox"] {
     width: 20px;
     height: 20px;
-    accent-color: var(--sage);
+    accent-color: var(--deep-blue);
     cursor: pointer;
   }
   
+  /* Buttons - matching main page style */
   .btn {
     display: inline-block;
-    padding: 14px 32px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, var(--deep-saffron), var(--saffron));
+    padding: 1.25rem 3rem;
+    border-radius: 50px;
+    background: var(--terracotta);
     color: white;
-    border: none;
-    font-weight: 700;
-    font-size: 17px;
-    font-family: 'Cinzel', serif;
-    letter-spacing: 0.5px;
+    border: 2px solid var(--terracotta);
+    font-weight: 600;
+    font-size: 1.1rem;
+    font-family: 'Work Sans', sans-serif;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.3);
+    box-shadow: 0 6px 20px rgba(200, 85, 61, 0.3);
     transition: all 0.3s ease;
     text-decoration: none;
   }
   
   .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(217, 119, 6, 0.4);
+    background: transparent;
+    color: var(--terracotta);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(200, 85, 61, 0.4);
   }
   
   .btn:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
   }
   
   .btn.secondary {
-    background: linear-gradient(135deg, var(--ivory), white);
-    color: var(--burgundy);
-    border: 2px solid var(--border-gold);
-    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.15);
+    background: white;
+    color: var(--deep-blue);
+    border: 2px solid var(--deep-blue);
+    box-shadow: 0 4px 12px rgba(10, 36, 99, 0.15);
   }
   
   .btn.secondary:hover {
-    background: linear-gradient(135deg, var(--cream), var(--ivory));
+    background: var(--deep-blue);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(10, 36, 99, 0.3);
   }
   
+  /* Progress bar */
   .progress {
     height: 12px;
-    background: rgba(217, 119, 6, 0.15);
-    border-radius: 8px;
+    background: rgba(200, 85, 61, 0.15);
+    border-radius: 50px;
     overflow: hidden;
-    margin-bottom: 24px;
-    border: 1px solid var(--border-gold);
+    margin-bottom: 32px;
+    border: 2px solid rgba(200, 85, 61, 0.3);
+    position: sticky;
+    top: 90px;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  /* Sticky Timer Display */
+  .sticky-timer {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--deep-blue), var(--science-blue));
+    color: var(--warm-gold);
+    padding: 12px 24px;
+    border-radius: 50px;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(10, 36, 99, 0.3);
+    font-family: 'Crimson Pro', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: 2px solid rgba(244, 208, 63, 0.3);
+    display: none;
+  }
+  
+  .sticky-timer.show {
+    display: block;
+    animation: slideIn 0.3s ease;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
   
   .progress > i {
     display: block;
     height: 100%;
-    background: linear-gradient(90deg, var(--sage), var(--gold), var(--saffron));
+    background: linear-gradient(90deg, var(--terracotta), var(--gold));
     width: 0%;
     transition: width 0.5s ease;
-    box-shadow: 0 0 10px rgba(5, 150, 105, 0.5);
+    box-shadow: 0 0 10px rgba(200, 85, 61, 0.5);
   }
   
+  /* Result styling */
   .result {
-    padding: 24px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, rgba(5, 150, 105, 0.08), rgba(255, 251, 235, 0.9));
-    border: 2px solid var(--sage);
-    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.15);
+    padding: 32px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(10, 36, 99, 0.05), rgba(244, 236, 216, 0.5));
+    border: 3px solid var(--deep-blue);
+    box-shadow: 0 8px 24px rgba(10, 36, 99, 0.15);
   }
   
   .result strong {
-    color: var(--sage);
-    font-family: 'Cinzel', serif;
-    font-size: 22px;
+    color: var(--deep-blue);
+    font-family: 'Crimson Pro', serif;
+    font-size: 1.8rem;
   }
   
+  /* Footer - matching main page */
   footer {
-    margin-top: 48px;
+    margin-top: 64px;
     text-align: center;
-    color: var(--text-secondary);
-    font-size: 15px;
-    padding: 24px;
-    border-top: 2px solid var(--border-gold);
-    font-style: italic;
+    color: var(--charcoal);
+    font-size: 0.95rem;
+    padding: 32px 24px;
+    border-top: 3px solid var(--gold);
+    opacity: 0.8;
   }
   
+  footer p {
+    margin-bottom: 8px;
+  }
+  
+  /* Decorative elements */
   .decorative-divider {
     text-align: center;
-    margin: 32px 0;
+    margin: 40px 0;
     color: var(--gold);
     font-size: 24px;
     opacity: 0.6;
   }
   
+  /* Conclusion section */
   #conclusion h2 {
-    font-family: 'Cinzel', serif;
-    color: var(--burgundy);
-    font-size: 28px;
-    margin-bottom: 16px;
+    font-family: 'Crimson Pro', serif;
+    color: var(--deep-blue);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
   }
   
   #conclusion p {
-    margin-bottom: 12px;
-    font-size: 17px;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+    line-height: 1.7;
   }
   
   #qrImage {
-    width: 180px;
+    width: 200px;
     border-radius: 12px;
-    border: 3px solid var(--border-gold);
-    box-shadow: 0 4px 16px rgba(217, 119, 6, 0.2);
-    margin-top: 8px;
+    border: 3px solid var(--gold);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+    margin-top: 16px;
     background: white;
     padding: 12px;
   }
   
+  /* Scroll animations */
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Mobile responsive */
   @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+    
     .row {
       grid-template-columns: 1fr;
     }
     
     .wrap {
-      padding: 24px 16px;
+      padding: 100px 16px 24px;
     }
     
     h1 {
-      font-size: 28px;
+      font-size: 2rem;
     }
     
     header {
-      padding: 24px 16px;
+      padding: 32px 20px;
+    }
+    
+    #timerDisplay {
+      font-size: 1.5rem !important;
+    }
+    
+    .sticky-timer {
+      right: 10px;
+      top: 65px;
+      padding: 8px 16px;
+      font-size: 1rem;
+    }
+    
+    .progress {
+      top: 80px;
     }
     
     .card {
+      padding: 24px 20px;
+    }
+    
+    .question {
       padding: 24px 16px;
     }
     
     .section-title {
       flex-direction: column;
       align-items: flex-start;
-      gap: 8px;
     }
-  }
-  
-  /* Mandala pattern background accent */
-  .card.question::before {
-    content: '';
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    width: 40px;
-    height: 40px;
-    background-image: radial-gradient(circle, var(--gold) 1px, transparent 1px);
-    background-size: 8px 8px;
-    opacity: 0.15;
-    pointer-events: none;
+    
+    .section-title h2 {
+      font-size: 1.5rem;
+    }
+    
+    .btn {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      width: 100%;
+      text-align: center;
+    }
   }
 </style>
 </head>
 <body>
-<div class="ornamental-border top"></div>
-<div class="ornamental-border bottom"></div>
+<!-- Navigation -->
+<nav>
+  <div class="nav-container">
+    <div class="logo-container">
+      <a href="index.html" class="logo-placeholder" title="Conference Logo - Click to visit conference website">Conference Logo</a>
+      <a href="https://www.iiserpune.ac.in" class="logo-placeholder" title="IISER Pune Logo - Click to visit IISER Pune website" target="_blank">IISER Pune Logo</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#themes">Themes</a></li>
+      <li><a href="index.html#schedule">Schedule</a></li>
+      <li><a href="index.html#speakers">Speakers</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="register.html" class="cta-button">Register Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Sticky Timer (shows when scrolling) -->
+<div id="stickyTimer" class="sticky-timer">
+  ⏱️ <span id="stickyTimeRemaining">15:00</span>
+</div>
 
 <div class="wrap">
   <header>
-    <div class="logo">IISER PUNE</div>
+    <div class="logo-badge">IISER PUNE</div>
     <h1>Ancient Indian Science & Technology</h1>
-    <div class="subtitle">Pre-conference Knowledge Assessment</div>
-    <div class="small" style="margin-top: 12px;">Total: 100 points • No time limit</div>
+    <div class="subtitle">Pre-Conference Knowledge Assessment</div>
+    <div style="margin-top: 16px; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); font-style: italic;">Total: 100 points • Time Limit: 15 minutes</div>
+    <div id="timerDisplay" style="margin-top: 20px; font-size: 2rem; font-weight: 700; color: var(--warm-gold); font-family: 'Crimson Pro', serif;">
+      ⏱️ <span id="timeRemaining">15:00</span>
+    </div>
   </header>
-
+  
   <!-- Participant details -->
-  <form id="quizForm" class="card" autocomplete="off" novalidate>
+  <form id="quizForm" class="card" autocomplete="off" novalidate action="https://script.google.com/macros/s/AKfycbzcoZ5VoFridGgcW4qgWaCaM_eI2gt7YwuVAFVbzu_6OBVkHaoq2Pizf1uZS1xQCyUm/exec" method="POST" target="hidden_iframe">
     <div class="section-title">
       <h2>Section I — Participant Details</h2>
       <div class="muted">All fields required</div>
     </div>
-
     <div class="row" style="margin-bottom:20px">
       <div>
         <label for="fullname">Full Name</label>
@@ -487,7 +683,6 @@
         <input id="email" name="email" type="email" required placeholder="your.email@example.com" />
       </div>
     </div>
-
     <div class="row" style="margin-bottom:24px">
       <div>
         <label for="institution">Institution / Organization</label>
@@ -504,76 +699,74 @@
         </select>
       </div>
     </div>
-
+    
     <div class="decorative-divider">⚘ ⚘ ⚘</div>
-
+    
     <!-- Quiz -->
     <div class="section-title">
       <h2>Section II — Assessment Questions</h2>
       <div class="muted">Demonstrate your knowledge</div>
     </div>
-
     <div class="progress" aria-hidden><i id="progressBar"></i></div>
-
+    
     <div id="questions">
-
       <!-- Q1 -->
-      <div class="question card" data-q="1" data-points="5">
+      <div class="question" data-q="1" data-points="5">
         <div class="q-title">1. Which ancient Indian text contains early descriptions of surgical techniques and instruments? <span class="small">(5 pts)</span></div>
         <div class="options">
-          <div class="opt"><label><input type="radio" name="q1" value="Sushruta Samhita" required> Sushruta Samhita</label></div>
+          <div class="opt"><label><input type="radio" name="q1" value="Sushruta Samhita"> Sushruta Samhita</label></div>
           <div class="opt"><label><input type="radio" name="q1" value="Charaka Samhita"> Charaka Samhita</label></div>
           <div class="opt"><label><input type="radio" name="q1" value="Arthashastra"> Arthashastra</label></div>
           <div class="opt"><label><input type="radio" name="q1" value="Rigveda"> Rigveda</label></div>
         </div>
       </div>
-
+      
       <!-- Q2 -->
-      <div class="question card" data-q="2" data-points="5">
+      <div class="question" data-q="2" data-points="5">
         <div class="q-title">2. Which ancient Indian scholar is credited with calculating an approximation of π (pi) and describing the concept of zero as a number? <span class="small">(5 pts)</span></div>
         <div class="options">
-          <div class="opt"><label><input type="radio" name="q2" value="Aryabhata" required> Aryabhata</label></div>
+          <div class="opt"><label><input type="radio" name="q2" value="Aryabhata"> Aryabhata</label></div>
           <div class="opt"><label><input type="radio" name="q2" value="Bhaskara I"> Bhaskara I</label></div>
           <div class="opt"><label><input type="radio" name="q2" value="Brahmagupta"> Brahmagupta</label></div>
           <div class="opt"><label><input type="radio" name="q2" value="Varahamihira"> Varahamihira</label></div>
         </div>
       </div>
-
+      
       <!-- Q3 -->
-      <div class="question card" data-q="3" data-points="5">
+      <div class="question" data-q="3" data-points="5">
         <div class="q-title">3. The Iron Pillar of Delhi is notable for which scientific/technological reason? <span class="small">(5 pts)</span></div>
         <div class="options">
           <div class="opt"><label><input type="radio" name="q3" value="earliest cast iron"> It is the earliest known use of cast iron.</label></div>
-          <div class="opt"><label><input type="radio" name="q3" value="corrosion resistant" required> It demonstrates advanced rust-resistant (corrosion-resistant) metallurgy.</label></div>
+          <div class="opt"><label><input type="radio" name="q3" value="corrosion resistant"> It demonstrates advanced rust-resistant (corrosion-resistant) metallurgy.</label></div>
           <div class="opt"><label><input type="radio" name="q3" value="aluminum alloy"> It contains an early alloy of aluminum.</label></div>
           <div class="opt"><label><input type="radio" name="q3" value="astronomical use"> It was used as an astronomical instrument.</label></div>
         </div>
       </div>
-
+      
       <!-- Q4 -->
-      <div class="question card" data-q="4" data-points="5">
+      <div class="question" data-q="4" data-points="5">
         <div class="q-title">4. Which ancient Indian physician introduced systematic classifications of diseases and wrote the Charaka Samhita? <span class="small">(5 pts)</span></div>
         <div class="options">
-          <div class="opt"><label><input type="radio" name="q4" value="Sushruta" required> Sushruta</label></div>
+          <div class="opt"><label><input type="radio" name="q4" value="Sushruta"> Sushruta</label></div>
           <div class="opt"><label><input type="radio" name="q4" value="Charaka"> Charaka</label></div>
           <div class="opt"><label><input type="radio" name="q4" value="Dhanvantari"> Dhanvantari</label></div>
           <div class="opt"><label><input type="radio" name="q4" value="Nagarjuna"> Nagarjuna</label></div>
         </div>
       </div>
-
+      
       <!-- Q5 -->
-      <div class="question card" data-q="5" data-points="5">
+      <div class="question" data-q="5" data-points="5">
         <div class="q-title">5. The ancient university of Nalanda (5th–12th century CE) was primarily known for teaching which subjects? <span class="small">(5 pts)</span></div>
         <div class="options">
-          <div class="opt"><label><input type="radio" name="q5" value="only Buddhist" required> Only Buddhist scriptures</label></div>
+          <div class="opt"><label><input type="radio" name="q5" value="only Buddhist"> Only Buddhist scriptures</label></div>
           <div class="opt"><label><input type="radio" name="q5" value="wide range"> A wide range including logic, astronomy, medicine, and grammar</label></div>
           <div class="opt"><label><input type="radio" name="q5" value="only medicine"> Only medicine and surgery</label></div>
           <div class="opt"><label><input type="radio" name="q5" value="only math"> Only mathematics and astronomy</label></div>
         </div>
       </div>
-
+      
       <!-- Q6 (checkboxes) -->
-      <div class="question card" data-q="6" data-points="6">
+      <div class="question" data-q="6" data-points="6">
         <div class="q-title">6. Which of the following are contributions from ancient/medieval India to mathematics and astronomy? <span class="small">Select all that apply. (6 pts)</span></div>
         <div class="options">
           <div class="opt"><label><input type="checkbox" name="q6" value="decimal"> Decimal place-value system</label></div>
@@ -582,53 +775,52 @@
           <div class="opt"><label><input type="checkbox" name="q6" value="zero"> Concept of zero as a numeral</label></div>
         </div>
       </div>
-
+      
       <!-- Q7 short answer -->
-      <div class="question card" data-q="7" data-points="6">
+      <div class="question" data-q="7" data-points="6">
         <div class="q-title">7. Name an ancient Indian text considered one of the earliest works on civil engineering and urban planning (e.g., drainage and water supply systems). <span class="small">(6 pts)</span></div>
         <div><input id="q7" name="q7" type="text" placeholder="Example: Shilpa Shastra" /></div>
       </div>
-
+      
       <!-- Q8 -->
-      <div class="question card" data-q="8" data-points="5">
+      <div class="question" data-q="8" data-points="5">
         <div class="q-title">8. Which metallurgical achievement is associated with ancient India's Wootz steel? <span class="small">(5 pts)</span></div>
         <div class="options">
-          <div class="opt"><label><input type="radio" name="q8" value="crucible" required> Early high-carbon crucible steel used for superior blades</label></div>
+          <div class="opt"><label><input type="radio" name="q8" value="crucible"> Early high-carbon crucible steel used for superior blades</label></div>
           <div class="opt"><label><input type="radio" name="q8" value="electric"> Steel produced by electric arc</label></div>
           <div class="opt"><label><input type="radio" name="q8" value="wrought"> Low-carbon wrought iron only</label></div>
           <div class="opt"><label><input type="radio" name="q8" value="bronze"> Bronze casting techniques</label></div>
         </div>
       </div>
-
+      
       <!-- Q9 true/false -->
-      <div class="question card" data-q="9" data-points="4">
+      <div class="question" data-q="9" data-points="4">
         <div class="q-title">9. The Sulba Sutras contain geometric rules used for altar construction and include approximations of square roots. <span class="small">(True / False) (4 pts)</span></div>
         <div class="options">
-          <div class="opt"><label><input type="radio" name="q9" value="True" required> True</label></div>
+          <div class="opt"><label><input type="radio" name="q9" value="True"> True</label></div>
           <div class="opt"><label><input type="radio" name="q9" value="False"> False</label></div>
         </div>
       </div>
-
+      
       <!-- Q10 -->
-      <div class="question card" data-q="10" data-points="5">
+      <div class="question" data-q="10" data-points="5">
         <div class="q-title">10. Who wrote the astronomical work 'Surya Siddhanta' (in its later Sanskrit form) that influenced Indian astronomy? <span class="small">(5 pts)</span></div>
         <div class="options">
-          <div class="opt"><label><input type="radio" name="q10" value="Varahamihira" required> Varahamihira</label></div>
+          <div class="opt"><label><input type="radio" name="q10" value="Varahamihira"> Varahamihira</label></div>
           <div class="opt"><label><input type="radio" name="q10" value="Charaka"> Charaka</label></div>
           <div class="opt"><label><input type="radio" name="q10" value="Nagarjuna"> Nagarjuna</label></div>
           <div class="opt"><label><input type="radio" name="q10" value="Kautilya"> Kautilya</label></div>
         </div>
       </div>
-
+      
       <!-- Q11 matching (implemented as selects) -->
-      <div class="question card" data-q="11" data-points="10">
+      <div class="question" data-q="11" data-points="10">
         <div class="q-title">11. Match each scholar/term with their field or contribution. <span class="small">(10 pts — 2 points each)</span></div>
-        <div class="small" style="margin-bottom:16px">Choose the best match for each person.</div>
-
+        <div style="margin-bottom:16px; color: var(--charcoal); font-weight: 500; font-size: 0.95rem;">Choose the best match for each person.</div>
         <div style="display:grid;gap:16px">
           <div>
             <label>1. Aryabhata</label>
-            <select name="q11_1" required>
+            <select name="q11_1">
               <option value="">Select a match</option>
               <option value="A">Rules on polity, statecraft, and economic administration</option>
               <option value="B">Systematic surgery and surgical instruments</option>
@@ -637,10 +829,9 @@
               <option value="E">Foundational text on internal medicine</option>
             </select>
           </div>
-
           <div>
             <label>2. Sushruta</label>
-            <select name="q11_2" required>
+            <select name="q11_2">
               <option value="">Select a match</option>
               <option value="A">Rules on polity, statecraft, and economic administration</option>
               <option value="B">Systematic surgery and surgical instruments</option>
@@ -649,10 +840,9 @@
               <option value="E">Foundational text on internal medicine</option>
             </select>
           </div>
-
           <div>
             <label>3. Brahmagupta</label>
-            <select name="q11_3" required>
+            <select name="q11_3">
               <option value="">Select a match</option>
               <option value="A">Rules on polity, statecraft, and economic administration</option>
               <option value="B">Systematic surgery and surgical instruments</option>
@@ -661,10 +851,9 @@
               <option value="E">Foundational text on internal medicine</option>
             </select>
           </div>
-
           <div>
             <label>4. Charaka</label>
-            <select name="q11_4" required>
+            <select name="q11_4">
               <option value="">Select a match</option>
               <option value="A">Rules on polity, statecraft, and economic administration</option>
               <option value="B">Systematic surgery and surgical instruments</option>
@@ -673,10 +862,9 @@
               <option value="E">Foundational text on internal medicine</option>
             </select>
           </div>
-
           <div>
             <label>5. Kautilya (Arthashastra)</label>
-            <select name="q11_5" required>
+            <select name="q11_5">
               <option value="">Select a match</option>
               <option value="A">Rules on polity, statecraft, and economic administration</option>
               <option value="B">Systematic surgery and surgical instruments</option>
@@ -687,77 +875,81 @@
           </div>
         </div>
       </div>
-
+      
       <!-- Q12 -->
-      <div class="question card" data-q="12" data-points="5">
+      <div class="question" data-q="12" data-points="5">
         <div class="q-title">12. Which system detailed methods for irrigation, reservoirs, and water management such as stepwells (baolis)? <span class="small">(5 pts)</span></div>
         <div class="options">
-          <div class="opt"><label><input type="radio" name="q12" value="indus-harappan" required> Hydraulic engineering traditions in the Indus Valley and later regional practices</label></div>
+          <div class="opt"><label><input type="radio" name="q12" value="indus-harappan"> Hydraulic engineering traditions in the Indus Valley and later regional practices</label></div>
           <div class="opt"><label><input type="radio" name="q12" value="greek"> Only Greek-influenced irrigation</label></div>
           <div class="opt"><label><input type="radio" name="q12" value="roman"> Roman techniques imported</label></div>
           <div class="opt"><label><input type="radio" name="q12" value="polynesian"> Polynesian methods</label></div>
         </div>
       </div>
-
+      
       <!-- Q13 -->
-      <div class="question card" data-q="13" data-points="5">
+      <div class="question" data-q="13" data-points="5">
         <div class="q-title">13. The medical method involving systematic observation, diagnosis, prognosis, and treatment is a key feature of which ancient Indian medical system? <span class="small">(5 pts)</span></div>
         <div class="options">
-          <div class="opt"><label><input type="radio" name="q13" value="Ayurveda" required> Ayurveda</label></div>
+          <div class="opt"><label><input type="radio" name="q13" value="Ayurveda"> Ayurveda</label></div>
           <div class="opt"><label><input type="radio" name="q13" value="Homeopathy"> Homeopathy</label></div>
           <div class="opt"><label><input type="radio" name="q13" value="Unani"> Unani</label></div>
           <div class="opt"><label><input type="radio" name="q13" value="Siddha"> Siddha</label></div>
         </div>
       </div>
-
+      
       <!-- Q14 short answer -->
-      <div class="question card" data-q="14" data-points="6">
+      <div class="question" data-q="14" data-points="6">
         <div class="q-title">14. Give one example of an ancient Indian invention or technique related to textiles or dyes (e.g., a fabric, dyeing technique, or loom technology). <span class="small">(6 pts)</span></div>
         <div><input id="q14" name="q14" type="text" placeholder="Example: block printing, indigo dyeing, ikat" /></div>
       </div>
-
+      
       <!-- Q15 -->
-      <div class="question card" data-q="15" data-points="10">
+      <div class="question" data-q="15" data-points="10">
         <div class="q-title">15. Which of the following best explains why ancient Indian astronomers developed detailed mathematical methods? <span class="small">(10 pts)</span></div>
         <div class="options">
-          <div class="opt"><label><input type="radio" name="q15" value="ritual" required> For ritual and calendrical accuracy (timing sacrifices, festivals)</label></div>
+          <div class="opt"><label><input type="radio" name="q15" value="ritual"> For ritual and calendrical accuracy (timing sacrifices, festivals)</label></div>
           <div class="opt"><label><input type="radio" name="q15" value="navigation"> Purely for navigation</label></div>
           <div class="opt"><label><input type="radio" name="q15" value="taxes"> To calculate taxes only</label></div>
           <div class="opt"><label><input type="radio" name="q15" value="entertainment"> As a form of entertainment</label></div>
         </div>
       </div>
-
+      
       <div class="decorative-divider">⚘ ⚘ ⚘</div>
-
+      
+      <!-- Motivational Text -->
+      <div style="text-align:center; margin: 32px 0 24px; padding: 24px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(200, 85, 61, 0.1)); border-radius: 12px; border: 2px solid var(--gold);">
+        <h3 style="font-family: 'Crimson Pro', serif; color: var(--deep-blue); font-size: 1.5rem; margin-bottom: 12px;">🏆 Submit Your Best & Win Amazing Prizes! 🏆</h3>
+        <p style="color: var(--charcoal); font-size: 1.1rem; line-height: 1.6;">
+          Demonstrate your knowledge of Ancient Indian Science & Technology and stand a chance to win exciting prizes at the conference!
+        </p>
+      </div>
+      
       <!-- Submit -->
       <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:center;margin-top:32px">
         <button id="submitBtn" class="btn" type="button">Submit & View Results</button>
-        <button id="resetBtn" class="btn secondary" type="button">Reset Form</button>
       </div>
     </div>
   </form>
-
+  
   <!-- Result area -->
   <div id="resultArea" class="card" style="display:none;margin-top:24px"></div>
-
+  
   <!-- Conclusion / confirmation -->
   <div id="conclusion" class="card" style="display:none;margin-top:24px">
     <h2>Thank You for Participating!</h2>
     <p>We hope this assessment has enriched your understanding of the vast scientific and technological heritage of ancient India.</p>
     <p style="margin-top:16px">Deepen your knowledge further at the <strong>National Conference on Indian Knowledge Systems</strong> at <strong>IISER Pune</strong> on <strong>7th March 2026</strong>.</p>
     <div style="text-align:center;margin-top:24px">
-      <a id="registerLink" class="btn" href="#" target="_blank">Register for the Conference</a>
-    </div>
-    <div style="margin-top:24px;text-align:center">
-      <p class="small" style="margin-bottom:12px">Scan to register:</p>
-      <!-- Placeholder QR: replace src with your QR image path -->
-      <img id="qrImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%23ffffff' width='200' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='16' text-anchor='middle' dy='.3em' fill='%23999'%3EQR Code%3C/text%3E%3C/svg%3E" alt="QR code for conference registration" />
+      <a id="registerLink" class="btn" href="register.html">Register for the Conference</a>
     </div>
   </div>
-
+  
   <footer>
-    <p>For backend integration to store responses or email results, consider Firebase, Supabase, or Google Sheets API.</p>
-    <p style="margin-top:8px">© 2026 IISER Pune • National Conference on Indian Knowledge Systems</p>
+    <p><strong>Connected to Google Sheets</strong></p>
+    <p style="margin-top:8px;">Your quiz responses are automatically saved to our secure database.</p>
+    <p style="margin-top:8px;">Data collected: Timestamp, Name, Email, Institution, Designation, and Score</p>
+    <p style="margin-top:16px;">© 2026 IISER Pune • National Conference on Indian Knowledge Systems</p>
   </footer>
 </div>
 
@@ -796,14 +988,75 @@ const pointsMap = {
 
 const form = document.getElementById('quizForm');
 const submitBtn = document.getElementById('submitBtn');
-const resetBtn = document.getElementById('resetBtn');
 const progressBar = document.getElementById('progressBar');
 const resultArea = document.getElementById('resultArea');
 const conclusion = document.getElementById('conclusion');
-const qrImage = document.getElementById('qrImage');
 const registerLink = document.getElementById('registerLink');
+const timeRemainingElement = document.getElementById('timeRemaining');
+const stickyTimeRemainingElement = document.getElementById('stickyTimeRemaining');
+const timerDisplay = document.getElementById('timerDisplay');
+const stickyTimer = document.getElementById('stickyTimer');
 
 registerLink.href = "register.html";
+
+// Timer functionality
+let timeRemaining = 15 * 60; // 15 minutes in seconds
+let timerInterval;
+let isTimerExpired = false;
+
+function updateTimerDisplay() {
+  const minutes = Math.floor(timeRemaining / 60);
+  const seconds = timeRemaining % 60;
+  const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  timeRemainingElement.textContent = display;
+  stickyTimeRemainingElement.textContent = display;
+  
+  // Change color when time is running low
+  if (timeRemaining <= 60) {
+    timerDisplay.style.color = '#c8553d'; // terracotta red
+    stickyTimer.style.color = '#c8553d';
+  } else if (timeRemaining <= 300) {
+    timerDisplay.style.color = '#d4af37'; // gold
+    stickyTimer.style.color = '#d4af37';
+  }
+}
+
+// Show/hide sticky timer on scroll
+let headerHeight = 0;
+window.addEventListener('scroll', function() {
+  if (headerHeight === 0) {
+    const header = document.querySelector('header');
+    if (header) {
+      headerHeight = header.offsetTop + header.offsetHeight;
+    }
+  }
+  
+  if (window.pageYOffset > headerHeight && !isTimerExpired) {
+    stickyTimer.classList.add('show');
+  } else {
+    stickyTimer.classList.remove('show');
+  }
+});
+
+function startTimer() {
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    timeRemaining--;
+    updateTimerDisplay();
+    
+    if (timeRemaining <= 0) {
+      clearInterval(timerInterval);
+      isTimerExpired = true;
+      timeRemainingElement.textContent = '00:00';
+      timerDisplay.style.color = '#c8553d';
+      alert('Time is up! Your quiz will be submitted automatically.');
+      handleSubmit();
+    }
+  }, 1000);
+}
+
+// Start timer when page loads
+window.addEventListener('load', startTimer);
 
 function validateParticipant(){
   const fullname = document.getElementById('fullname').value.trim();
@@ -841,11 +1094,11 @@ document.getElementById('q14')?.addEventListener('input', updateProgress);
 function scoreForm(){
   let total = 0;
   let details = [];
-
+  
   function addDetail(q, pts, max, correct, got){
     details.push({q, pts, max, correct, got});
   }
-
+  
   // Q1..Q5 straightforward radios
   for(let i=1;i<=5;i++){
     const name = 'q'+i;
@@ -859,7 +1112,7 @@ function scoreForm(){
       addDetail(i, 0, pts, correct, ans || null);
     }
   }
-
+  
   // Q6 checkboxes (6 points)
   const q6boxes = Array.from(form.querySelectorAll('input[name="q6"]'));
   const selected = q6boxes.filter(b=>b.checked).map(b=>b.value);
@@ -871,7 +1124,7 @@ function scoreForm(){
   q6Score = Math.round(q6Score * 100) / 100;
   total += q6Score;
   addDetail(6, q6Score, pointsMap[6], q6Correct.join(', '), selected.join(', ') || null);
-
+  
   // Q7 short answer (6 points)
   const q7Ans = (form.elements['q7'].value || '').trim().toLowerCase();
   let q7OK = false;
@@ -882,16 +1135,16 @@ function scoreForm(){
   }
   if(q7OK){ total += pointsMap[7]; addDetail(7, pointsMap[7], pointsMap[7], 'Shilpa Shastra / Manasollasa / similar', form.elements['q7'].value); }
   else addDetail(7, 0, pointsMap[7], 'Shilpa Shastra / Manasollasa / similar', form.elements['q7'].value || null);
-
+  
   // Q8
   { const ans = form.elements['q8'].value || ''; if(ans === KEY.q8){ total += pointsMap[8]; addDetail(8, pointsMap[8], pointsMap[8], KEY.q8, ans); } else addDetail(8,0,pointsMap[8],KEY.q8,ans||null); }
-
+  
   // Q9
   { const ans = form.elements['q9'].value || ''; if(ans === KEY.q9){ total += pointsMap[9]; addDetail(9, pointsMap[9], pointsMap[9], KEY.q9, ans); } else addDetail(9,0,pointsMap[9],KEY.q9,ans||null); }
-
+  
   // Q10
   { const ans = form.elements['q10'].value || ''; if(ans === KEY.q10){ total += pointsMap[10]; addDetail(10, pointsMap[10], pointsMap[10], KEY.q10, ans); } else addDetail(10,0,pointsMap[10],KEY.q10,ans||null); }
-
+  
   // Q11 matching (10 points -> 2 points each)
   let q11Score = 0;
   for(let i=1;i<=5;i++){
@@ -902,13 +1155,13 @@ function scoreForm(){
   q11Score = Math.round(q11Score * 100) / 100;
   total += q11Score;
   addDetail(11, q11Score, pointsMap[11], 'Pairs: 1-D, 2-B, 3-C, 4-E, 5-A', null);
-
+  
   // Q12
   { const ans = form.elements['q12'].value || ''; if(ans === KEY.q12){ total += pointsMap[12]; addDetail(12, pointsMap[12], pointsMap[12], KEY.q12, ans); } else addDetail(12,0,pointsMap[12],KEY.q12,ans||null); }
-
+  
   // Q13
   { const ans = form.elements['q13'].value || ''; if(ans === KEY.q13){ total += pointsMap[13]; addDetail(13, pointsMap[13], pointsMap[13], KEY.q13, ans); } else addDetail(13,0,pointsMap[13],KEY.q13,ans||null); }
-
+  
   // Q14 short answer (6 pts)
   const q14Ans = (form.elements['q14'].value || '').trim().toLowerCase();
   let q14OK = false;
@@ -917,12 +1170,11 @@ function scoreForm(){
   }
   if(q14OK){ total += pointsMap[14]; addDetail(14, pointsMap[14], pointsMap[14], 'Examples: ikat, block printing, indigo, kalamkari', form.elements['q14'].value); }
   else addDetail(14,0,pointsMap[14],'Examples: ikat, block printing, indigo, kalamkari', form.elements['q14'].value||null);
-
+  
   // Q15
   { const ans = form.elements['q15'].value || ''; if(ans === KEY.q15){ total += pointsMap[15]; addDetail(15, pointsMap[15], pointsMap[15], KEY.q15, ans); } else addDetail(15,0,pointsMap[15],KEY.q15,ans||null); }
-
+  
   total = Math.round(total * 100) / 100;
-
   return { total, details };
 }
 
@@ -931,14 +1183,15 @@ function renderResult(scoreObj){
   const name = document.getElementById('fullname').value.trim();
   const inst = document.getElementById('institution').value.trim();
   const designation = document.getElementById('designation').value;
+  
   resultArea.innerHTML = '';
-
   const out = document.createElement('div');
   out.className = 'result';
-
+  
   const header = document.createElement('div');
   header.innerHTML = `<strong>Your Score: ${total} / 100</strong>`;
   header.style.marginBottom = '8px';
+  
   if(name) {
     const participantInfo = document.createElement('div');
     participantInfo.style.fontSize = '16px';
@@ -946,35 +1199,39 @@ function renderResult(scoreObj){
     participantInfo.innerHTML = `${name} • ${designation} • ${inst}`;
     header.appendChild(participantInfo);
   }
+  
   out.appendChild(header);
-
+  
   const detailList = document.createElement('div');
   detailList.style.marginTop = '20px';
+  
   details.forEach(d=>{
     const el = document.createElement('div');
     el.style.marginBottom = '16px';
     el.style.padding = '14px 16px';
-    el.style.background = d.pts > 0 ? 'rgba(44, 95, 79, 0.06)' : 'rgba(107, 39, 55, 0.06)';
+    el.style.background = d.pts > 0 ? 'rgba(10, 36, 99, 0.05)' : 'rgba(200, 85, 61, 0.05)';
     el.style.borderRadius = '8px';
-    el.style.border = `2px solid ${d.pts > 0 ? 'rgba(44, 95, 79, 0.25)' : 'rgba(107, 39, 55, 0.25)'}`;
+    el.style.border = `2px solid ${d.pts > 0 ? 'rgba(10, 36, 99, 0.3)' : 'rgba(200, 85, 61, 0.3)'}`;
     
-    const qtext = `<div style="font-weight:700;margin-bottom:10px;color:var(--text-primary);font-size:17px">Question ${d.q} — ${d.pts}/${d.max} points</div>`;
-    const answerText = `<div style="margin-bottom:8px;font-size:15px;color:var(--text-primary)"><span style="font-weight:600">Correct answer:</span> <span style="color:var(--sage);font-weight:500">${d.correct}</span></div>`;
-    const yourText = `<div style="font-size:15px;color:var(--text-primary)"><span style="font-weight:600">Your answer:</span> <span style="color:${d.pts>0?'var(--sage)':'var(--burgundy)'};font-weight:500">${d.got === null ? '<em>Not answered</em>' : d.got}</span></div>`;
+    const qtext = `<div style="font-weight:700;margin-bottom:10px;color:var(--charcoal);font-size:17px">Question ${d.q} — ${d.pts}/${d.max} points</div>`;
+    const answerText = `<div style="margin-bottom:8px;font-size:15px;color:var(--charcoal)"><span style="font-weight:600">Correct answer:</span> <span style="color:var(--deep-blue);font-weight:500">${d.correct}</span></div>`;
+    const yourText = `<div style="font-size:15px;color:var(--charcoal)"><span style="font-weight:600">Your answer:</span> <span style="color:${d.pts>0?'var(--deep-blue)':'var(--terracotta)'};font-weight:500">${d.got === null ? '<em>Not answered</em>' : d.got}</span></div>`;
+    
     el.innerHTML = qtext + answerText + yourText;
     detailList.appendChild(el);
   });
+  
   out.appendChild(detailList);
-
+  
   const msg = document.createElement('div');
   msg.style.marginTop = '20px';
   msg.style.padding = '16px';
-  msg.style.background = 'rgba(184, 134, 11, 0.08)';
+  msg.style.background = 'rgba(212, 175, 55, 0.1)';
   msg.style.borderRadius = '8px';
-  msg.style.border = '1px solid rgba(184, 134, 11, 0.2)';
-  msg.innerHTML = `<div class="small">This assessment is for educational purposes. To store responses permanently or receive certificates, integrate this form with a backend service (Firebase, Supabase, or Google Sheets).</div>`;
+  msg.style.border = '2px solid rgba(212, 175, 55, 0.3)';
+  msg.innerHTML = `<div class="small">Your responses have been submitted successfully. ${isTimerExpired ? 'Time expired - quiz auto-submitted.' : ''}</div>`;
   out.appendChild(msg);
-
+  
   resultArea.appendChild(out);
   resultArea.style.display = 'block';
   conclusion.style.display = 'block';
@@ -984,42 +1241,85 @@ function renderResult(scoreObj){
   }, 100);
 }
 
+function submitToGoogleSheets() {
+  // Use URLSearchParams instead of FormData for better compatibility with Google Apps Script
+  const data = new URLSearchParams();
+  
+  // Append participant details
+  data.append('fullname', document.getElementById('fullname').value.trim());
+  data.append('email', document.getElementById('email').value.trim());
+  data.append('institution', document.getElementById('institution').value.trim());
+  data.append('designation', document.getElementById('designation').value);
+  
+  // Calculate and add score
+  const scoreObj = scoreForm();
+  data.append('Score', scoreObj.total);
+  
+  // Send via fetch
+  fetch(form.action, {
+    method: 'POST',
+    body: data 
+  })
+  .then(response => response.json())
+  .then(result => {
+    console.log('Success:', result);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+
+// Handle form submission
+function handleSubmit() {
+  if(!validateParticipant() && !isTimerExpired){
+    alert('Please complete all participant details (all fields are required).');
+    return;
+  }
+  
+  // Stop the timer
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
+  
+  // Hide sticky timer
+  stickyTimer.classList.remove('show');
+  
+  // Submit to Google Sheets
+  submitToGoogleSheets();
+  
+  // Show results
+  const scoreObj = scoreForm();
+  renderResult(scoreObj);
+  
+  // Disable form inputs
+  const allInputs = form.querySelectorAll('input, select, textarea, button');
+  allInputs.forEach(input => {
+    if (input.type !== 'button') {
+      input.disabled = true;
+    }
+  });
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Quiz Submitted';
+  submitBtn.style.opacity = '0.6';
+  submitBtn.style.cursor = 'not-allowed';
+}
+
 submitBtn.addEventListener('click', ()=>{
   if(!validateParticipant()){
     alert('Please complete all participant details (all fields are required).');
     return;
   }
-
-  const requiredInputs = document.querySelectorAll('[data-q] input[required], [data-q] select[required]');
-  for(const req of requiredInputs){
-    if(req.type === 'radio'){
-      const name = req.name;
-      const checked = form.querySelectorAll(`input[name="${name}"]:checked`);
-      if(checked.length === 0){
-        alert('Please answer all required questions before submitting.');
-        return;
-      }
-    }
-    if(req.tagName === 'SELECT' && req.value === ''){
-      alert('Please complete all required questions before submitting.');
-      return;
-    }
-  }
-
-  const scoreObj = scoreForm();
-  renderResult(scoreObj);
-});
-
-resetBtn.addEventListener('click', ()=>{
-  if(!confirm('Are you sure you want to reset all answers? This cannot be undone.')) return;
-  form.reset();
-  resultArea.style.display = 'none';
-  conclusion.style.display = 'none';
-  updateProgress();
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  
+  handleSubmit();
 });
 
 updateProgress();
+</script>
+
+<!-- Hidden iframe for form submission to prevent page reload -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+<script>
+var submitted = false;
 </script>
 </body>
 </html>
