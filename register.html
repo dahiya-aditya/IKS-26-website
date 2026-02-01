@@ -566,11 +566,6 @@
                         <label for="transactionId">Transaction ID / Reference Number *</label>
                         <input type="text" id="transactionId" name="transactionId" placeholder="Enter payment transaction ID" required>
                     </div>
-
-                    <div class="form-group">
-                        <label for="paymentScreenshot">Upload Payment Screenshot (Optional)</label>
-                        <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*">
-                    </div>
                 </div>
 
                 <button type="submit" class="submit-btn">Complete Registration</button>
@@ -583,47 +578,41 @@
     </div>
 
     <script>
-        document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+        // REPLACE THIS URL WITH THE ONE YOU COPIED IN PHASE 3
+        const scriptURL = 'https://script.google.com/macros/s/AKfycby9MfI256X_5q6wyB4g_Rc5VCpAoz19cYUz8cHKRWJDrHhtmusd37DUqL7fWmtJP1ej/exec';
+        const form = document.getElementById('registrationForm');
+        const submitBtn = document.querySelector('.submit-btn');
+
+        form.addEventListener('submit', e => {
             e.preventDefault();
             
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Get selected category price
-            const categoryPrices = {
-                'undergraduate': '₹200',
-                'phd': '₹400',
-                'faculty': '₹600'
-            };
-            data.registrationFee = categoryPrices[data.category];
-            
-            // Here you would typically send this data to your backend
-            // For now, we'll simulate the process
-            
-            // Show loading state
-            const submitBtn = this.querySelector('.submit-btn');
+            // 1. Show Loading State
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Processing...';
+            submitBtn.textContent = 'Submitting Registration...';
             submitBtn.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                // In production, this would be an actual API call to:
-                // 1. Store registration data in database
-                // 2. Send confirmation email via email service (e.g., SendGrid, AWS SES)
-                // 3. Generate unique registration ID
-                
-                alert(`Thank you for registering!\n\nConfirmation email will be sent to: ${data.email}\n\nRegistration Details:\nName: ${data.fullName}\nCategory: ${data.category}\nFee: ${data.registrationFee}\nTransaction ID: ${data.transactionId}`);
-                
-                // Reset form
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
+
+            // 2. Prepare Data
+            const formData = new FormData(form);
+
+            // 3. Send to Google Sheets
+            fetch(scriptURL, { method: 'POST', body: formData})
+                .then(response => {
+                    // Success!
+                    alert("Registration Successful! We have received your details.");
+                    form.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                })
+                .catch(error => {
+                    // Error
+                    console.error('Error!', error.message);
+                    alert("Error! Please try again or contact support.");
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                });
         });
 
-        // Add smooth scroll behavior
+        // Smooth Scroll Logic
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -634,6 +623,7 @@
             });
         });
     </script>
+
 </body>
 </html>
 
