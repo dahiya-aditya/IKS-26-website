@@ -143,6 +143,38 @@
             box-shadow: 0 10px 25px rgba(200, 85, 61, 0.3);
         }
 
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: transparent;
+            border: none;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
         /* Hero Section */
         .hero {
             margin-top: 80px;
@@ -816,9 +848,87 @@
         }
 
         /* Mobile Responsive */
-        @media (max-width: 968px) {
+        
+        /* Medium screens (MacBook/Tablets) - 1000px to 1300px */
+        @media (max-width: 1300px) {
             .nav-links {
-                display: none;
+                gap: 1.5rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+            
+            .cta-button {
+                padding: 0.65rem 1.5rem;
+                font-size: 0.85rem;
+            }
+            
+            .logo-container {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+            
+            .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Tablet and Mobile - Below 968px */
+        @media (max-width: 968px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 36, 99, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                max-height: calc(100vh - 80px);
+                overflow-y: auto;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.5rem;
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                display: block;
+                padding: 1rem 2rem;
+                font-size: 1rem;
             }
 
             .hero-title {
@@ -874,6 +984,35 @@
             }
         }
 
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .logo-container {
+                gap: 0.5rem;
+            }
+            
+            .logo-placeholder {
+                width: 80px;
+                height: 40px;
+                font-size: 0.65rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.1rem;
+            }
+            
+            .hero-details {
+                gap: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
@@ -888,7 +1027,15 @@
                 <a href="#" class="logo-placeholder" title="Conference Logo - Click to visit conference website">Conference Logo</a>
                 <a href="https://www.iiserpune.ac.in" class="logo-placeholder" title="IISER Pune Logo - Click to visit IISER Pune website" target="_blank">IISER Pune Logo</a>
             </div>
-            <ul class="nav-links">
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#themes">Themes</a></li>
@@ -1332,6 +1479,35 @@
     </footer>
 
     <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        const navItems = navLinks.querySelectorAll('a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
         // Smooth scroll with offset for fixed nav
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
