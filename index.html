@@ -645,11 +645,28 @@
             background: var(--light-gray);
             border-radius: 15px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .leader-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .leader-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            object-fit: cover;
+            border: 4px solid var(--terracotta);
+            transition: all 0.3s ease;
+        }
+
+        .leader-card:hover .leader-photo {
+            transform: scale(1.05);
+            border-color: var(--gold);
         }
 
         .leader-role {
@@ -667,6 +684,16 @@
             font-weight: 700;
             color: var(--deep-blue);
             margin-bottom: 0.5rem;
+        }
+
+        .leader-name a {
+            color: var(--deep-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .leader-name a:hover {
+            color: var(--terracotta);
         }
 
         .leader-title {
@@ -700,16 +727,23 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
-        .speaker-image {
+        .speaker-image-container {
             width: 100%;
             height: 300px;
-            background: linear-gradient(135deg, var(--deep-blue), var(--science-blue));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
-            opacity: 0.3;
+            overflow: hidden;
+            background: var(--light-gray);
+        }
+
+        .speaker-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .speaker-card:hover .speaker-image {
+            transform: scale(1.05);
         }
 
         .speaker-info {
@@ -723,10 +757,17 @@
             margin-bottom: 0.5rem;
         }
 
+        .speaker-affiliation {
+            color: var(--terracotta);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
         .speaker-info p {
             color: var(--charcoal);
-            opacity: 0.7;
-            font-style: italic;
+            opacity: 0.8;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         /* Quiz Section */
@@ -1023,23 +1064,15 @@
 <body>
     <!-- Navigation -->
     <nav>
-
-     <div class="nav-container">
-
-<!--   EDIT LOGO  -->
-
-         <div class="logo-container">
-    <a href="image/ikslogo.png" class="logo-link" title="Click to view full size logo" target="_blank">
-        <img src="image/ikslogo.png" alt="Conference Logo" style="height: 60px; width: 60px; border-radius: 50%;  object-fit: cover;  ">
-    </a>
-
-    <a href="https://www.iiserpune.ac.in" class="logo-link" title="IISER Pune Logo - Click to visit website" target="_blank">
-        <img src="image/IISERPuneLogo.svg" alt="IISER Pune Logo" style="height: 60px; width: auto;">
-    </a>
-</div>
-
-        
-
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="image/ikslogo.png" class="logo-link" title="Click to view full size logo" target="_blank">
+                    <img src="image/ikslogo.png" alt="Conference Logo" style="height: 60px; width: 60px; border-radius: 50%; object-fit: cover;">
+                </a>
+                <a href="https://www.iiserpune.ac.in" class="logo-link" title="IISER Pune Logo - Click to visit website" target="_blank">
+                    <img src="image/IISERPuneLogo.svg" alt="IISER Pune Logo" style="height: 60px; width: auto;">
+                </a>
+            </div>
             
             <!-- Mobile Menu Toggle -->
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
@@ -1177,30 +1210,28 @@
         <p class="section-subtitle scroll-animate">March 07, 2026 - Full Day Program with 14 Presentations & Interactive Sessions</p>
         
         <div class="timeline">
-            <!-- Opening Ceremony -->
             <div class="timeline-item scroll-animate">
                 <div class="timeline-time">09:00 AM</div>
                 <div class="timeline-content">
-                    <h4> TBA </h4>
+                    <h4>TBA</h4>
                     <p>Welcome remarks by Student Coordinator, Convenor Prof. Ramakrishna Bhat, Director Prof. Sunil S. Bhagwat, and Chief Patron Shri Madabhushi Madan Gopal</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
-            <!-- Session 1: Mathematics & Astronomy -->
             <div class="timeline-item scroll-animate">
-                <div class="timeline-time"> TBA  AM</div>
+                <div class="timeline-time">TBA AM</div>
                 <div class="timeline-content">
                     <h4>Session 1: TBA</h4>
-                    <p><strong>Talk :</strong> TBA <br>
-                    <strong>Talk :</strong> TBA <br>
-                    <strong>Talk :</strong> TBA </p>
+                    <p><strong>Talk:</strong> TBA<br>
+                    <strong>Talk:</strong> TBA<br>
+                    <strong>Talk:</strong> TBA</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
             <div class="timeline-item scroll-animate">
-                <div class="timeline-time"> TBA  AM</div>
+                <div class="timeline-time">TBA AM</div>
                 <div class="timeline-content">
                     <h4>Coffee Break (15 mins)</h4>
                     <p>Refreshments and networking</p>
@@ -1208,98 +1239,89 @@
                 <div class="timeline-dot"></div>
             </div>
             
-            <!-- Session 2:  TBA  -->
             <div class="timeline-item scroll-animate">
-                <div class="timeline-time"> TBA  AM</div>
+                <div class="timeline-time">TBA AM</div>
                 <div class="timeline-content">
-                    <h4>Session 2:  TBA  </h4>
-                    <p><strong>Talk :</strong>  TBA <br>
-                    <strong>Talk :</strong>  TBA <br>
-                    <strong>IKS PhD Student Talk 1:</strong>  TBA </p>
+                    <h4>Session 2: TBA</h4>
+                    <p><strong>Talk:</strong> TBA<br>
+                    <strong>Talk:</strong> TBA<br>
+                    <strong>IKS PhD Student Talk 1:</strong> TBA</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
-            <!-- Lunch Break -->
             <div class="timeline-item scroll-animate">
-                <div class="timeline-time"> TBA </div>
+                <div class="timeline-time">TBA</div>
                 <div class="timeline-content">
-                    <h4> TBA </h4>
-                    <p> TBA </p>
+                    <h4>TBA</h4>
+                    <p>TBA</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
-            <!-- Session 3: Ayurveda & Medicine -->
             <div class="timeline-item scroll-animate">
-                <div class="timeline-time"> TBA </div>
+                <div class="timeline-time">TBA</div>
                 <div class="timeline-content">
-                    <h4>Session 3:  TBA  </h4>
-                    <p><strong>Talk :</strong>  TBA <br>
-                    <strong>Talk :</strong>  TBA <br>
-                    <strong>IKS PhD Student Talk 2:</strong>  TBA </p>
+                    <h4>Session 3: TBA</h4>
+                    <p><strong>Talk:</strong> TBA<br>
+                    <strong>Talk:</strong> TBA<br>
+                    <strong>IKS PhD Student Talk 2:</strong> TBA</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
-            <!-- Session 4: Architecture & Engineering -->
             <div class="timeline-item scroll-animate">
-                <div class="timeline-time"> TBA  PM</div>
+                <div class="timeline-time">TBA PM</div>
                 <div class="timeline-content">
-                    <h4>Session 4:  TBA </h4>
-                    <p><strong>Talk :</strong>  TBA <br>
-                    <strong>Talk :</strong>  TBA </p>
+                    <h4>Session 4: TBA</h4>
+                    <p><strong>Talk:</strong> TBA<br>
+                    <strong>Talk:</strong> TBA</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
-            <!-- High Tea & Poster Session -->
             <div class="timeline-item scroll-animate">
-                <div class="timeline-time"> TBA PM</div>
+                <div class="timeline-time">TBA PM</div>
                 <div class="timeline-content">
-                    <h4> TBA </h4>
-                    <p> TBA </p>
+                    <h4>TBA</h4>
+                    <p>TBA</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
-            <!-- Session 5: Language, Environment & Integration -->
             <div class="timeline-item scroll-animate">
-                <div class="timeline-time"> TBA PM</div>
+                <div class="timeline-time">TBA PM</div>
                 <div class="timeline-content">
-                    <h4>Session 5:  TBA </h4>
-                    <p><strong>Talk :</strong>  TBA <br>
-                    <strong>Talk :</strong>  TBA <br>
-                    <strong>Talk :</strong>  TBA <br>
-                    <strong>IKS PhD Student Talk 3:</strong>  TBA </p>
+                    <h4>Session 5: TBA</h4>
+                    <p><strong>Talk:</strong> TBA<br>
+                    <strong>Talk:</strong> TBA<br>
+                    <strong>Talk:</strong> TBA<br>
+                    <strong>IKS PhD Student Talk 3:</strong> TBA</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
-            <!-- Session 6: Keynote & Future Perspectives -->
             <div class="timeline-item scroll-animate">
-                <div class="timeline-time"> TBA </div>
+                <div class="timeline-time">TBA</div>
                 <div class="timeline-content">
-                    <h4>Session 6:  TBA </h4>
-                    <p><strong>Talk :</strong>  TBA <br>
-                    <strong>Talk :</strong>  TBA </p>
+                    <h4>Session 6: TBA</h4>
+                    <p><strong>Talk:</strong> TBA<br>
+                    <strong>Talk:</strong> TBA</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
-            <!-- Panel Discussion -->
             <div class="timeline-item scroll-animate">
-                <div class="timeline-time"> TBA </div>
+                <div class="timeline-time">TBA</div>
                 <div class="timeline-content">
-                    <h4> TBA </h4>
-                    <p> TBA  - Moderated discussion with speakers and Q&A</p>
+                    <h4>TBA</h4>
+                    <p>TBA - Moderated discussion with speakers and Q&A</p>
                 </div>
                 <div class="timeline-dot"></div>
             </div>
             
-            <!-- Closing -->
             <div class="timeline-item scroll-animate">
-                <div class="timeline-time"> TBA </div>
+                <div class="timeline-time">TBA</div>
                 <div class="timeline-content">
                     <h4>Closing Remarks & Vote of Thanks</h4>
                     <p>Closing address and acknowledgments by the organizing committee</p>
@@ -1313,139 +1335,112 @@
     <section id="leadership" class="leadership">
         <h2 class="section-title scroll-animate">Conference Leadership</h2>
         <p class="section-subtitle scroll-animate">Distinguished Patrons and Organizers</p>
-
-<div class="leader-card scroll-animate">
-
+        
+        <div class="leadership-grid">
+            <div class="leader-card scroll-animate">
+                <img src="image/madan_gopal.jpg" alt="Shri Madabhushi Madan Gopal" class="leader-photo">
                 <div class="leader-role">Chief Patron</div>
-
-                <div class="leader-name">Shri Madabhushi Madan Gopal</div>
-
-                <div class="leader-title">Retired IAS Officer<br>Chairperson, Board of Governors<br>IISER Pune</div>
-
+                <div class="leader-name">
+                    <a href="https://www.iiserpune.ac.in/institute/about/leadership/bog-chairperson" target="_blank" rel="noopener noreferrer">
+                        Shri Madabhushi Madan Gopal
+                    </a>
+                </div>
+                <div class="leader-title">Former IAS Officer<br>Chairperson, Board of Governors<br>IISER Pune</div>
             </div>
-
             
-
             <div class="leader-card scroll-animate">
-
+                <img src="image/sunil_bhagwat.jpg" alt="Prof. Sunil S. Bhagwat" class="leader-photo">
                 <div class="leader-role">Patron</div>
-
-                <div class="leader-name">Prof. Sunil S. Bhagwat</div>
-
-                <div class="leader-title">Director<br>IISER Pune</div>
-
+                <div class="leader-name">
+                    <a href="https://www.iiserpune.ac.in/institute/about/leadership/director" target="_blank" rel="noopener noreferrer">
+                        Prof. Sunil S. Bhagwat
+                    </a>
+                </div>
+                <div class="leader-title">Professor and Director<br>IISER Pune</div>
             </div>
-
             
-
             <div class="leader-card scroll-animate">
-
+                <img src="image/ramakrishna_bhat.jpg" alt="Prof. Ramakrishna Bhat" class="leader-photo">
                 <div class="leader-role">Convenor</div>
-
-                <div class="leader-name">Prof. Ramakrishna Bhat</div>
-
-                <div class="leader-title">Faculty Member<br>IISER Pune</div>
-
+                <div class="leader-name">
+                    <a href="https://ragobh.wixsite.com/rgb-group/about" target="_blank" rel="noopener noreferrer">
+                        Prof. Ramakrishna Bhat
+                    </a>
+                </div>
+                <div class="leader-title">Professor<br>Department of Chemistry<br>IISER Pune</div>
             </div>
-
             
-
             <div class="leader-card scroll-animate">
-
-                <div class="leader-role">Student Coordinator</div>
-
-                <div class="leader-name">Jatin Raghuwanshi</div>
-
-                <div class="leader-title">Student Coordinato<br>IISER Pune</div>
-
+                <img src="image/jatin_raghuwanshi.jpg" alt="Jatin Raghuwanshi" class="leader-photo">
+                <div class="leader-role">Organising Secretary</div>
+                <div class="leader-name">
+                    <a href="https://jatinnow.github.io" target="_blank" rel="noopener noreferrer">
+                        Jatin Raghuwanshi
+                    </a>
+                </div>
+                <div class="leader-title">Student<br>IISER Pune</div>
             </div>
-
- 
+        </div>
     </section>
 
     <!-- Speakers Section -->
     <section id="speakers" class="speakers">
         <h2 class="section-title scroll-animate">Distinguished Speakers</h2>
-        <p class="section-subtitle scroll-animate">Expert voices from across disciplines (To be announced)</p>
+        <p class="section-subtitle scroll-animate">Leading experts in Indian Knowledge Systems</p>
         
         <div class="speakers-grid">
             <div class="speaker-card scroll-animate">
-                <div class="speaker-image">👤</div>
+                <div class="speaker-image-container">
+                    <img src="image/M. D. Srinivas" alt="Prof. M. D. Srinivas" class="speaker-image">
+                </div>
                 <div class="speaker-info">
-                    <h4>To Be Announced</h4>
-                    <p class="scroll-animate">Distinguished Scholar in Ancient Indian Mathematics</p>
+                    <h4>Prof. M. D. Srinivas</h4>
+                    <p class="speaker-affiliation">Chairman, Centre for Policy Studies</p>
+                    <p>Renowned physicist and historian of science specializing in Indian mathematics and astronomy. Former Professor of Theoretical Physics at University of Madras, with expertise in quantum mechanics foundations and the Kerala School of Mathematics. Has extensively researched and documented ancient Indian contributions to calculus and planetary models.</p>
                 </div>
             </div>
             
             <div class="speaker-card scroll-animate">
-                <div class="speaker-image">👤</div>
+                <div class="speaker-image-container">
+                    <img src="image/Prof. Amartya Dutta.jpg" alt="Prof. Amartya Dutta" class="speaker-image">
+                </div>
                 <div class="speaker-info">
-                    <h4>To Be Announced</h4>
-                    <p class="scroll-animate">Expert in Traditional Metallurgy & Material Science</p>
+                    <h4>Prof. Amartya Dutta</h4>
+                    <p class="speaker-affiliation">ISI Kolkata</p>
+                    <p>Professor of Mathematics at Indian Statistical Institute, Kolkata, with research expertise in Commutative Algebra and Affine Algebraic Geometry. Recipient of INSA Teachers Award and the first Satish C. Bhatnagar Award for History of Mathematics. Has been actively researching and teaching ancient Indian mathematics for over 25 years, with focus on Vedic era mathematics.</p>
                 </div>
             </div>
             
             <div class="speaker-card scroll-animate">
-                <div class="speaker-image">👤</div>
+                <div class="speaker-image-container">
+                    <img src="image/Anil Gourishetty.png" alt="Prof. Anil Gaurishetty" class="speaker-image">
+                </div>
                 <div class="speaker-info">
-                    <h4>To Be Announced</h4>
-                    <p class="scroll-animate">Renowned Researcher in Āyurveda & Modern Medicine</p>
+                    <h4>Prof. Anil Gaurishetty</h4>
+                    <p class="speaker-affiliation">IIT Roorkee</p>
+                    <p>Professor of Physics and Head of the Centre for Indian Knowledge Systems at IIT Roorkee. Expert in Nuclear Radiation Detectors and Indian Astronomy. Currently involved in developing Sanskrit translators and teaching Indian Astronomy. His work bridges modern physics with traditional IKS knowledge, promoting interdisciplinary research in ancient Indian sciences.</p>
                 </div>
             </div>
             
             <div class="speaker-card scroll-animate">
-                <div class="speaker-image">👤</div>
+                <div class="speaker-image-container">
+                    <img src="image/V Ramanathan.jpg" alt="Prof. V. Ramanathan" class="speaker-image">
+                </div>
                 <div class="speaker-info">
-                    <h4>To Be Announced</h4>
-                    <p class="scroll-animate">Specialist in Ancient Architecture & Engineering</p>
+                    <h4>Prof. V. Ramanathan</h4>
+                    <p class="speaker-affiliation">IIT BHU</p>
+                    <p>Associate Professor of Chemistry at IIT (BHU) Varanasi, specializing in Laser Spectroscopy, Raman microscopy, and Computational Chemistry. His research includes validation of traditional Indian Siddha medicine through contemporary analytical methods. Brings expertise in bridging ancient Indian chemical knowledge with modern scientific techniques.</p>
                 </div>
             </div>
             
             <div class="speaker-card scroll-animate">
-                <div class="speaker-image">👤</div>
-                <div class="speaker-info">
-                    <h4>To Be Announced</h4>
-                    <p class="scroll-animate">Expert in Sanskrit & Scientific Language</p>
+                <div class="speaker-image-container">
+                    <img src="image/raghav_krishna.jpg" alt="Shri Raghav Krishna" class="speaker-image">
                 </div>
-            </div>
-            
-            <div class="speaker-card scroll-animate">
-                <div class="speaker-image">👤</div>
                 <div class="speaker-info">
-                    <h4>To Be Announced</h4>
-                    <p class="scroll-animate">Authority on Indian Astronomy & Cosmology</p>
-                </div>
-            </div>
-            
-            <div class="speaker-card scroll-animate">
-                <div class="speaker-image">👤</div>
-                <div class="speaker-info">
-                    <h4>To Be Announced</h4>
-                    <p class="scroll-animate">Scholar in Environmental Wisdom & Sustainability</p>
-                </div>
-            </div>
-            
-            <div class="speaker-card scroll-animate">
-                <div class="speaker-image">👤</div>
-                <div class="speaker-info">
-                    <h4>To Be Announced</h4>
-                    <p class="scroll-animate">Researcher in Integrating IKS with Modern Science</p>
-                </div>
-            </div>
-            
-            <div class="speaker-card scroll-animate">
-                <div class="speaker-image">👤</div>
-                <div class="speaker-info">
-                    <h4>To Be Announced</h4>
-                    <p class="scroll-animate">Expert in Ancient Indian Knowledge Systems</p>
-                </div>
-            </div>
-            
-            <div class="speaker-card scroll-animate">
-                <div class="speaker-image">👤</div>
-                <div class="speaker-info">
-                    <h4>To Be Announced</h4>
-                    <p class="scroll-animate">Thought Leader in Future Directions of IKS Research</p>
+                    <h4>Shri Raghav Krishna</h4>
+                    <p class="speaker-affiliation">Brhat</p>
+                    <p>Founder and CEO of Brhat Culture Creatives and Brhat Educational Trust. With 22 years of experience across game development and academia, he now focuses on cultural storytelling, IKS-centered education, and public policy. Co-author of "Introduction to Indian Knowledge System: Concepts and Applications." Leading voice in mainstreaming IKS in contemporary education and policy frameworks.</p>
                 </div>
             </div>
         </div>
