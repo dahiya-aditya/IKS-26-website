@@ -175,11 +175,10 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
-        /* Hero Section */
+        /* Hero Section - Enhanced with Dynamic Background */
         .hero {
             margin-top: 80px;
             min-height: 90vh;
-            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--science-blue) 100%);
             position: relative;
             overflow: hidden;
             display: flex;
@@ -187,42 +186,182 @@
             padding: 4rem 2rem;
         }
 
-        .hero::before {
-            content: '';
+        /* Background Image Layer */
+        .hero-background {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(200, 85, 61, 0.1) 0%, transparent 50%);
-            opacity: 0.6;
+            background-image: url('image/IISERPunegate.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.4);
+            z-index: 0;
         }
 
-        .hero::after {
-            content: '';
+        /* Animated Gradient Overlay */
+        .hero-gradient-overlay {
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(244, 208, 63, 0.15) 0%, transparent 70%);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(10, 36, 99, 0.85) 0%,
+                rgba(30, 58, 138, 0.75) 50%,
+                rgba(10, 36, 99, 0.85) 100%
+            );
+            animation: gradientShift 15s ease infinite;
+            z-index: 1;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background: linear-gradient(
+                    135deg,
+                    rgba(10, 36, 99, 0.85) 0%,
+                    rgba(30, 58, 138, 0.75) 50%,
+                    rgba(10, 36, 99, 0.85) 100%
+                );
+            }
+            50% {
+                background: linear-gradient(
+                    135deg,
+                    rgba(30, 58, 138, 0.8) 0%,
+                    rgba(10, 36, 99, 0.9) 50%,
+                    rgba(30, 58, 138, 0.8) 100%
+                );
+            }
+        }
+
+        /* Particle Animation Container */
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(244, 208, 63, 0.6);
             border-radius: 50%;
-            animation: float 20s infinite ease-in-out;
+            animation: floatParticle linear infinite;
         }
 
-        @keyframes float {
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Geometric Patterns */
+        .geometric-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            opacity: 0.1;
+        }
+
+        .geometric-shape {
+            position: absolute;
+            border: 2px solid var(--warm-gold);
+            animation: rotate 20s linear infinite;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 5%;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            animation: float1 15s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            top: 60%;
+            right: 10%;
+            width: 80px;
+            height: 80px;
+            transform: rotate(45deg);
+            animation: float2 12s ease-in-out infinite;
+        }
+
+        .shape-3 {
+            bottom: 15%;
+            left: 15%;
+            width: 60px;
+            height: 60px;
+            border-radius: 30%;
+            animation: float3 18s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
             0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -50px) rotate(120deg); }
-            66% { transform: translate(-20px, 30px) rotate(240deg); }
+            50% { transform: translate(30px, -30px) rotate(180deg); }
         }
 
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0) rotate(45deg); }
+            50% { transform: translate(-40px, 20px) rotate(225deg); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, -40px) scale(1.2); }
+        }
+
+        /* IKS Logo Watermark */
+        .iks-logo-watermark {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+            opacity: 0.15;
+            z-index: 3;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .iks-logo-watermark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(2);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.15; transform: translateY(-50%) scale(1); }
+            50% { opacity: 0.25; transform: translateY(-50%) scale(1.05); }
+        }
+
+        /* Hero Content */
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
-            z-index: 1;
+            z-index: 10;
             text-align: center;
         }
 
@@ -245,15 +384,17 @@
             line-height: 1.1;
             margin-bottom: 2rem;
             animation: fadeInUp 1s ease 0.4s both;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero-tagline {
             font-size: 2rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 2rem;
             font-weight: 300;
             font-style: italic;
             animation: fadeInUp 1s ease 0.6s both;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .hero-details {
@@ -271,6 +412,11 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .hero-detail strong {
@@ -288,14 +434,20 @@
             font-size: 1.2rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 1s both;
+            animation: fadeInUp 1s ease 1s both, ctaPulse 2s ease-in-out 2s infinite;
             border: 2px solid var(--terracotta);
+            box-shadow: 0 5px 20px rgba(200, 85, 61, 0.4);
         }
 
         .hero-cta:hover {
             background: transparent;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(200, 85, 61, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(200, 85, 61, 0.6);
+        }
+
+        @keyframes ctaPulse {
+            0%, 100% { box-shadow: 0 5px 20px rgba(200, 85, 61, 0.4); }
+            50% { box-shadow: 0 5px 30px rgba(200, 85, 61, 0.6); }
         }
 
         @keyframes fadeInUp {
@@ -307,6 +459,71 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        /* IKS Logo Showcase Section */
+        .logo-showcase {
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.05), rgba(244, 208, 63, 0.05));
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-showcase::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(244, 208, 63, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        .logo-showcase-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .iks-main-logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        .iks-main-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo-showcase h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            color: var(--deep-blue);
+            margin-bottom: 1rem;
+        }
+
+        .logo-showcase p {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         /* Scroll Animation Classes */
@@ -395,11 +612,6 @@
             height: 200%;
             background: radial-gradient(circle, rgba(244, 208, 63, 0.1) 0%, transparent 70%);
             animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
         }
 
         .about-highlight h3 {
@@ -908,6 +1120,11 @@
             .logo-container {
                 gap: 1rem;
             }
+
+            .iks-logo-watermark {
+                width: 250px;
+                height: 250px;
+            }
         }
 
         @media (max-width: 1100px) {
@@ -922,6 +1139,11 @@
             .cta-button {
                 padding: 0.6rem 1.2rem;
                 font-size: 0.8rem;
+            }
+
+            .iks-logo-watermark {
+                width: 200px;
+                height: 200px;
             }
         }
 
@@ -978,6 +1200,15 @@
 
             .hero-tagline {
                 font-size: 1.3rem;
+            }
+
+            .iks-logo-watermark {
+                display: none;
+            }
+
+            .iks-main-logo {
+                width: 150px;
+                height: 150px;
             }
 
             .about-content,
@@ -1049,9 +1280,19 @@
             .hero-details {
                 gap: 1.5rem;
             }
+
+            .hero-detail {
+                font-size: 0.95rem;
+                padding: 0.5rem 1rem;
+            }
             
             .section-title {
                 font-size: 1.75rem;
+            }
+
+            .iks-main-logo {
+                width: 120px;
+                height: 120px;
             }
         }
 
@@ -1071,10 +1312,6 @@
                 </a>
                 <a href="https://www.iiserpune.ac.in" class="logo-link" title="IISER Pune Logo - Click to visit website" target="_blank">
                     <img src="image/IISERPuneLogo.png" alt="IISER Pune Logo" style="height: 60px; width: 60px; border-radius: 50%; object-fit: contain; padding: 2px; background-color: white;">
-
-
-
-                    
                 </a>
             </div>
             
@@ -1100,8 +1337,30 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Dynamic Background -->
     <section id="home" class="hero">
+        <!-- Background Image Layer -->
+        <div class="hero-background"></div>
+        
+        <!-- Animated Gradient Overlay -->
+        <div class="hero-gradient-overlay"></div>
+        
+        <!-- Particle System -->
+        <div class="particles-container" id="particlesContainer"></div>
+        
+        <!-- Geometric Patterns -->
+        <div class="geometric-bg">
+            <div class="geometric-shape shape-1"></div>
+            <div class="geometric-shape shape-2"></div>
+            <div class="geometric-shape shape-3"></div>
+        </div>
+
+        <!-- IKS Logo Watermark -->
+        <div class="iks-logo-watermark">
+            <img src="image/finallogo.svg" alt="IKS Logo">
+        </div>
+        
+        <!-- Hero Content -->
         <div class="hero-content">
             <div class="hero-subtitle">National Conference</div>
             <h1 class="hero-title">Indian Knowledge System:<br>Science and Technology</h1>
@@ -1117,6 +1376,17 @@
                 </div>
             </div>
             <a href="register.html" class="hero-cta">Register Now</a>
+        </div>
+    </section>
+
+    <!-- IKS Logo Showcase Section -->
+    <section class="logo-showcase">
+        <div class="logo-showcase-content scroll-animate">
+            <div class="iks-main-logo">
+                <img src="image/finallogo.svg" alt="Indian Knowledge Systems Logo">
+            </div>
+            <h3>Indian Knowledge Systems</h3>
+            <p>A journey into the rich scientific and technological heritage of ancient India, bridging millennia of wisdom with modern scientific inquiry. This conference celebrates the profound contributions of our ancestors to mathematics, astronomy, medicine, architecture, and beyond.</p>
         </div>
     </section>
 
@@ -1503,6 +1773,41 @@
     </footer>
 
     <script>
+        // Create animated particles
+        function createParticles() {
+            const container = document.getElementById('particlesContainer');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 2px and 6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Random horizontal position
+                particle.style.left = Math.random() * 100 + '%';
+                
+                // Random animation duration between 10s and 25s
+                const duration = Math.random() * 15 + 10;
+                particle.style.animationDuration = duration + 's';
+                
+                // Random delay
+                const delay = Math.random() * 10;
+                particle.style.animationDelay = delay + 's';
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 0.5 + 0.3;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Initialize particles when page loads
+        window.addEventListener('load', createParticles);
+
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
