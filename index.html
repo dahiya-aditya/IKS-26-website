@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Conference on IKS: Science and Technology | IISER Pune 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="image/IISERPunegate.webp" type="image/webp">
     <style>
         :root {
             --deep-blue: #0a2463;
@@ -55,6 +58,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        @media (min-width: 1366px) {
+            .nav-container,
+            section,
+            .footer-content {
+                max-width: 1600px;
+            }
+
+            .hero-content {
+                max-width: 1400px;
+            }
         }
 
         .logo-container {
@@ -199,7 +214,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('image/IISERPunegate.jpg');
+            background-image: image-set(
+                url('image/IISERPunegate.webp') type('image/webp'),
+                url('image/IISERPunegate.jpg') type('image/jpeg')
+            );
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -1036,6 +1054,18 @@
             text-align: center;
         }
 
+        .about,
+        .themes,
+        .objectives,
+        .schedule,
+        .leadership,
+        .speakers,
+        .sponsors,
+        footer {
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 1000px;
+        }
+
         .sponsors-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1313,11 +1343,11 @@
     <nav>
         <div class="nav-container">
             <div class="logo-container">
-                <a href="image/ikslogo.png" class="logo-link" title="Click to view full size logo" target="_blank">
-                    <img src="image/finallogo.svg" alt="Conference Logo" style="height: 60px; width: 60px; border-radius: 50%; object-fit: cover;">
+                <a href="image/ikslogo.webp" class="logo-link" title="Click to view full size logo" target="_blank">
+                    <img src="image/ikslogo.webp" alt="Conference Logo" decoding="async" style="height: 60px; width: 60px; border-radius: 50%; object-fit: cover;">
                 </a>
                 <a href="https://www.iiserpune.ac.in" class="logo-link" title="IISER Pune Logo - Click to visit website" target="_blank">
-                    <img src="image/IISERPuneLogo.png" alt="IISER Pune Logo" style="height: 60px; width: 60px; border-radius: 50%; object-fit: contain; padding: 2px; background-color: white;">
+                    <img src="image/IISERPuneLogo.png" alt="IISER Pune Logo" decoding="async" style="height: 60px; width: 60px; border-radius: 50%; object-fit: contain; padding: 2px; background-color: white;">
                 </a>
             </div>
             
@@ -1380,7 +1410,7 @@
     <section class="logo-showcase">
         <div class="logo-showcase-content scroll-animate">
             <div class="iks-main-logo">
-                <img src="image/ikslogo.png" alt="Indian Knowledge Systems Logo">
+                <img src="image/ikslogo.webp" alt="Indian Knowledge Systems Logo" loading="lazy" decoding="async">
             </div>
             <h3>Indian Knowledge Systems</h3>
             <p>A journey into the rich scientific and technological heritage of ancient India, bridging millennia of wisdom with modern scientific inquiry. This conference celebrates the profound contributions of our ancestors to mathematics, astronomy, medicine, architecture, and beyond.</p>
@@ -1609,7 +1639,7 @@
         
         <div class="leadership-grid">
             <div class="leader-card scroll-animate">
-                <img src="image/madan_gopal.jpg" alt="Shri Madabhushi Madan Gopal" class="leader-photo">
+                <img src="image/madan_gopal.jpg" alt="Shri Madabhushi Madan Gopal" class="leader-photo" loading="lazy" decoding="async">
                 <div class="leader-role">Chief Patron</div>
                 <div class="leader-name">
                     <a href="https://www.iiserpune.ac.in/institute/about/leadership/bog-chairperson" target="_blank" rel="noopener noreferrer">
@@ -1620,7 +1650,7 @@
             </div>
             
             <div class="leader-card scroll-animate">
-                <img src="image/sunil_bhagwat.jpg" alt="Prof. Sunil S. Bhagwat" class="leader-photo">
+                <img src="image/sunil_bhagwat.jpg" alt="Prof. Sunil S. Bhagwat" class="leader-photo" loading="lazy" decoding="async">
                 <div class="leader-role">Patron</div>
                 <div class="leader-name">
                     <a href="https://www.iiserpune.ac.in/institute/about/leadership/director" target="_blank" rel="noopener noreferrer">
@@ -1631,7 +1661,7 @@
             </div>
             
             <div class="leader-card scroll-animate">
-                <img src="image/ramakrishna_bhat.jpg" alt="Prof. Ramakrishna G. Bhat" class="leader-photo">
+                <img src="image/ramakrishna_bhat.jpg" alt="Prof. Ramakrishna G. Bhat" class="leader-photo" loading="lazy" decoding="async">
                 <div class="leader-role">Convenor</div>
                 <div class="leader-name">
                     <a href="https://ragobh.wixsite.com/rgb-group/about" target="_blank" rel="noopener noreferrer">
@@ -1652,7 +1682,7 @@
         <div class="speakers-grid">
             <div class="speaker-card scroll-animate">
                 <div class="speaker-image-container">
-                    <img src="image/M. D. Srinivas" alt="Prof. M. D. Srinivas" class="speaker-image">
+                    <img src="image/M. D. Srinivas" alt="Prof. M. D. Srinivas" class="speaker-image" loading="lazy" decoding="async">
                 </div>
                 <div class="speaker-info">
                     <h4>Prof. M. D. Srinivas</h4>
@@ -1663,7 +1693,7 @@
 
             <div class="speaker-card scroll-animate">
                 <div class="speaker-image-container">
-                    <img src="image/prof. shekhar mande.jpg" alt="prof. Shekhar Mande" class="speaker-image">
+                    <img src="image/prof. shekhar mande.jpg" alt="prof. Shekhar Mande" class="speaker-image" loading="lazy" decoding="async">
                 </div>
                 <div class="speaker-info">
                     <h4>Prof. Shekhar Mande</h4>
@@ -1674,7 +1704,7 @@
             
             <div class="speaker-card scroll-animate">
                 <div class="speaker-image-container">
-                    <img src="image/Prof. Amartya Dutta.jpg" alt="Prof. Amartya Dutta" class="speaker-image">
+                    <img src="image/Prof. Amartya Dutta.jpg" alt="Prof. Amartya Dutta" class="speaker-image" loading="lazy" decoding="async">
                 </div>
                 <div class="speaker-info">
                     <h4>Prof. Amartya Dutta</h4>
@@ -1685,7 +1715,7 @@
             
             <div class="speaker-card scroll-animate">
                 <div class="speaker-image-container">
-                    <img src="image/Anil Gourishetty.png" alt="Prof. Anil Gaurishetty" class="speaker-image">
+                    <img src="image/Anil Gourishetty.webp" alt="Prof. Anil Gaurishetty" class="speaker-image" loading="lazy" decoding="async">
                 </div>
                 <div class="speaker-info">
                     <h4>Prof. Anil Gaurishetty</h4>
@@ -1696,7 +1726,7 @@
             
             <div class="speaker-card scroll-animate">
                 <div class="speaker-image-container">
-                    <img src="image/V Ramanathan.jpg" alt="Prof. V. Ramanathan" class="speaker-image">
+                    <img src="image/V Ramanathan.jpg" alt="Prof. V. Ramanathan" class="speaker-image" loading="lazy" decoding="async">
                 </div>
                 <div class="speaker-info">
                     <h4>Prof. V. Ramanathan</h4>
@@ -1707,7 +1737,7 @@
             
             <div class="speaker-card scroll-animate">
                 <div class="speaker-image-container">
-                    <img src="image/raghav_krishna.jpg" alt="Shri Raghav Krishna" class="speaker-image">
+                    <img src="image/raghav_krishna.jpg" alt="Shri Raghav Krishna" class="speaker-image" loading="lazy" decoding="async">
                 </div>
                 <div class="speaker-info">
                     <h4>Shri Raghav Krishna</h4>
@@ -1784,7 +1814,7 @@
         // Create animated particles
         function createParticles() {
             const container = document.getElementById('particlesContainer');
-            const particleCount = 30;
+            const particleCount = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 16;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
@@ -1814,7 +1844,13 @@
         }
 
         // Initialize particles when page loads
-        window.addEventListener('load', createParticles);
+        window.addEventListener('load', () => {
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(createParticles);
+            } else {
+                setTimeout(createParticles, 200);
+            }
+        });
 
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
