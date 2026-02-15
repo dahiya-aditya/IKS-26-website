@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Conference on IKS: Science and Technology | IISER Pune 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600;700&display=swap"></noscript>
+    <link rel="preload" as="font" href="fonts/work-sans-latin.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="fonts/crimson-pro-latin.woff2" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="fonts/fonts.css">
     <link rel="preload" as="image" href="image/IISERPunegate.webp" type="image/webp">
     <style>
         :root {
@@ -218,6 +216,10 @@
             bottom: 0;
             z-index: 0;
             overflow: hidden;
+            background-image: url('image/IISERPunegate-lqip.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .hero-background picture,
@@ -246,7 +248,6 @@
                 rgba(30, 58, 138, 0.75) 50%,
                 rgba(10, 36, 99, 0.85) 100%
             );
-            animation: gradientShift 15s ease infinite;
             z-index: 1;
         }
 
@@ -466,7 +467,7 @@
             font-size: 1.2rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 1s both, ctaPulse 2s ease-in-out 2s infinite;
+            animation: fadeInUp 1s ease 1s both;
             border: 2px solid var(--terracotta);
             box-shadow: 0 5px 20px rgba(200, 85, 61, 0.4);
         }
@@ -1663,7 +1664,7 @@
             </div>
             
             <div class="leader-card scroll-animate">
-                <img src="image/sunil_bhagwat.jpg" alt="Prof. Sunil S. Bhagwat" class="leader-photo" loading="lazy" decoding="async">
+                <img src="image/sunil_bhagwat.webp" alt="Prof. Sunil S. Bhagwat" class="leader-photo" loading="lazy" decoding="async">
                 <div class="leader-role">Patron</div>
                 <div class="leader-name">
                     <a href="https://www.iiserpune.ac.in/institute/about/leadership/director" target="_blank" rel="noopener noreferrer">
@@ -1674,7 +1675,7 @@
             </div>
             
             <div class="leader-card scroll-animate">
-                <img src="image/ramakrishna_bhat.jpg" alt="Prof. Ramakrishna G. Bhat" class="leader-photo" loading="lazy" decoding="async">
+                <img src="image/ramakrishna_bhat.webp" alt="Prof. Ramakrishna G. Bhat" class="leader-photo" loading="lazy" decoding="async">
                 <div class="leader-role">Convenor</div>
                 <div class="leader-name">
                     <a href="https://ragobh.wixsite.com/rgb-group/about" target="_blank" rel="noopener noreferrer">
@@ -1695,7 +1696,7 @@
         <div class="speakers-grid">
             <div class="speaker-card scroll-animate">
                 <div class="speaker-image-container">
-                    <img src="image/M. D. Srinivas" alt="Prof. M. D. Srinivas" class="speaker-image" loading="lazy" decoding="async">
+                    <img src="image/M. D. Srinivas.webp" alt="Prof. M. D. Srinivas" class="speaker-image" loading="lazy" decoding="async">
                 </div>
                 <div class="speaker-info">
                     <h4>Prof. M. D. Srinivas</h4>
@@ -1706,7 +1707,7 @@
 
             <div class="speaker-card scroll-animate">
                 <div class="speaker-image-container">
-                    <img src="image/prof. shekhar mande.jpg" alt="prof. Shekhar Mande" class="speaker-image" loading="lazy" decoding="async">
+                    <img src="image/prof. shekhar mande.webp" alt="prof. Shekhar Mande" class="speaker-image" loading="lazy" decoding="async">
                 </div>
                 <div class="speaker-info">
                     <h4>Prof. Shekhar Mande</h4>
@@ -1739,7 +1740,7 @@
             
             <div class="speaker-card scroll-animate">
                 <div class="speaker-image-container">
-                    <img src="image/V Ramanathan.jpg" alt="Prof. V. Ramanathan" class="speaker-image" loading="lazy" decoding="async">
+                    <img src="image/V Ramanathan.webp" alt="Prof. V. Ramanathan" class="speaker-image" loading="lazy" decoding="async">
                 </div>
                 <div class="speaker-info">
                     <h4>Prof. V. Ramanathan</h4>
@@ -1827,7 +1828,7 @@
         // Create animated particles
         function createParticles() {
             const container = document.getElementById('particlesContainer');
-            const particleCount = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 16;
+            const particleCount = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 6;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
