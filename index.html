@@ -204,7 +204,7 @@
             overflow: hidden;
             border-radius: 24px;
             border-top: 12px solid var(--parchment);
-            background: linear-gradient(135deg, rgba(45, 45, 45, 0.96), rgba(200, 85, 61, 0.78));
+            background: var(--parchment);
         }
 
         .carousel-track {
@@ -232,15 +232,15 @@
         }
 
         .carousel-slide.slide-iks {
-            background: linear-gradient(135deg, rgba(200, 85, 61, 0.88), rgba(244, 208, 63, 0.58));
+            background: var(--parchment);
         }
 
         .carousel-slide.slide-iiser {
-            background: linear-gradient(135deg, rgba(45, 45, 45, 0.9), rgba(200, 85, 61, 0.76));
+            background: var(--parchment);
         }
 
         .carousel-slide.slide-legacy {
-            background: linear-gradient(135deg, rgba(45, 45, 45, 0.9), rgba(200, 85, 61, 0.72));
+            background: var(--parchment);
         }
 
         .carousel-content {
@@ -253,23 +253,11 @@
         }
 
         .carousel-slide.hero-slide {
-            background-image:
-                linear-gradient(135deg, rgba(45, 45, 45, 0.9) 0%, rgba(200, 85, 61, 0.72) 50%, rgba(45, 45, 45, 0.9) 100%),
-                url('image/IISERPunegate-lqip.webp');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: var(--parchment);
         }
 
         .carousel-slide.hero-slide::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url('image/IISERPunegate.webp');
-            background-size: cover;
-            background-position: center;
-            z-index: 0;
-            filter: brightness(0.45);
+            content: none;
         }
 
         .carousel-slide.hero-slide .carousel-content {
