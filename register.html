@@ -372,6 +372,47 @@
             font-size: 1.1em;
         }
 
+        .info-block {
+            background: white;
+            border: 2px solid var(--border-elegant);
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 28px;
+        }
+
+        .info-block h3 {
+            font-family: 'Crimson Pro', serif;
+            color: var(--deep-blue);
+            margin-bottom: 14px;
+            font-size: 1.35rem;
+        }
+
+        .info-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-block li {
+            padding: 0.6rem 0 0.6rem 1.8rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .info-block li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--terracotta);
+            font-size: 1.05em;
+        }
+
+        .deadline-note {
+            margin-top: 0.75rem;
+            color: var(--charcoal);
+            opacity: 0.9;
+            font-size: 0.96rem;
+        }
+
         /* ─── Pricing Cards ─── */
         .pricing-section {
             margin: 40px 0;
@@ -720,12 +761,28 @@
             <div class="benefits">
                 <h3>Registration Includes</h3>
                 <ul>
-                    <li>Access to all conference sessions and keynote addresses</li>
-                    <li>conference kit with materials and resources</li>
-                    <li>Complimentary lunch and refreshments</li>
-                    <li>High tea and networking opportunities</li>
-                    <li>Certificate of participation</li>
+                    <li>Conference Registration with Fee Payment – Standard (Certificate, Registration Kits, Tea, Snacks, Special Lunch)</li>
+                    <li>Conference Registration without Fee – Free Access (Tea and Snacks)</li>
                 </ul>
+            </div>
+
+            <div class="info-block">
+                <h3>Benefits and Expected Outcomes</h3>
+                <ul>
+                    <li>Exposure to IKS – Science and Technology from Eminent Speakers</li>
+                    <li>In depth research exposure on the IKS - Science and Technology</li>
+                    <li>Identification of research gaps and future directions in IKS</li>
+                    <li>Developing research network / planning and propagating consortium on IKS activities</li>
+                    <li>Exposure and plans to implement IKS related course work or inclusion in Teaching activity</li>
+                    <li>Enhanced awareness and engagement among young researchers in IKS studies</li>
+                </ul>
+            </div>
+
+            <div class="info-block">
+                <h3>Specific Requirements / Eligibility</h3>
+                <p>Participation in the workshop is open to all members Faculty, Students (PhD, UG &amp; Research Scholars), independent researchers and all those who are interested in IKS and to learn about the subject.</p>
+                <p class="deadline-note"><strong>Closing Date for Registration (Standard):</strong> 02 March 2025, 6:00 PM</p>
+                <p class="deadline-note"><strong>Closing Date for Registration (Free Access):</strong> 05 March 2025, 6:00 PM</p>
             </div>
 
             <form id="registrationForm">
@@ -774,6 +831,13 @@
                                     <span class="radio-price">₹2000</span>
                                 </label>
                             </div>
+                            <div class="radio-option">
+                                <input type="radio" id="freeAccess" name="category" value="free-access">
+                                <label for="freeAccess">
+                                    <span>Conference Registration without Fee (Free Access - Tea and Snacks)</span>
+                                    <span class="radio-price">₹0</span>
+                                </label>
+                            </div>
                         </div>
                     </div>
 
@@ -785,7 +849,7 @@
 
                 <div class="payment-section">
                     <h3>Payment Details</h3>
-                    <p>Please complete your payment via SBI Collect before submitting this form.</p>
+                    <p>Please complete your payment via SBI Collect before submitting this form (for paid categories).</p>
 
                     <a class="payment-link" href="https://onlinesbi.sbi.bank.in/sbicollect/" target="_blank" rel="noopener noreferrer">
                         Open SBI Collect Portal
@@ -800,6 +864,8 @@
                         <li>Fill the form and select the correct participant category and fee.</li>
                         <li>After payment, save and print the generated receipt, bring it to the venue, and share the receipt (UTR) number.</li>
                     </ol>
+
+                    <p class="deadline-note" id="freeAccessHint" style="display: none; margin-top: 1rem;">Free Access category selected: payment and UTR are not required. Please complete registration to attend conference lectures.</p>
 
                     <div class="form-group" style="margin-top: 25px;">
                         <label for="transactionId">SBI Collect Receipt (UTR) Number *</label>
@@ -878,6 +944,39 @@
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
                 });
+        });
+
+        const categoryInputs = document.querySelectorAll('input[name="category"]');
+        const paymentSection = document.querySelector('.payment-section');
+        const paymentSteps = document.querySelector('.payment-steps');
+        const paymentLink = document.querySelector('.payment-link');
+        const transactionField = document.getElementById('transactionId');
+        const freeAccessHint = document.getElementById('freeAccessHint');
+
+        function updatePaymentRequirement() {
+            const selectedCategory = document.querySelector('input[name="category"]:checked');
+            const isFreeAccess = selectedCategory && selectedCategory.value === 'free-access';
+
+            if (isFreeAccess) {
+                paymentSteps.style.display = 'none';
+                paymentLink.style.display = 'none';
+                transactionField.required = false;
+                transactionField.value = '';
+                transactionField.disabled = true;
+                freeAccessHint.style.display = 'block';
+                paymentSection.querySelector('h3').textContent = 'Payment Details (Not required for Free Access)';
+            } else {
+                paymentSteps.style.display = 'block';
+                paymentLink.style.display = 'inline-flex';
+                transactionField.required = true;
+                transactionField.disabled = false;
+                freeAccessHint.style.display = 'none';
+                paymentSection.querySelector('h3').textContent = 'Payment Details';
+            }
+        }
+
+        categoryInputs.forEach(input => {
+            input.addEventListener('change', updatePaymentRequirement);
         });
 
         // Smooth Scroll
