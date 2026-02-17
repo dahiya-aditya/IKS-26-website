@@ -227,6 +227,18 @@
             visibility: visible;
         }
 
+        .carousel-slide.slide-iks {
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.92), rgba(30, 58, 138, 0.82));
+        }
+
+        .carousel-slide.slide-iiser {
+            background: linear-gradient(135deg, rgba(200, 85, 61, 0.9), rgba(212, 175, 55, 0.62));
+        }
+
+        .carousel-slide.slide-legacy {
+            background: linear-gradient(135deg, rgba(45, 45, 45, 0.9), rgba(10, 36, 99, 0.84));
+        }
+
         .carousel-content {
             max-width: 1400px;
             width: 100%;
@@ -283,8 +295,29 @@
             order: 1;
         }
 
+        .carousel-slide.iks-slide .media-frame,
         .carousel-slide.iks-legacy-slide .media-frame {
-            background: #d8dce6;
+            width: min(470px, 80vw);
+        }
+
+        .carousel-slide.iks-slide .media-frame {
+            background: #f4f4f4;
+        }
+
+        .carousel-slide.iks-slide .media-frame img {
+            object-fit: contain;
+            padding: 8%;
+            background: #f4f4f4;
+        }
+
+        .carousel-slide.iks-legacy-slide .media-frame {
+            background: #efefef;
+        }
+
+        .carousel-slide.iks-legacy-slide .media-frame img {
+            object-fit: contain;
+            padding: 9%;
+            background: #efefef;
         }
 
         .slide-media {
@@ -1698,7 +1731,7 @@
                 </div>
             </article>
 
-            <article class="carousel-slide reverse" data-slide="1">
+            <article class="carousel-slide reverse iks-slide slide-iks" data-slide="1">
                 <div class="carousel-content">
                     <div class="slide-media">
                         <div class="media-frame">
@@ -1713,7 +1746,7 @@
                 </div>
             </article>
 
-            <article class="carousel-slide" data-slide="2">
+            <article class="carousel-slide slide-iiser" data-slide="2">
                 <div class="carousel-content">
                     <div class="slide-media">
                         <div class="media-frame">
@@ -1728,11 +1761,11 @@
                 </div>
             </article>
 
-            <article class="carousel-slide reverse iks-legacy-slide" data-slide="3">
+            <article class="carousel-slide reverse iks-legacy-slide slide-legacy" data-slide="3">
                 <div class="carousel-content">
                     <div class="slide-media">
                         <div class="media-frame">
-                            <img src="image/ikslogo.webp" alt="IKS logo" decoding="async" style="object-fit: contain; padding: 12%; background: #d8dce6;">
+                            <img src="image/ikslogo.webp" alt="IKS logo" decoding="async">
                         </div>
                     </div>
                     <div class="slide-copy">
