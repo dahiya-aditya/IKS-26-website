@@ -283,6 +283,10 @@
             order: 1;
         }
 
+        .carousel-slide.iks-legacy-slide .media-frame {
+            background: #d8dce6;
+        }
+
         .slide-media {
             display: flex;
             justify-content: center;
@@ -377,8 +381,9 @@
             border-radius: 50%;
             border: none;
             background: rgba(255, 255, 255, 0.35);
-            cursor: pointer;
+            cursor: default;
             transition: transform 0.25s ease, background 0.25s ease;
+            pointer-events: none;
         }
 
         .carousel-dot.active {
@@ -1723,11 +1728,11 @@
                 </div>
             </article>
 
-            <article class="carousel-slide reverse" data-slide="3">
+            <article class="carousel-slide reverse iks-legacy-slide" data-slide="3">
                 <div class="carousel-content">
                     <div class="slide-media">
                         <div class="media-frame">
-                            <img src="image/ikslogo.webp" alt="IKS logo" decoding="async" style="object-fit: contain; padding: 12%; background: rgba(255, 255, 255, 0.88);">
+                            <img src="image/ikslogo.webp" alt="IKS logo" decoding="async" style="object-fit: contain; padding: 12%; background: #d8dce6;">
                         </div>
                     </div>
                     <div class="slide-copy">
@@ -2217,17 +2222,12 @@
         const carouselPrev = document.getElementById('carouselPrev');
         const carouselNext = document.getElementById('carouselNext');
         let carouselIndex = 0;
-        let carouselTimer;
 
         if (carouselSlides.length > 0 && carouselDotsWrap && carouselPrev && carouselNext) {
             const dots = carouselSlides.map((_, idx) => {
                 const dot = document.createElement('button');
                 dot.className = `carousel-dot${idx === 0 ? ' active' : ''}`;
                 dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
-                dot.addEventListener('click', () => {
-                    showSlide(idx);
-                    restartCarouselAutoRotate();
-                });
                 carouselDotsWrap.appendChild(dot);
                 return dot;
             });
@@ -2245,32 +2245,13 @@
             const nextSlide = () => showSlide(carouselIndex + 1);
             const prevSlide = () => showSlide(carouselIndex - 1);
 
-            const startCarouselAutoRotate = () => {
-                carouselTimer = setInterval(nextSlide, 5000);
-            };
-
-            const restartCarouselAutoRotate = () => {
-                clearInterval(carouselTimer);
-                startCarouselAutoRotate();
-            };
-
             carouselNext.addEventListener('click', () => {
                 nextSlide();
-                restartCarouselAutoRotate();
             });
 
             carouselPrev.addEventListener('click', () => {
                 prevSlide();
-                restartCarouselAutoRotate();
             });
-
-            const carouselSection = document.querySelector('.top-carousel');
-            if (carouselSection) {
-                carouselSection.addEventListener('mouseenter', () => clearInterval(carouselTimer));
-                carouselSection.addEventListener('mouseleave', startCarouselAutoRotate);
-            }
-
-            startCarouselAutoRotate();
         }
 
         // Smooth scroll with offset for fixed nav
