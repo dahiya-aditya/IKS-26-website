@@ -199,7 +199,7 @@
         /* Top Carousel */
         .top-carousel {
             margin-top: 80px;
-            min-height: calc(100vh - 80px);
+            min-height: calc(82vh - 80px);
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(10, 36, 99, 0.96), rgba(30, 58, 138, 0.92));
@@ -207,7 +207,7 @@
 
         .carousel-track {
             position: relative;
-            min-height: calc(100vh - 80px);
+            min-height: calc(82vh - 80px);
         }
 
         .carousel-slide {
@@ -219,7 +219,7 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.5s ease;
-            padding: 3rem 2rem;
+            padding: 2.2rem 2rem 3.8rem;
         }
 
         .carousel-slide.active {
@@ -232,8 +232,43 @@
             width: 100%;
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            gap: 3.5rem;
+            gap: 3rem;
             align-items: center;
+        }
+
+        .carousel-slide.hero-slide {
+            background-image:
+                linear-gradient(135deg, rgba(10, 36, 99, 0.85) 0%, rgba(30, 58, 138, 0.75) 50%, rgba(10, 36, 99, 0.85) 100%),
+                url('image/IISERPunegate-lqip.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .carousel-slide.hero-slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('image/IISERPunegate.webp');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            filter: brightness(0.45);
+        }
+
+        .carousel-slide.hero-slide .carousel-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .carousel-slide.hero-slide .slide-copy {
+            background: transparent;
+            border: none;
+            backdrop-filter: none;
+            padding: 0;
         }
 
         .carousel-slide.reverse .carousel-content {
@@ -306,7 +341,7 @@
         .carousel-controls {
             position: absolute;
             left: 50%;
-            bottom: 2rem;
+            bottom: 1rem;
             transform: translateX(-50%);
             display: flex;
             align-items: center;
@@ -1355,7 +1390,7 @@
 
             .top-carousel,
             .carousel-track {
-                min-height: calc(100vh - 80px);
+                min-height: calc(76vh - 80px);
             }
 
             .carousel-content,
@@ -1384,6 +1419,14 @@
             .slide-text {
                 font-size: 1rem;
                 line-height: 1.65;
+            }
+
+            .carousel-slide {
+                padding: 1.2rem 1rem 3.1rem;
+            }
+
+            .carousel-controls {
+                bottom: 0.7rem;
             }
 
             .nav-links {
@@ -1629,7 +1672,28 @@
 
     <section id="home" class="top-carousel" aria-label="Conference highlights carousel">
         <div class="carousel-track" id="topCarouselTrack">
-            <article class="carousel-slide active" data-slide="0">
+            <article class="carousel-slide hero-slide active" data-slide="0">
+                <div class="carousel-content">
+                    <div class="slide-copy">
+                        <div class="slide-kicker">National Conference</div>
+                        <h2 class="slide-title">Indian Knowledge System:<br>Science and Technology</h2>
+                        <p class="slide-text" style="font-size: 1.5rem; font-style: italic; margin-bottom: 1.4rem;">"Study the Past to Define the Future"</p>
+                        <div class="hero-details" style="margin-bottom: 2rem;">
+                            <div class="hero-detail">
+                                <span>📅</span>
+                                <span><strong>Date:</strong> March 07, 2026</span>
+                            </div>
+                            <div class="hero-detail">
+                                <span>📍</span>
+                                <span><strong>Venue:</strong> IISER Pune</span>
+                            </div>
+                        </div>
+                        <a href="register.html" class="hero-cta">Register Now</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="carousel-slide reverse" data-slide="1">
                 <div class="carousel-content">
                     <div class="slide-media">
                         <div class="media-frame">
@@ -1640,21 +1704,6 @@
                         <div class="slide-kicker">Indian Knowledge Systems</div>
                         <h2 class="slide-title">Ancient Insight, Modern Relevance</h2>
                         <p class="slide-text">The conference explores core IKS streams including astronomy, mathematics, metallurgy, Āyurveda, architecture, language, and scientific thought, connecting classical knowledge traditions with current scientific inquiry.</p>
-                    </div>
-                </div>
-            </article>
-
-            <article class="carousel-slide reverse" data-slide="1">
-                <div class="carousel-content">
-                    <div class="slide-media">
-                        <div class="media-frame">
-                            <img src="image/IISERPunegate.webp" alt="IISER Pune campus gate" decoding="async">
-                        </div>
-                    </div>
-                    <div class="slide-copy">
-                        <div class="slide-kicker">About the Conference</div>
-                        <h2 class="slide-title">National Conference on IKS: Science and Technology</h2>
-                        <p class="slide-text">This national platform brings together scholars, students, and researchers for interdisciplinary dialogue on Indian scientific heritage, with a focus on meaningful academic exchange, collaboration, and contemporary relevance.</p>
                     </div>
                 </div>
             </article>
@@ -1679,55 +1728,6 @@
             <button class="carousel-btn" id="carouselPrev" aria-label="Previous slide">&#10094;</button>
             <div class="carousel-dots" id="carouselDots"></div>
             <button class="carousel-btn" id="carouselNext" aria-label="Next slide">&#10095;</button>
-        </div>
-    </section>
-
-    <!-- Hero Section with Dynamic Background -->
-    <section id="conference-hero" class="hero">
-        <!-- Background Image Layer -->
-        <div class="hero-background" aria-hidden="true">
-            <picture>
-                <source srcset="image/IISERPunegate.webp" type="image/webp">
-                <img src="image/IISERPunegate.jpg" alt="" fetchpriority="high" decoding="async">
-            </picture>
-        </div>
-        
-        <!-- Animated Gradient Overlay -->
-        <div class="hero-gradient-overlay"></div>
-        
-        <!-- Particle System -->
-        <div class="particles-container" id="particlesContainer"></div>
-        
-        
-        
-        
-        <!-- Hero Content -->
-        <div class="hero-content">
-            <div class="hero-subtitle">National Conference</div>
-            <h1 class="hero-title">Indian Knowledge System:<br>Science and Technology</h1>
-            <p class="hero-tagline">"Study the Past to Define the Future"</p>
-            <div class="hero-details">
-                <div class="hero-detail">
-                    <span>📅</span>
-                    <span><strong>Date:</strong> March 07, 2026</span>
-                </div>
-                <div class="hero-detail">
-                    <span>📍</span>
-                    <span><strong>Venue:</strong> IISER Pune</span>
-                </div>
-            </div>
-            <a href="register.html" class="hero-cta">Register Now</a>
-        </div>
-    </section>
-
-    <!-- IKS Logo Showcase Section -->
-    <section class="logo-showcase">
-        <div class="logo-showcase-content scroll-animate">
-            <div class="iks-main-logo">
-                <img src="image/ikslogo.webp" alt="Indian Knowledge Systems Logo" loading="lazy" decoding="async">
-            </div>
-            <h3>Indian Knowledge Systems</h3>
-            <p>A journey into the rich scientific and technological heritage of ancient India, bridging millennia of wisdom with modern scientific inquiry. This conference celebrates the profound contributions of our ancestors to mathematics, astronomy, medicine, architecture, and beyond.</p>
         </div>
     </section>
 
@@ -2128,6 +2128,7 @@
         // Create animated particles
         function createParticles() {
             const container = document.getElementById('particlesContainer');
+            if (!container) return;
             const particleCount = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 6;
             
             for (let i = 0; i < particleCount; i++) {
@@ -2230,7 +2231,7 @@
             const prevSlide = () => showSlide(carouselIndex - 1);
 
             const startCarouselAutoRotate = () => {
-                carouselTimer = setInterval(nextSlide, 6500);
+                carouselTimer = setInterval(nextSlide, 5000);
             };
 
             const restartCarouselAutoRotate = () => {
