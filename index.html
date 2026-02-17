@@ -196,9 +196,164 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
+        /* Top Carousel */
+        .top-carousel {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.96), rgba(30, 58, 138, 0.92));
+        }
+
+        .carousel-track {
+            position: relative;
+            min-height: calc(100vh - 80px);
+        }
+
+        .carousel-slide {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease;
+            padding: 3rem 2rem;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .carousel-content {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .carousel-slide.reverse .carousel-content {
+            grid-template-columns: 1.2fr 1fr;
+        }
+
+        .carousel-slide.reverse .slide-media {
+            order: 2;
+        }
+
+        .carousel-slide.reverse .slide-copy {
+            order: 1;
+        }
+
+        .slide-media {
+            display: flex;
+            justify-content: center;
+        }
+
+        .media-frame {
+            width: min(430px, 78vw);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 3px solid rgba(244, 208, 63, 0.45);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .media-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-copy {
+            color: white;
+            padding: 2.2rem;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(8px);
+        }
+
+        .slide-kicker {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.1rem;
+            color: var(--warm-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .slide-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(2.1rem, 4vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.1rem;
+        }
+
+        .slide-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .carousel-controls {
+            position: absolute;
+            left: 50%;
+            bottom: 2rem;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            z-index: 5;
+        }
+
+        .carousel-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.55);
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+            margin: 0 0.2rem;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.35);
+            cursor: pointer;
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--warm-gold);
+            transform: scale(1.2);
+        }
+
         /* Hero Section - Enhanced with Dynamic Background */
         .hero {
-            margin-top: 80px;
+            margin-top: 0;
             min-height: 90vh;
             position: relative;
             overflow: hidden;
@@ -1198,6 +1353,39 @@
                 display: flex;
             }
 
+            .top-carousel,
+            .carousel-track {
+                min-height: calc(100vh - 80px);
+            }
+
+            .carousel-content,
+            .carousel-slide.reverse .carousel-content {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+
+            .carousel-slide.reverse .slide-media,
+            .carousel-slide.reverse .slide-copy {
+                order: initial;
+            }
+
+            .media-frame {
+                width: min(280px, 70vw);
+            }
+
+            .slide-copy {
+                padding: 1.5rem;
+            }
+
+            .slide-title {
+                font-size: 2rem;
+            }
+
+            .slide-text {
+                font-size: 1rem;
+                line-height: 1.65;
+            }
+
             .nav-links {
                 position: fixed;
                 top: 80px;
@@ -1439,8 +1627,63 @@
         </div>
     </nav>
 
+    <section id="home" class="top-carousel" aria-label="Conference highlights carousel">
+        <div class="carousel-track" id="topCarouselTrack">
+            <article class="carousel-slide active" data-slide="0">
+                <div class="carousel-content">
+                    <div class="slide-media">
+                        <div class="media-frame">
+                            <img src="final_tree1@3x.png" alt="Indian Knowledge Systems visual" decoding="async">
+                        </div>
+                    </div>
+                    <div class="slide-copy">
+                        <div class="slide-kicker">Indian Knowledge Systems</div>
+                        <h2 class="slide-title">Ancient Insight, Modern Relevance</h2>
+                        <p class="slide-text">The conference explores core IKS streams including astronomy, mathematics, metallurgy, Āyurveda, architecture, language, and scientific thought, connecting classical knowledge traditions with current scientific inquiry.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="carousel-slide reverse" data-slide="1">
+                <div class="carousel-content">
+                    <div class="slide-media">
+                        <div class="media-frame">
+                            <img src="image/IISERPunegate.webp" alt="IISER Pune campus gate" decoding="async">
+                        </div>
+                    </div>
+                    <div class="slide-copy">
+                        <div class="slide-kicker">About the Conference</div>
+                        <h2 class="slide-title">National Conference on IKS: Science and Technology</h2>
+                        <p class="slide-text">This national platform brings together scholars, students, and researchers for interdisciplinary dialogue on Indian scientific heritage, with a focus on meaningful academic exchange, collaboration, and contemporary relevance.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="carousel-slide" data-slide="2">
+                <div class="carousel-content">
+                    <div class="slide-media">
+                        <div class="media-frame">
+                            <img src="image/IISERPuneLogo.png" alt="IISER Pune logo" decoding="async" style="object-fit: contain; padding: 15%; background: white;">
+                        </div>
+                    </div>
+                    <div class="slide-copy">
+                        <div class="slide-kicker">About IISER Pune</div>
+                        <h2 class="slide-title">A Premier Institute for Science Education and Research</h2>
+                        <p class="slide-text">IISER Pune is one of India’s leading autonomous institutes dedicated to high-quality science education and frontier research, with a strong national and global academic reputation across disciplines.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="carousel-controls" aria-label="Carousel controls">
+            <button class="carousel-btn" id="carouselPrev" aria-label="Previous slide">&#10094;</button>
+            <div class="carousel-dots" id="carouselDots"></div>
+            <button class="carousel-btn" id="carouselNext" aria-label="Next slide">&#10095;</button>
+        </div>
+    </section>
+
     <!-- Hero Section with Dynamic Background -->
-    <section id="home" class="hero">
+    <section id="conference-hero" class="hero">
         <!-- Background Image Layer -->
         <div class="hero-background" aria-hidden="true">
             <picture>
@@ -1732,7 +1975,7 @@
             </div>
             
             <div class="leader-card scroll-animate">
-                <img src="image/ramakrishna_bhat.webp" alt="Prof. Ramakrishna G. Bhat" class="leader-photo" loading="lazy" decoding="async">
+                <img src="headshot.jpeg" alt="Prof. Ramakrishna G. Bhat" class="leader-photo" loading="lazy" decoding="async">
                 <div class="leader-role">Convenor</div>
                 <div class="leader-name">
                     <a href="https://ragobh.wixsite.com/rgb-group/about" target="_blank" rel="noopener noreferrer">
@@ -1951,6 +2194,68 @@
                 navLinks.classList.remove('active');
             }
         });
+
+        // Top Carousel
+        const carouselSlides = Array.from(document.querySelectorAll('.carousel-slide'));
+        const carouselDotsWrap = document.getElementById('carouselDots');
+        const carouselPrev = document.getElementById('carouselPrev');
+        const carouselNext = document.getElementById('carouselNext');
+        let carouselIndex = 0;
+        let carouselTimer;
+
+        if (carouselSlides.length > 0 && carouselDotsWrap && carouselPrev && carouselNext) {
+            const dots = carouselSlides.map((_, idx) => {
+                const dot = document.createElement('button');
+                dot.className = `carousel-dot${idx === 0 ? ' active' : ''}`;
+                dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+                dot.addEventListener('click', () => {
+                    showSlide(idx);
+                    restartCarouselAutoRotate();
+                });
+                carouselDotsWrap.appendChild(dot);
+                return dot;
+            });
+
+            const showSlide = (idx) => {
+                carouselIndex = (idx + carouselSlides.length) % carouselSlides.length;
+                carouselSlides.forEach((slide, slideIndex) => {
+                    slide.classList.toggle('active', slideIndex === carouselIndex);
+                });
+                dots.forEach((dot, dotIndex) => {
+                    dot.classList.toggle('active', dotIndex === carouselIndex);
+                });
+            };
+
+            const nextSlide = () => showSlide(carouselIndex + 1);
+            const prevSlide = () => showSlide(carouselIndex - 1);
+
+            const startCarouselAutoRotate = () => {
+                carouselTimer = setInterval(nextSlide, 6500);
+            };
+
+            const restartCarouselAutoRotate = () => {
+                clearInterval(carouselTimer);
+                startCarouselAutoRotate();
+            };
+
+            carouselNext.addEventListener('click', () => {
+                nextSlide();
+                restartCarouselAutoRotate();
+            });
+
+            carouselPrev.addEventListener('click', () => {
+                prevSlide();
+                restartCarouselAutoRotate();
+            });
+
+            const carouselSection = document.querySelector('.top-carousel');
+            if (carouselSection) {
+                carouselSection.addEventListener('mouseenter', () => clearInterval(carouselTimer));
+                carouselSection.addEventListener('mouseleave', startCarouselAutoRotate);
+            }
+
+            startCarouselAutoRotate();
+        }
 
         // Smooth scroll with offset for fixed nav
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
