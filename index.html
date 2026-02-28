@@ -1283,12 +1283,20 @@
         .speaker-image {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             object-position: center;
             transition: transform 0.3s ease;
         }
 
         .speaker-card:hover .speaker-image {
+            transform: scale(1.05);
+        }
+
+        .speaker-image-uncropped {
+            object-fit: contain;
+        }
+
+        .speaker-card:hover .speaker-image-uncropped {
             transform: scale(1);
         }
 
@@ -2348,7 +2356,7 @@
         <div class="speakers-grid">
             <div class="speaker-card scroll-animate">
                 <div class="speaker-image-container">
-                    <img src="Naveen_Kumar.jpg" alt="Dr. Naveen Kumar" class="speaker-image" loading="lazy" decoding="async">
+                    <img src="Naveen_Kumar.jpg" alt="Dr. Naveen Kumar" class="speaker-image speaker-image-uncropped" loading="lazy" decoding="async">
                 </div>
                 <div class="speaker-info">
                     <h4>Dr. Naveen Kumar</h4>
@@ -2359,7 +2367,7 @@
 
             <div class="speaker-card scroll-animate">
                 <div class="speaker-image-container">
-                    <img src="Shashikala.webp" alt="Dr. Shashikala Gurpur" class="speaker-image" loading="lazy" decoding="async">
+                    <img src="Shashikala.webp" alt="Dr. Shashikala Gurpur" class="speaker-image speaker-image-uncropped" loading="lazy" decoding="async">
                 </div>
                 <div class="speaker-info">
                     <h4>Dr. Shashikala Gurpur</h4>
