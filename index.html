@@ -40,7 +40,7 @@
                     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
                     "location": {
                         "@type": "Place",
-                        "name": "IISER Pune",
+                        "name": "C.V. Raman Auditorium, IISER Pune",
                         "address": {
                             "@type": "PostalAddress",
                             "streetAddress": "Dr. Homi Bhabha Road",
@@ -56,7 +56,7 @@
                         "url": "https://www.iiserpune.ac.in"
                     },
                     "url": "https://iksconference.in/",
-                    "description": "National Conference on IKS: Science and Technology at IISER Pune."
+                    "description": "National Conference on IKS: Science and Technology at C.V. Raman Auditorium, IISER Pune."
                 }
             ]
         }
@@ -170,7 +170,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 1.8rem;
             list-style: none;
             align-items: center;
             flex-wrap: nowrap;
@@ -179,7 +179,7 @@
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
@@ -207,7 +207,7 @@
         .cta-button {
             background: var(--terracotta);
             color: white;
-            padding: 0.75rem 2rem;
+            padding: 0.65rem 1.3rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -1292,6 +1292,17 @@
             transform: scale(1.05);
         }
 
+        .speaker-image-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--light-gray), var(--parchment));
+            color: var(--deep-blue);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+
         .speaker-info {
             padding: 2rem;
         }
@@ -1835,7 +1846,8 @@
                 <li><a href="#schedule">Schedule</a></li>
                 <li><a href="#leadership">Leadership</a></li>
                 <li><a href="#speakers">Speakers</a></li>
-                <li><a href="#poster-registration" class="cta-button">Present a Paper</a></li>
+                <li><a href="#session-chair">Session Chair</a></li>
+                <li><a href="#poster-registration" class="cta-button">Present a Poster</a></li>
                 <li><a href="register.html#tshirt-purchase">T-shirt Sales</a></li>
                 <li><a href="#quiz">Quiz</a></li>
                 <li><a href="#sponsors">Sponsors</a></li>
@@ -1860,7 +1872,7 @@
                             </div>
                             <div class="hero-detail">
                                 <span>📍</span>
-                                <span><strong>Venue:</strong> IISER Pune</span>
+                                <span><strong>Venue:</strong> C.V. Raman Auditorium, IISER Pune</span>
                             </div>
                         </div>
                         <a href="register.html" class="hero-cta">Register Now</a>
@@ -2329,11 +2341,51 @@
         </div>
     </section>
 
+    <section id="session-chair" class="speakers">
+        <h2 class="section-title scroll-animate">Session Chair</h2>
+        <p class="section-subtitle scroll-animate">Distinguished academic leadership for conference sessions</p>
+
+        <div class="speakers-grid">
+            <div class="speaker-card scroll-animate">
+                <div class="speaker-image-container">
+                    <img src="Naveen_Kumar.jpg" alt="Dr. Naveen Kumar" class="speaker-image" loading="lazy" decoding="async">
+                </div>
+                <div class="speaker-info">
+                    <h4>Dr. Naveen Kumar</h4>
+                    <p class="speaker-affiliation">Director, ICMR- National Institute of Virology</p>
+                    <p>Dr. Naveen Kumar is the Director of the ICMR-National Institute of Virology, Pune, and a pioneering virologist specializing in virus-host interactions. He earned his Ph.D. under the DAAD Sandwich Program and pursued postdoctoral research at Emory University. A recipient of the 2023 Award of Excellence in Agriculture Research, he developed the world's first DIVA marker vaccine for lumpy skin disease and India's first animal COVID-19 vaccine. He also serves as a WHO technical advisor.</p>
+                </div>
+            </div>
+
+            <div class="speaker-card scroll-animate">
+                <div class="speaker-image-container">
+                    <img src="Shashikala.webp" alt="Dr. Shashikala Gurpur" class="speaker-image" loading="lazy" decoding="async">
+                </div>
+                <div class="speaker-info">
+                    <h4>Dr. Shashikala Gurpur</h4>
+                    <p class="speaker-affiliation">Director - Symbiosis Law School Pune</p>
+                    <p>Dr. Shashikala Gurpur is the Director of Symbiosis Law School, Pune, and Dean of the Faculty of Law at Symbiosis International. A distinguished academician with over 32 years of experience, she holds a Ph.D. in International Law and is a Jean Monnet Chair Professor. Featured in the 2016 LexisNexis book 100 Legal Luminaries of India, she has authored over 85 publications and pioneered EU Legal Studies in India. Dr. Gurpur is also a former member of the Law Commission of India and a Fulbright Scholar.</p>
+                </div>
+            </div>
+
+            <div class="speaker-card scroll-animate">
+                <div class="speaker-image-container">
+                    <div class="speaker-image speaker-image-placeholder">Image coming soon</div>
+                </div>
+                <div class="speaker-info">
+                    <h4>Dr. Prasad Joshi</h4>
+                    <p class="speaker-affiliation">Vice Chancellor Deccan College</p>
+                    <p>Dr. Prasad P. Joshi is the Vice-Chancellor of Deccan College Post-Graduate and Research Institute, Pune. He also serves as a Professor in the institution's Department of Sanskrit and Lexicography. A distinguished scholar of ancient Indian linguistics, his research focuses on the scientific study of language in ancient India, including the Vedangas and Vyakarana (grammar). He actively contributes to academic leadership and curriculum development as a subject expert on various university boards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="poster-registration" class="quiz poster-registration">
         <h2 class="section-title scroll-animate">Poster Presentation Registration</h2>
         <p class="scroll-animate">We are welcoming poster presentations at the conference.</p>
         <p class="scroll-animate" style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">Last date of submission: 4 March 2026.</p>
-        <p class="scroll-animate" style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">If you would like to present a paper/poster, please register using the form below.</p>
+        <p class="scroll-animate" style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">If you would like to present a poster, please register using the form below.</p>
         <a href="https://forms.gle/zNXtADkk7g7FFW8X9" class="quiz-button scroll-animate" target="_blank" rel="noopener noreferrer">Register for Poster Presentation</a>
     </section>
 
@@ -2386,6 +2438,7 @@
             <div class="footer-section">
                 <h3 class="scroll-animate">Important Dates</h3>
                 <p class="scroll-animate"><strong>Conference Date:</strong> March 07, 2026</p>
+                <p class="scroll-animate"><strong>Conference Venue:</strong> C.V. Raman Auditorium, IISER Pune</p>
                 <p class="scroll-animate"><strong>Closing Date (Standard Registration):</strong> 02 March 2026, 6:00 PM</p>
                 <p class="scroll-animate"><strong>Closing Date (Free Access Registration):</strong> 05 March 2026, 6:00 PM</p>
                 <p class="scroll-animate"><strong>Abstract Submission:</strong> 4th march 2026 </p>
