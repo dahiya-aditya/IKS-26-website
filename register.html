@@ -942,13 +942,13 @@
                     <h3>Payment Details</h3>
                     <p>Please complete your payment via SBI Collect before submitting this form (for paid categories).</p>
 
-                    <a class="payment-link" href="https://onlinesbi.sbi.bank.in/sbicollect/" target="_blank" rel="noopener noreferrer">
+                    <span class="payment-link" style="opacity: 0.5; pointer-events: none; cursor: not-allowed; display: inline-flex;">
                         Open SBI Collect Portal
-                    </a>
+                    </span>
 
-                    <img src="image/unnamed.jpg" alt="SBI Collect payment guidance screenshot for NCIKS 2026" class="payment-guide-image" loading="lazy" decoding="async">
+                    <img src="image/unnamed.jpg" alt="SBI Collect payment guidance screenshot for NCIKS 2026" class="payment-guide-image" loading="lazy" decoding="async" style="opacity: 0.4; cursor: not-allowed;">
 
-                    <ol class="payment-steps">
+                    <ol class="payment-steps" style="opacity: 0.5;">
                         <li>Open SBI Collect (State Bank Collect) and proceed to the payment portal.</li>
                         <li>Select category: <strong>Educational Institutes</strong>.</li>
                         <li>Select state: <strong>Maharashtra</strong>.</li>
@@ -961,7 +961,7 @@
 
                     <p class="deadline-note" id="freeAccessHint" style="display: none; margin-top: 1rem;">Free Access category selected: payment and UTR are not required. Please complete registration to attend conference lectures.</p>
 
-                    <div class="form-group" style="margin-top: 25px;">
+                    <div class="form-group" style="margin-top: 25px; display: none;">
                         <label for="transactionId">SBI Collect Receipt (UTR) Number *</label>
                         <input type="text" id="transactionId" name="transactionId" placeholder="Enter UTR / receipt reference number" required>
                     </div>
