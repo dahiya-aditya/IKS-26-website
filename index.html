@@ -1169,6 +1169,30 @@
             opacity: 0.8;
         }
 
+        .schedule-download-wrap {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .schedule-download-btn {
+            display: inline-block;
+            padding: 0.55rem 1rem;
+            border-radius: 999px;
+            border: 1px solid var(--terracotta);
+            background: rgba(200, 85, 61, 0.08);
+            color: var(--terracotta);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .schedule-download-btn:hover {
+            background: var(--terracotta);
+            color: white;
+            transform: translateY(-1px);
+        }
+
         .timeline-dot {
             position: absolute;
             left: 50%;
@@ -2043,6 +2067,9 @@
     <section id="schedule" class="schedule">
         <h2 class="section-title scroll-animate">Conference Schedule</h2>
         <p class="section-subtitle scroll-animate">March 07, 2026 - Full Day Program with Lecture Presentations, Panel Discussions, and Interactive Sessions</p>
+        <div class="schedule-download-wrap scroll-animate">
+            <a href="National%20Conference%20_IKSST_Schedule.pdf" class="schedule-download-btn" target="_blank" rel="noopener noreferrer" download="NCIKSST_2026_Schedule.pdf">Download Schedule PDF</a>
+        </div>
         
         <div class="timeline">
             <div class="timeline-item scroll-animate">
@@ -2482,7 +2509,7 @@
                 <a class="scroll-animate" href="#schedule">Schedule</a>
                 <a class="scroll-animate" href="#speakers">Speakers</a>
                 <a class="scroll-animate" href="#themes">Conference Themes</a>
-                <a class="scroll-animate" href="#">Download Brochure (PDF)</a>
+                <a class="scroll-animate" href="National%20Conference%20_IKSST_Schedule.pdf" target="_blank" rel="noopener noreferrer" download="NCIKSST_2026_Schedule.pdf">Download Schedule (PDF)</a>
             </div>
             
             <div class="footer-section">
